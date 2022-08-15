@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Sjmelcks first Hugo site!</title>
-    <link>http://example.org/posts/</link>
+    <link>https://github.com/RyanBalshaw/sjmelck.github.io/posts/</link>
     <description>Recent content in Posts on Sjmelcks first Hugo site!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Balshaw, RC and Marx, DG (2022)</copyright>
-    <lastBuildDate>Mon, 15 Aug 2022 09:37:45 +0200</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Aug 2022 09:37:45 +0200</lastBuildDate><atom:link href="https://github.com/RyanBalshaw/sjmelck.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About - first post template</title>
-      <link>http://example.org/posts/about/</link>
+      <link>https://github.com/RyanBalshaw/sjmelck.github.io/posts/about/</link>
       <pubDate>Mon, 15 Aug 2022 09:37:45 +0200</pubDate>
       
-      <guid>http://example.org/posts/about/</guid>
+      <guid>https://github.com/RyanBalshaw/sjmelck.github.io/posts/about/</guid>
       <description></description>
     </item>
     
