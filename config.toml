@@ -1,4 +1,4 @@
-baseURL 		= 'https://github.com/RyanBalshaw/sjmelck.github.io/'
+baseURL 		= 'https://ryanbalshaw.github.io/sjmelck_pages/'
 languageCode 	= 'en-us'
 title 			= 'Sjmelcks first Hugo site!'
 theme 			= "ananke"
