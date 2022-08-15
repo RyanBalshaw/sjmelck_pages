@@ -1,6 +1,0 @@
-baseURL 		= 'https://ryanbalshaw.github.io/sjmelck_pages/'
-languageCode 	= 'en-us'
-title 			= 'Sjmelcks first Hugo site!'
-theme 			= "ananke"
-publishDir 		= "docs" 
-Copyright 		= "© Balshaw, RC and Marx, DG (2022)"

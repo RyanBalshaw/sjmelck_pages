@@ -6,8 +6,17 @@
     <description>Recent content in Posts on Sjmelcks first Hugo site!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Balshaw, RC and Marx, DG (2022)</copyright>
-    <lastBuildDate>Mon, 15 Aug 2022 09:37:45 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Balshaw, RC and Marx, DG</copyright>
+    <lastBuildDate>Mon, 15 Aug 2022 14:05:51 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up My First Post</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/posts/setting-up-my-first-post/</link>
+      <pubDate>Mon, 15 Aug 2022 14:05:51 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/posts/setting-up-my-first-post/</guid>
+      <description>How to get really nice plots Minimal working example: from matplotlib import pyplot as plt import numpy as np def fix(ax=None, minor_flag=True, flag_3d=True): if ax is None: ax = plt.gca() fig = ax.get_figure() # Force the figure to be drawn fig.canvas.draw() if minor_flag: # Remove &amp;#39;\mathdefault&amp;#39; from all minor tick labels labels = [ label.get_text() .replace(&amp;#34;\\times&amp;#34;, &amp;#34;}$.$\\mathdefault{&amp;#34;) .replace(&amp;#34;-&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) .replace(&amp;#34;−&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) for label in ax.get_xminorticklabels() ] ax.set_xticklabels(labels, minor=True) labels = [ label.</description>
+    </item>
+    
     <item>
       <title>About - first post template</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/posts/about/</link>

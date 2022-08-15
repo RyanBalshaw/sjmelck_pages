@@ -1,0 +1,9 @@
+baseURL: https://ryanbalshaw.github.io/sjmelck_pages/
+languageCode:   en-us
+DefaultContentLanguage: en
+theme: ananke
+publishdir: docs 
+title: Sjmelcks first Hugo site!
+description: The basis for the Sjmelck site.
+Copyright: © Balshaw, RC and Marx, DG
+paginate: 5
