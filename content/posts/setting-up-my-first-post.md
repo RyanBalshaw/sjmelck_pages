@@ -2,7 +2,7 @@
 title: "Setting Up My First Post"
 date: 2022-08-15T14:05:51+02:00
 description: ""
-draft: true
+draft: false
 ---
 
 # How to get really nice plots
