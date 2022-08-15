@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Sjmelcks first Hugo site!</title>
-    <link>https://github.com/RyanBalshaw/sjmelck.github.io/categories/</link>
+    <link>https://ryanbalshaw.github.io/sjmelck_pages/categories/</link>
     <description>Recent content in Categories on Sjmelcks first Hugo site!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Balshaw, RC and Marx, DG (2022)</copyright><atom:link href="https://github.com/RyanBalshaw/sjmelck.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Balshaw, RC and Marx, DG (2022)</copyright><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
