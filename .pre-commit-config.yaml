@@ -12,7 +12,7 @@ repos:
     -   id: trailing-whitespace             #This hook trims all whitespace from the end of each line
     -   id: end-of-file-fixer               #This hooks ensures that all files end in a newline and only a newline.
     -   id: mixed-line-ending
-        args:   [ '--fix=no' ]
+        args:   [ '--fix=lf' ]
     -   id: pretty-format-json
         args:   [ '--indent="   "' ]
     -   id: trailing-whitespace
