@@ -1,13 +1,14 @@
 ---
-title: "Setting Up My First Post"
-date: 2022-08-15T14:05:51+02:00
-description: ""
-draft: false
+title: "Pretty Plotting in Python"
+date: 2023-01-11T17:18:41+02:00
+draft: true
 ---
 
 # How to get really nice plots
 
 ## Minimal working example:
+
+### Did this work?
 
 ```python
 from matplotlib import pyplot as plt
