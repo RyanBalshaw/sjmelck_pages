@@ -4,6 +4,7 @@ DefaultContentLanguage: en
 theme: sjmelck-theme
 pluralizeListTitles: false
 dark_mode: auto
+publishDir: docs
 menu:
   main:
     - identifier: about
