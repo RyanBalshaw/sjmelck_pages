@@ -1,9 +1,44 @@
 baseURL: https://ryanbalshaw.github.io/sjmelck_pages/
 languageCode:   en-us
 DefaultContentLanguage: en
-theme: ananke
-publishdir: docs 
-title: Sjmelcks first Hugo site!
-description: The basis for the Sjmelck site.
-Copyright: © Balshaw, RC and Marx, DG
-paginate: 5
+theme: sjmelck-theme
+pluralizeListTitles: false
+dark_mode: auto
+menu:
+  main:
+    - identifier: about
+      name: about
+      url: "/about/"
+      weight: 10
+    - identifier: blog
+      name: blog
+      url: "/blog/"
+      weight: 20
+  about:
+    - identifier: about-ryan
+      name: Contributor - Ryan Balshaw
+      url: '/about/ryan-balshaw'
+      weight: 30
+    - identifier: douw
+      name: Contributor - Douw Marx
+      url: '/about/douw-marx'
+    - identifier: about-sjmelck
+      name: The Sjmelck vision
+      url: '/about/the-origins-of-sjmelck'
+  ryan_social:
+    - name: Github
+      url: "https://github.com/RyanBalshaw"
+      pre: "<i class='bi bi-github'></i>"
+    - name: Linkedin
+      url: "https://linkedin.com/in/ryan-balshaw"
+      pre: "<i class='bi bi-linkedin'></i>"
+    - name: Twitter
+      url: "https://twitter.com/ryan_balshaw"
+      pre: "<i class='bi bi-twitter'></i>"
+  douw_social:
+    - name: Github
+      url: "https://github.com/DouwMarx"
+      pre: "<i class='bi bi-github'></i>"
+    - name: Linkedin
+      url: "https://linkedin.com/in/douw-marx-913503163"
+      pre: "<i class='bi bi-linkedin'></i>"
