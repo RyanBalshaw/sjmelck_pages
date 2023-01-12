@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on </title>
+    <link>https://ryanbalshaw.github.io/sjmelck_pages/about/</link>
+    <description>Recent content in About on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jan 2023 12:36:52 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Douw Marx</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</link>
+      <pubDate>Thu, 12 Jan 2023 12:36:52 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ryan Balshaw</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</link>
+      <pubDate>Thu, 12 Jan 2023 12:36:47 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Origins of Sjmelck</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</link>
+      <pubDate>Thu, 12 Jan 2023 12:36:40 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
