@@ -1,7 +1,7 @@
 ---
 title: "Pretty Plotting in Python"
 date: 2023-01-11T17:18:41+02:00
-draft: true
+draft: false
 ---
 
 # How to get really nice plots

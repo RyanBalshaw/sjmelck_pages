@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
+  <url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/</loc>
+    <lastmod>2023-01-12T12:36:52+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</loc>
+    <lastmod>2023-01-12T12:36:52+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</loc>
+    <lastmod>2023-01-12T12:36:47+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</loc>
+    <lastmod>2023-01-12T12:36:40+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/</loc>
+    <lastmod>2023-01-11T17:49:55+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/</loc>
+    <lastmod>2023-01-11T17:18:41+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</loc>
+    <lastmod>2023-01-11T17:18:41+02:00</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/</loc>
+    <lastmod>2020-12-27T22:37:51+05:30</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/</loc>
+    <lastmod>2020-12-27T22:37:51+05:30</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/</loc>
+    <lastmod>2020-12-27T22:37:51+05:30</lastmod>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/categories/</loc>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/</loc>
+  </url>
 </urlset>
