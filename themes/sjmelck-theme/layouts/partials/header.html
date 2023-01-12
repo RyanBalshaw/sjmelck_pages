@@ -1,0 +1,56 @@
+<header>
+<!--    {{ partial "nav.html" . }}-->
+
+<!--    {{ range .Site.Sections }}-->
+<!--    <p> {{ .Name }} </p>-->
+<!--    {{ end }}-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand mb-0 h1" href="{{ absURL "" }}" accesskey = "h" title="Sjmleck">
+                    <i class="bi bi-robot"></i>
+                    Sjmelck
+                    <span class="logo-switches">
+                        <button type="button" class="btn primary" accesskey="t" title="(Alt + T)">
+                            <i class="bi bi-sun"></i>
+                            <i class="bi bi-moon"></i>
+                        </button>
+
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id = "navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ absURL "" }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Posts</a>
+                        </li>
+                        {{ range .Site.Menus.social }}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ .URL }} target="_blank" rel="noopener noreferrer">{{ .Pre }} {{ .Name }}</a>
+                        </li>
+                        {{ end }}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                About us
+                            </a>
+                            <ul class="dropdown-menu">
+                                {{ range .Site.Menus.about }}
+
+                                <li>
+                                <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+</header>
