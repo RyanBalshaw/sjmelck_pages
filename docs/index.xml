@@ -11,64 +11,57 @@
       <title>Douw Marx</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:52 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
-      <description></description>
+      <description>Welcome to the landing page of Douw Marx.
+Who is Douw Marx? What do you get if you multiply six by nine? 42</description>
     </item>
-    
+
     <item>
       <title>Ryan Balshaw</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:47 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
-      <description></description>
+      <description>Welcome to the landing page of Ryan Balshaw.
+Who is Ryan Balshaw? What is the answer to the ultimate question of life, the universe, and everything? 42</description>
     </item>
-    
-    <item>
-      <title>The Origins of Sjmelck</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</link>
-      <pubDate>Thu, 12 Jan 2023 12:36:40 +0200</pubDate>
-      
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
-      <description></description>
-    </item>
-    
+
     <item>
       <title>Pretty Plotting in Python</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
       <description>How to get really nice plots Minimal working example: Did this work? from matplotlib import pyplot as plt import numpy as np def fix(ax=None, minor_flag=True, flag_3d=True): if ax is None: ax = plt.gca() fig = ax.get_figure() # Force the figure to be drawn fig.canvas.draw() if minor_flag: # Remove &amp;#39;\mathdefault&amp;#39; from all minor tick labels labels = [ label.get_text() .replace(&amp;#34;\\times&amp;#34;, &amp;#34;}$.$\\mathdefault{&amp;#34;) .replace(&amp;#34;-&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) .replace(&amp;#34;−&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) for label in ax.get_xminorticklabels() ] ax.set_xticklabels(labels, minor=True) labels = [ label.</description>
     </item>
-    
+
     <item>
       <title>Post 1</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/</link>
       <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/</guid>
       <description>Post 1 title Lorem&amp;hellip;</description>
     </item>
-    
+
     <item>
       <title>Post 2</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/</link>
       <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/</guid>
       <description>Post 2 title Lorem&amp;hellip;</description>
     </item>
-    
+
     <item>
       <title>Post 3</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/</link>
       <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/</guid>
       <description>Post 3 title Lorem&amp;hellip;</description>
     </item>
-    
+
   </channel>
 </rss>
