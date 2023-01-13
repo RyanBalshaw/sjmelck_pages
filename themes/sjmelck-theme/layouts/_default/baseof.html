@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+{{ $colour_mode := "auto" }}
+
+<html data-bs-theme= {{ $colour_mode }}>
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}

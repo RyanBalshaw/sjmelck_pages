@@ -18,14 +18,14 @@ menu:
   about:
     - identifier: about-ryan
       name: Contributor - Ryan Balshaw
-      url: '/about/ryan-balshaw'
+      url: 'about/ryan-balshaw'
       weight: 30
     - identifier: douw
       name: Contributor - Douw Marx
-      url: '/about/douw-marx'
+      url: 'about/douw-marx'
     - identifier: about-sjmelck
       name: The Sjmelck vision
-      url: '/about/the-origins-of-sjmelck'
+      url: 'about/the-origins-of-sjmelck'
   ryan_social:
     - name: Github
       url: "https://github.com/RyanBalshaw"
