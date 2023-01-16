@@ -32,23 +32,23 @@ menu:
       url: 'about/the-origins-of-sjmelck'
   ryan_social:
       - name: Github
-        url: "https://github.com/RyanBalshaw"
+        url: "https://github.com/RyanBalshaw/"
         pre: "<i class='bi bi-github socialIcon'></i>"
       - name: Linkedin
-        url: "https://linkedin.com/in/ryan-balshaw"
+        url: "https://linkedin.com/in/ryan-balshaw/"
         pre: "<i class='bi bi-linkedin socialIcon'></i>"
       - name: Twitter
-        url: "https://twitter.com/ryan_balshaw"
+        url: "https://twitter.com/ryan_balshaw/"
         pre: "<i class='bi bi-twitter socialIcon'></i>"
       - name: Email
         url: "mailto: ryanbalshaw81@gmail.com"
         pre: "<i class='bi bi-envelope-at-fill socialIcon'></i>"
   douw_social:
     - name: Github
-      url: "https://github.com/DouwMarx"
+      url: "https://github.com/DouwMarx/"
       pre: "<i class='bi bi-github socialIcon'></i>"
     - name: Linkedin
-      url: "https://linkedin.com/in/douw-marx-913503163"
+      url: "https://linkedin.com/in/douw-marx-913503163/"
       pre: "<i class='bi bi-linkedin socialIcon'></i>"
     - name: Email
       url: "mailto: douwmarx@gmail.com"
