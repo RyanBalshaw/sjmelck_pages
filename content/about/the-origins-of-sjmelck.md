@@ -1,7 +1,7 @@
 ---
 title: "The Origins of Sjmelck"
 date: 2023-01-12T12:36:40+02:00
-draft: true
+draft: false
 ---
 Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
 
