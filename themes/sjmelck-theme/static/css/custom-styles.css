@@ -3,17 +3,8 @@
 /* colour mode properties */
 .bi-img{
     opacity: 1;
-    color: blue;
 }
 
-
-function getImage() {
+.nav .nav-link{
+    background-color: #000000;
 }
-
-function setImage() {
-}
-
-function getUserTheme(){
-}
-
-function

@@ -20,22 +20,26 @@ menu:
       name: Contributor - Ryan Balshaw
       url: 'about/ryan-balshaw'
       weight: 30
+      params:
+        author_name: "ryan"
     - identifier: douw
       name: Contributor - Douw Marx
       url: 'about/douw-marx'
+      params:
+        author_name: "douw"
     - identifier: about-sjmelck
       name: The Sjmelck vision
       url: 'about/the-origins-of-sjmelck'
   ryan_social:
-    - name: Github
-      url: "https://github.com/RyanBalshaw"
-      pre: "<i class='bi bi-github'></i>"
-    - name: Linkedin
-      url: "https://linkedin.com/in/ryan-balshaw"
-      pre: "<i class='bi bi-linkedin'></i>"
-    - name: Twitter
-      url: "https://twitter.com/ryan_balshaw"
-      pre: "<i class='bi bi-twitter'></i>"
+      - name: Github
+        url: "https://github.com/RyanBalshaw"
+        pre: "<i class='bi bi-github'></i>"
+      - name: Linkedin
+        url: "https://linkedin.com/in/ryan-balshaw"
+        pre: "<i class='bi bi-linkedin'></i>"
+      - name: Twitter
+        url: "https://twitter.com/ryan_balshaw"
+        pre: "<i class='bi bi-twitter'></i>"
   douw_social:
     - name: Github
       url: "https://github.com/DouwMarx"
