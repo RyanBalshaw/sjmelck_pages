@@ -5,9 +5,17 @@
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
+
+        {{ if eq .Type "about" }}
+            <div>
+                {{- partial "social-links.html" . -}}
+            </div>
+            {{ else }}
+                <div id="content">
+                    {{- block "main" . }}{{- end }}
+                </div>
+        {{ end }}
+
         {{- partial "footer.html" . -}}
     </body>
 </html>

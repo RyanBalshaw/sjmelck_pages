@@ -1,0 +1,57 @@
+{{ $tmp_dir := "" }}
+
+<header>
+
+    {{ with .File }}
+        {{ $tmp_dir = (.Path | path.Clean) | strings.TrimRight ".md" }}
+    {{ end }}
+
+    <div class="container text-left">
+        <div class="row gx-lg-5">
+            <div class="col-lg-2 mb-4">
+
+                {{ range $about_menu := $.Site.Menus.about }}
+
+                    {{ if and (eq $about_menu.Params.author_name "ryan") (eq $about_menu.URL $tmp_dir) }}
+                        <div class="d-flex flex-column align-items-center">
+
+                            <div class="p-1">
+                                <img src="{{ "img/ryan_head.jpeg" | absURL }}" class="img-thumbnail rounded" alt="Ryan Balshaw picture">
+                            </div>
+
+                            {{ range $user_links_array := $.Site.Menus.ryan_social }}
+
+                            <div class="p-2">
+                                <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="{{ $user_links_array.URL }}"> {{ $user_links_array.Pre }} </a>
+                            </div>
+
+                            {{ end }}
+                        </div>
+                    {{ end }}
+
+                    {{ if and (eq $about_menu.Params.author_name "douw") (eq $about_menu.URL $tmp_dir) }}
+                        <div class="d-flex flex-column align-items-center">
+
+                            <div class="p-1">
+                                <img src="{{ "img/douw_head.jpeg" | absURL }}" class="img-thumbnail rounded" alt="Douw Marx picture">
+                            </div>
+
+                            {{ range $user_links_array := $.Site.Menus.douw_social }}
+
+                            <div class="p-2">
+                                <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="{{ $user_links_array.URL }}"> {{ $user_links_array.Pre }} </a>
+                            </div>
+
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                {{ end }}
+
+                </div>
+                <div class="col-lg-8 mb-4">
+                    {{ .Content }}
+                </div>
+        </div>
+    </div>
+
+</header>

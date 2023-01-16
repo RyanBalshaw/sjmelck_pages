@@ -33,17 +33,23 @@ menu:
   ryan_social:
       - name: Github
         url: "https://github.com/RyanBalshaw"
-        pre: "<i class='bi bi-github'></i>"
+        pre: "<i class='bi bi-github socialIcon'></i>"
       - name: Linkedin
         url: "https://linkedin.com/in/ryan-balshaw"
-        pre: "<i class='bi bi-linkedin'></i>"
+        pre: "<i class='bi bi-linkedin socialIcon'></i>"
       - name: Twitter
         url: "https://twitter.com/ryan_balshaw"
-        pre: "<i class='bi bi-twitter'></i>"
+        pre: "<i class='bi bi-twitter socialIcon'></i>"
+      - name: Email
+        url: "mailto: ryanbalshaw81@gmail.com"
+        pre: "<i class='bi bi-envelope-at-fill socialIcon'></i>"
   douw_social:
     - name: Github
       url: "https://github.com/DouwMarx"
-      pre: "<i class='bi bi-github'></i>"
+      pre: "<i class='bi bi-github socialIcon'></i>"
     - name: Linkedin
       url: "https://linkedin.com/in/douw-marx-913503163"
-      pre: "<i class='bi bi-linkedin'></i>"
+      pre: "<i class='bi bi-linkedin socialIcon'></i>"
+    - name: Email
+      url: "mailto: douwmarx@gmail.com"
+      pre: "<i class='bi bi-envelope-at-fill socialIcon'></i>"

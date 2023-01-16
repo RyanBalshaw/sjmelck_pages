@@ -5,6 +5,10 @@
     opacity: 1;
 }
 
-.nav .nav-link{
-    background-color: #000000;
+.p-2 .p-2-element{
+    color: #000000;
+}
+
+.socialIcon{
+    font-size: 3em;
 }
