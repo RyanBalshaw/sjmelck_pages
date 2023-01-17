@@ -19,6 +19,10 @@
         <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
 
         <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/colour_mode_toggler.js"></script>
+        <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/scroll_detector.js"></script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 </html>
 <body>
@@ -48,14 +52,14 @@
 
 
 
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand mb-0 h1" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
-                    <i class="bi bi-robot"></i>
-                    Sjmelck
-                </a>
+    <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
+            <div class="container ">
+                <div>
+                    <a class="navbar-brand" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
+                        <i class="bi bi-robot"></i>
+                        Sjmelck
+                    </a>
+                </div>
 
                 <div id="colourSwitch">
                     <span>
@@ -63,17 +67,19 @@
                     </span>
                 </div>
 
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id = "navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -123,16 +129,70 @@
                         </li>
                     </ul>
                 </div>
+
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
             </div>
+
         </nav>
 
 </header>
 
-                <div id="content">
-<h1>Pretty Plotting in Python</h1>
-<h1 id="how-to-get-really-nice-plots">How to get really nice plots</h1>
+
+
+<section>
+
+    <div class="container mx-auto">
+
+
+        <div class="row">
+            <div class="col-sm-8" style="position:fixed;top:160px;float:left;left:50px;">
+
+                <div id="toc-section">
+                    <h3 class="ml-1">Table of contents</h3>
+
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-get-really-nice-plots">How to get really nice plots</a></li>
+    <li><a href="#minimal-working-example">Minimal working example:</a>
+      <ul>
+        <li><a href="#did-this-work">Did this work?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="progress sticky-top"  role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" id="progressElement" style="width: 0%"></div>
+        </div>
+        <div class="row">
+
+            <div class="container w-75">
+
+                <h1> Pretty Plotting in Python with a super, super, super long title. </h1>
+                <div class="post-meta mt-3">
+                    January 11, 2023 · 3 min · Ryan Balshaw · 600 Words
+                </div>
+
+                <article>
+                    <h2 id="how-to-get-really-nice-plots">How to get really nice plots</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Interdum velit euismod in pellentesque. Adipiscing tristique risus nec feugiat in fermentum posuere. Feugiat vivamus at augue eget arcu dictum varius duis. Odio euismod lacinia at quis risus sed vulputate. Id leo in vitae turpis massa sed. Dictum sit amet justo donec enim. Ridiculus mus mauris vitae ultricies leo integer. Duis convallis convallis tellus id interdum velit laoreet id donec.</p>
 <h2 id="minimal-working-example">Minimal working example:</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Interdum velit euismod in pellentesque. Adipiscing tristique risus nec feugiat in fermentum posuere. Feugiat vivamus at augue eget arcu dictum varius duis. Odio euismod lacinia at quis risus sed vulputate. Id leo in vitae turpis massa sed. Dictum sit amet justo donec enim. Ridiculus mus mauris vitae ultricies leo integer. Duis convallis convallis tellus id interdum velit laoreet id donec.</p>
 <h3 id="did-this-work">Did this work?</h3>
+<p>In this write up, I will demonstrate how to adjust any python plot
+to have formatting akin to LaTeX. The first step of this process is
+include the code, then figure out how to include mathsjax and then move
+on with my life.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> pyplot <span style="color:#66d9ef">as</span> plt
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
 </span></span><span style="display:flex;"><span>
@@ -243,10 +303,72 @@
 </span></span><span style="display:flex;"><span>fix(ax[<span style="color:#ae81ff">1</span>], minor_flag<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, flag_3d<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show(block<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span></code></pre></div><p>$$ y = x^2 $$ - Markdown does not work (SAD)!</p>
-<p><a href="https://www.morch.com/posts/2021-07-24-mathjax-in-hugo/">https://www.morch.com/posts/2021-07-24-mathjax-in-hugo/</a></p>
+</span></span></code></pre></div><p>Do equations render?
+$$ y = x^2 ( 4 - 3 ) $$</p>
 
+                </article>
 
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0 align-items-center">
+
+                    <div class="col-md-4 text-center">
+                        <i class="bi bi-skip-backward-circle previousIcon"></i>
+                    </div>
+
+                    <div class="col-md-8">
+                      <div class="card-body text-end">
+                        <p class="card-subtitle mb-2 text-muted">Previous article</p>
+                        <p class="card-text">
+
+                                <h3> Post 1 </h3>
+                                <a class="previous stretched-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/"></a>
+
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-        </body>
-</html>
+            </div>
+
+            <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0 align-items-center">
+
+                    <div class="col-md-8">
+                      <div class="card-body text-start">
+                        <p class="card-subtitle mb-2 text-muted">Next article</p>
+                        <p class="card-text">
+
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <i class="bi bi-skip-forward-circle previousIcon"></i>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+    </body><footer id="footer">
+    <div>
+    <p class="text-center">
+        Copyright &copy; 2023 Sjmelck | All rights reserved.
+    </p>
+    </div>
+</footer></html>

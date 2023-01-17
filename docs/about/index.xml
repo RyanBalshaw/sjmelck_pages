@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About on </title>
+    <title>About on Sjmelck</title>
     <link>https://ryanbalshaw.github.io/sjmelck_pages/about/</link>
-    <description>Recent content in About on </description>
+    <description>Recent content in About on Sjmelck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Jan 2023 12:36:52 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/about/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +15,7 @@
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
       <description>Welcome to the landing page of Douw Marx.
 Who is Douw Marx? What do you get if you multiply six by nine? 42
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lorem ipsum dolor sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.</description>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi.</description>
     </item>
 
     <item>
@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
       <description>Welcome to the landing page of Ryan Balshaw.
 Who is Ryan Balshaw? What is the answer to the ultimate question of life, the universe, and everything? 42
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lorem ipsum dolor sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.</description>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi.</description>
     </item>
 
     <item>
@@ -37,8 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
       <description>Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
 What is Sjmelck? Put simply, Sjmelck Just Means Engineers Love Computers K?
-Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi.</description>
+Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.</description>
     </item>
 
   </channel>

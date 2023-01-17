@@ -7,15 +7,16 @@
         {{- partial "header.html" . -}}
 
         {{ if eq .Type "about" }}
-            <div>
-                {{- partial "social-links.html" . -}}
-            </div>
-            {{ else }}
-                <div id="content">
-                    {{- block "main" . }}{{- end }}
-                </div>
-        {{ end }}
 
-        {{- partial "footer.html" . -}}
+                {{- partial "social-links.html" . -}}
+
+        {{ else }}
+
+                {{- block "main" . }}{{- end }}
+
+        {{ end }}
     </body>
+
+    {{- partial "footer.html" . -}}
+
 </html>

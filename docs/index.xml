@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
+    <title>Sjmelck</title>
     <link>https://ryanbalshaw.github.io/sjmelck_pages/</link>
-    <description>Recent content on </description>
+    <description>Recent content on Sjmelck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Jan 2023 17:49:55 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +15,7 @@
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
       <description>Welcome to the landing page of Douw Marx.
 Who is Douw Marx? What do you get if you multiply six by nine? 42
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lorem ipsum dolor sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.</description>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi.</description>
     </item>
 
     <item>
@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
       <description>Welcome to the landing page of Ryan Balshaw.
 Who is Ryan Balshaw? What is the answer to the ultimate question of life, the universe, and everything? 42
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lorem ipsum dolor sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.</description>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi.</description>
     </item>
 
     <item>
@@ -37,17 +37,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
       <description>Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
 What is Sjmelck? Put simply, Sjmelck Just Means Engineers Love Computers K?
-Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi.</description>
+Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.</description>
     </item>
 
     <item>
-      <title>Pretty Plotting in Python</title>
+      <title>Pretty Plotting in Python with a super, super, super long title.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
 
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
-      <description>How to get really nice plots Minimal working example: Did this work? from matplotlib import pyplot as plt import numpy as np def fix(ax=None, minor_flag=True, flag_3d=True): if ax is None: ax = plt.gca() fig = ax.get_figure() # Force the figure to be drawn fig.canvas.draw() if minor_flag: # Remove &amp;#39;\mathdefault&amp;#39; from all minor tick labels labels = [ label.get_text() .replace(&amp;#34;\\times&amp;#34;, &amp;#34;}$.$\\mathdefault{&amp;#34;) .replace(&amp;#34;-&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) .replace(&amp;#34;−&amp;#34;, &amp;#34;$\\mathdefault{-}$&amp;#34;) for label in ax.get_xminorticklabels() ] ax.set_xticklabels(labels, minor=True) labels = [ label.</description>
+      <description>How to get really nice plots Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc.</description>
     </item>
 
     <item>

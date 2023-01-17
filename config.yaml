@@ -5,6 +5,9 @@ theme: sjmelck-theme
 pluralizeListTitles: false
 dark_mode: auto
 publishDir: "docs"
+summaryLength: 50
+title: Sjmelck
+enableRobotsTXT: true
 menu:
   main:
     - identifier: about
@@ -42,7 +45,7 @@ menu:
         pre: "<i class='bi bi-twitter socialIcon'></i>"
       - name: Email
         url: "mailto: ryanbalshaw81@gmail.com"
-        pre: "<i class='bi bi-envelope-at-fill socialIcon'></i>"
+        pre: "<i class='bi bi-envelope-at socialIcon'></i>"
   douw_social:
     - name: Github
       url: "https://github.com/DouwMarx/"
@@ -52,4 +55,4 @@ menu:
       pre: "<i class='bi bi-linkedin socialIcon'></i>"
     - name: Email
       url: "mailto: douwmarx@gmail.com"
-      pre: "<i class='bi bi-envelope-at-fill socialIcon'></i>"
+      pre: "<i class='bi bi-envelope-at socialIcon'></i>"

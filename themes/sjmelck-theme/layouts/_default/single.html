@@ -1,4 +1,96 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ .Content }}
+<!--This file is used to control the displayed content for any post (anything in /content/)-->
+
+<section>
+
+    <div class="container mx-auto">
+
+        {{ if .Params.toc }}
+        <div class="row">
+            <div class="col-sm-8" style="position:fixed;top:160px;float:left;left:50px;">
+
+                <div id="toc-section">
+                    <h3 class="ml-1">Table of contents</h3>
+
+                    {{ .TableOfContents  }}
+
+                </div>
+
+            </div>
+        </div>
+        {{ end }}
+
+        <div class="progress sticky-top"  role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" id="progressElement" style="width: 0%"></div>
+        </div>
+        <div class="row">
+
+            <div class="container w-75">
+
+                <h1> {{ .Title }} </h1>
+                <div class="post-meta mt-3">
+                    {{ .PublishDate.Format "January 2, 2006" }} · {{ .ReadingTime}} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
+                </div>
+
+                <article>
+                    {{ .Content }}
+                </article>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0 align-items-center">
+
+                    <div class="col-md-4 text-center">
+                        <i class="bi bi-skip-backward-circle previousIcon"></i>
+                    </div>
+
+                    <div class="col-md-8">
+                      <div class="card-body text-end">
+                        <p class="card-subtitle mb-2 text-muted">Previous article</p>
+                        <p class="card-text">
+                            {{ with .PrevInSection }}
+                                <h3> {{ .Title }} </h3>
+                                <a class="previous stretched-link" href="{{ .Permalink }}"></a>
+                            {{ end }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0 align-items-center">
+
+                    <div class="col-md-8">
+                      <div class="card-body text-start">
+                        <p class="card-subtitle mb-2 text-muted">Next article</p>
+                        <p class="card-text">
+                            {{ with .NextInSection }}
+                                <h3> {{ .Title }} </h3>
+                                <a class="previous stretched-link" href="{{ .Permalink }}"></a>
+                            {{ end }}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <i class="bi bi-skip-forward-circle previousIcon"></i>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
 {{ end }}

@@ -1,15 +1,25 @@
 ---
-title: "Pretty Plotting in Python"
-date: 2023-01-11T17:18:41+02:00
+title: "Pretty Plotting in Python with a super, super, super long title."
+publishdate: 2023-01-11T17:18:41+02:00
 draft: false
+author: Ryan Balshaw
+toc: true
 ---
 
-# How to get really nice plots
+## How to get really nice plots
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Interdum velit euismod in pellentesque. Adipiscing tristique risus nec feugiat in fermentum posuere. Feugiat vivamus at augue eget arcu dictum varius duis. Odio euismod lacinia at quis risus sed vulputate. Id leo in vitae turpis massa sed. Dictum sit amet justo donec enim. Ridiculus mus mauris vitae ultricies leo integer. Duis convallis convallis tellus id interdum velit laoreet id donec.
 
 ## Minimal working example:
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Interdum velit euismod in pellentesque. Adipiscing tristique risus nec feugiat in fermentum posuere. Feugiat vivamus at augue eget arcu dictum varius duis. Odio euismod lacinia at quis risus sed vulputate. Id leo in vitae turpis massa sed. Dictum sit amet justo donec enim. Ridiculus mus mauris vitae ultricies leo integer. Duis convallis convallis tellus id interdum velit laoreet id donec.
+
 ### Did this work?
 
+In this write up, I will demonstrate how to adjust any python plot
+to have formatting akin to LaTeX. The first step of this process is
+include the code, then figure out how to include mathsjax and then move
+on with my life.
 ```python
 from matplotlib import pyplot as plt
 import numpy as np
@@ -123,6 +133,5 @@ fix(ax[1], minor_flag=False, flag_3d=False)
 plt.show(block=True)
 ```
 
-$$ y = x^2 $$ - Markdown does not work (SAD)!
-
-https://www.morch.com/posts/2021-07-24-mathjax-in-hugo/
+Do equations render?
+$$ y = x^2 \( 4 - 3 \) $$

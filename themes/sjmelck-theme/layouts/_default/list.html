@@ -1,6 +1,18 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ range .Pages.ByPublishDate.Reverse }}
-<p> <a href="{{ .RelPermalink }}">{{ .Title }}</a> </p>
-{{ end }}
+    <main>
+    <div class="container w-50">
+        <h1>Sjmelck blog posts</h1>
+
+        <p>Contained here is some content relating to Python, signal processing, machine learning, and anything else we
+        feel like posting about. Enjoy!
+        </p>
+
+    </div>
+    <div>
+        {{ range (where .Site.RegularPages "Section" "blog") }}
+            {{ .Render "summary" }}
+        {{ end }}
+    </div>
+
+</main>
 {{ end }}

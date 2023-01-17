@@ -19,6 +19,10 @@
         <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
 
         <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/colour_mode_toggler.js"></script>
+        <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/scroll_detector.js"></script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 </html>
 <body>
@@ -50,14 +54,14 @@
 
 
 
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand mb-0 h1" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
-                    <i class="bi bi-robot"></i>
-                    Sjmelck
-                </a>
+    <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
+            <div class="container ">
+                <div>
+                    <a class="navbar-brand" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
+                        <i class="bi bi-robot"></i>
+                        Sjmelck
+                    </a>
+                </div>
 
                 <div id="colourSwitch">
                     <span>
@@ -65,17 +69,19 @@
                     </span>
                 </div>
 
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id = "navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -125,12 +131,18 @@
                         </li>
                     </ul>
                 </div>
+
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
             </div>
+
         </nav>
 
 </header>
 
-            <div>
 
 <header>
 
@@ -154,7 +166,7 @@
 
 
                             <div class="p-2">
-                                <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="mailto:%20ryanbalshaw81@gmail.com"> <i class='bi bi-envelope-at-fill socialIcon'></i> </a>
+                                <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="mailto:%20ryanbalshaw81@gmail.com"> <i class='bi bi-envelope-at socialIcon'></i> </a>
                             </div>
 
 
@@ -213,6 +225,11 @@
     </div>
 
 </header>
-</div>
-            </body>
-</html>
+
+    </body><footer id="footer">
+    <div>
+    <p class="text-center">
+        Copyright &copy; 2023 Sjmelck | All rights reserved.
+    </p>
+    </div>
+</footer></html>

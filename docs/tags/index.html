@@ -19,6 +19,10 @@
         <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
 
         <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/colour_mode_toggler.js"></script>
+        <script src="https://ryanbalshaw.github.io/sjmelck_pages/js/scroll_detector.js"></script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 </html>
 <body>
@@ -46,14 +50,14 @@
 
 
 
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand mb-0 h1" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
-                    <i class="bi bi-robot"></i>
-                    Sjmelck
-                </a>
+    <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
+            <div class="container ">
+                <div>
+                    <a class="navbar-brand" href="https://ryanbalshaw.github.io/sjmelck_pages/" accesskey = "h" title="Sjmleck">
+                        <i class="bi bi-robot"></i>
+                        Sjmelck
+                    </a>
+                </div>
 
                 <div id="colourSwitch">
                     <span>
@@ -61,17 +65,19 @@
                     </span>
                 </div>
 
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id = "navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
+                            <a class="nav-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/">Posts</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -121,15 +127,143 @@
                         </li>
                     </ul>
                 </div>
+
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
             </div>
+
         </nav>
 
 </header>
 
-                <div id="content">
-<h1>Tags</h1>
+    <main>
+    <div class="container w-50">
+        <h1>Sjmelck blog posts</h1>
+
+        <p>Contained here is some content relating to Python, signal processing, machine learning, and anything else we
+        feel like posting about. Enjoy!
+        </p>
+
+    </div>
+    <div>
+
+            <article class="blog">
+
+    <div class="container mb-5">
+      <div class="card streched-link w-75 text-left mx-auto" href='https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/'>
+
+        <div class="card-body">
+          <h2>Pretty Plotting in Python with a super, super, super long title.</h2>
+          How to get really nice plots Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc.
+
+          <div class="post-meta mt-3">
+            Jan 11, 2023 · 3 min · Ryan Balshaw · 600 Words
+          </div>
+
+          <div>
+            <a href='https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/' class="stretched-link"><nobr></nobr></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <footer>
+
+  </footer>
+</article>
 
 
-                </div>
-        </body>
-</html>
+            <article class="blog">
+
+    <div class="container mb-5">
+      <div class="card streched-link w-75 text-left mx-auto" href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/'>
+
+        <div class="card-body">
+          <h2>Post 1</h2>
+          Post 1 title Lorem&hellip;
+
+          <div class="post-meta mt-3">
+            Dec 27, 2020 · 1 min ·  · 100 Words
+          </div>
+
+          <div>
+            <a href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/' class="stretched-link"><nobr></nobr></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <footer>
+
+  </footer>
+</article>
+
+
+            <article class="blog">
+
+    <div class="container mb-5">
+      <div class="card streched-link w-75 text-left mx-auto" href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/'>
+
+        <div class="card-body">
+          <h2>Post 2</h2>
+          Post 2 title Lorem&hellip;
+
+          <div class="post-meta mt-3">
+            Dec 27, 2020 · 1 min ·  · 100 Words
+          </div>
+
+          <div>
+            <a href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/' class="stretched-link"><nobr></nobr></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <footer>
+
+  </footer>
+</article>
+
+
+            <article class="blog">
+
+    <div class="container mb-5">
+      <div class="card streched-link w-75 text-left mx-auto" href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/'>
+
+        <div class="card-body">
+          <h2>Post 3</h2>
+          Post 3 title Lorem&hellip;
+
+          <div class="post-meta mt-3">
+            Dec 27, 2020 · 1 min ·  · 100 Words
+          </div>
+
+          <div>
+            <a href='https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/' class="stretched-link"><nobr></nobr></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <footer>
+
+  </footer>
+</article>
+
+
+    </div>
+
+</main>
+
+
+
+    </body><footer id="footer">
+    <div>
+    <p class="text-center">
+        Copyright &copy; 2023 Sjmelck | All rights reserved.
+    </p>
+    </div>
+</footer></html>

@@ -19,14 +19,14 @@
         {{ $counter = add $counter 1 }}
     {{ end }}
 
-
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand mb-0 h1" href="{{ absURL "" }}" accesskey = "h" title="Sjmleck">
-                    <i class="bi bi-robot"></i>
-                    Sjmelck
-                </a>
+    <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
+            <div class="container ">
+                <div>
+                    <a class="navbar-brand" href="{{ absURL "" }}" accesskey = "h" title="Sjmleck">
+                        <i class="bi bi-robot"></i>
+                        Sjmelck
+                    </a>
+                </div>
 
                 <div id="colourSwitch">
                     <span>
@@ -34,17 +34,19 @@
                     </span>
                 </div>
 
+<!--                Setup the toggle button for the elements with the target id-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
+<!--                Setup the division that collapses into the button-->
                 <div class="collapse navbar-collapse" id = "navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ "" | absURL }}">Home</a>
+                            <a class="nav-link" href="{{ "" | absURL }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ "blog/" | absURL }}">Posts</a>
+                            <a class="nav-link" href="{{ "blog/" | absURL }}">Posts</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -72,7 +74,14 @@
                         </li>
                     </ul>
                 </div>
+
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
             </div>
+
         </nav>
 
 </header>

@@ -1,5 +1,12 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+publishdate: {{ .Date }}
+author: dummy-name
+description: dummy-description
 draft: true
+toc: true
+_build:
+  list: always
+  publishResources: true
+  render: always
 ---
