@@ -1,3 +1,76 @@
 {{ define "main" }}
-{{ .Content }}
+<!--'main' is used for the baseof main block.-->
+<main>
+
+    <div class="container text-center w-50 min-vh-100 d-flex flex-column">
+
+        <div class="row">
+            <div>
+                <h1>
+                    👋 Welcome to Sjmelck
+                </h1>
+
+                <br>
+
+                <p class="mb-5">
+                    Good day fellow blog-explorer! Welcome to Sjmelck, a blog aimed at providing content on many different topics,
+                    Here at Sjmelck we aim to provide readers with interesting topics from:
+
+                    <ul class="text-start">
+                        <li>
+                            Learning-based methods (read: statistical learning, machine learning, and deep learning)
+                        </li>
+                        <li>
+                            Signal processing
+                        </li>
+                        <li>
+                            Python
+                        </li>
+                        <li>
+                            Optimisation
+                        </li>
+                        <li>
+                            Basically everything else.
+                        </li>
+                    </ul>
+                </p>
+
+                <p>
+                    This blog, at this point in time, is run by <a href="{{ "about/ryan-balshaw" | absURL }}"><nobr>Ryan Balshaw</nobr></a> and <a href="{{ "about/douw-marx" | absURL }}"><nobr>Douw Marx</nobr></a>.
+
+                    However, we are definitely looking for new members/contributors, so if you feel you have something to add please join us! We are always looking for
+
+                    new members, and we appreciate any form on knowledge transfer!
+                </p>
+
+                <p>
+                <img src="{{ "img/calvin_and_hobbes.jpeg" | absURL }}" class="img-thumbnail rounded justift-content-left" alt="Calvin and Hobbes - Relative velocity">
+                </p>
+
+                <p>
+                    Imagine a random image loader: https://www.gocomics.com/calvinandhobbes/2007/11/22. Maybe one day.
+                </p>
+
+                <br>
+
+                <h4> Some important links </h4>
+                <ul class="text-start">
+                    <li>
+                        <a href="https://www.morch.com/posts/2021-07-24-mathjax-in-hugo/">Mathjax</a>
+                    </li>
+                    <li>
+                        <a href="https://mertbakir.gitlab.io/hugo/plotly-with-hugo/">Plotly</a>
+                    </li>
+                    <li>
+                        <a href="https://lucidmanager.org/productivity/hugo-bibliography/">Bibtex bibliographies</a>
+                    </li>
+                </ul>
+
+                <a type="button" class="btn btn-light" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click me!</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
 {{ end }}
