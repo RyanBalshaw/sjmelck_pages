@@ -21,6 +21,13 @@
 
                             {{ range $user_links_array := $.Site.Menus.ryan_social }}
 
+                            {{ if eq $user_links_array.Identifier "description" }}
+                                <div class="text-center">
+                                    {{ $user_links_array.Name }}
+                                </div>
+
+                            {{ end }}
+
                             <div class="p-2">
                                 <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="{{ $user_links_array.URL }}"> {{ $user_links_array.Pre }} </a>
                             </div>
@@ -37,6 +44,13 @@
                             </div>
 
                             {{ range $user_links_array := $.Site.Menus.douw_social }}
+
+                            {{ if eq $user_links_array.Identifier "description" }}
+                                <div class="text-center">
+                                    {{ $user_links_array.Name }}
+                                </div>
+
+                            {{ end }}
 
                             <div class="p-2">
                                 <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="{{ $user_links_array.URL }}"> {{ $user_links_array.Pre }} </a>

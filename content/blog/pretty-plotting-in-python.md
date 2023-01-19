@@ -4,6 +4,8 @@ publishdate: 2023-01-11T17:18:41+02:00
 draft: false
 author: Ryan Balshaw
 toc: true
+tags: ["tag1", "tag2", "tag3"]
+categories: ["category1"]
 ---
 
 ## How to get really nice plots

@@ -34,19 +34,25 @@ menu:
       name: The Sjmelck vision
       url: 'about/the-origins-of-sjmelck'
   ryan_social:
-      - name: Github
-        url: "https://github.com/RyanBalshaw/"
-        pre: "<i class='bi bi-github socialIcon'></i>"
-      - name: Linkedin
-        url: "https://linkedin.com/in/ryan-balshaw/"
-        pre: "<i class='bi bi-linkedin socialIcon'></i>"
-      - name: Twitter
-        url: "https://twitter.com/ryan_balshaw/"
-        pre: "<i class='bi bi-twitter socialIcon'></i>"
-      - name: Email
-        url: "mailto: ryanbalshaw81@gmail.com"
-        pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+    - identifier: 'description'
+      name: "PhD Candidate at the University of Pretoria"
+      weight: 20
+    - name: 'Github'
+      url: "https://github.com/RyanBalshaw/"
+      pre: "<i class='bi bi-github socialIcon'></i>"
+    - name: Linkedin
+      url: "https://linkedin.com/in/ryan-balshaw/"
+      pre: "<i class='bi bi-linkedin socialIcon'></i>"
+    - name: Twitter
+      url: "https://twitter.com/ryan_balshaw/"
+      pre: "<i class='bi bi-twitter socialIcon'></i>"
+    - name: Email
+      url: "mailto: ryanbalshaw81@gmail.com"
+      pre: "<i class='bi bi-envelope-at socialIcon'></i>"
   douw_social:
+    - identifier: 'description'
+      name: "Research associate at KU Leuven"
+      weight: 20
     - name: Github
       url: "https://github.com/DouwMarx/"
       pre: "<i class='bi bi-github socialIcon'></i>"

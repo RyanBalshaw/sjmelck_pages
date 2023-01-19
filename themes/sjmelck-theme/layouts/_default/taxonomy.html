@@ -1,10 +1,12 @@
 {{ define "main" }}
+<!--blatantly just copied the list template I made.-->
     <main>
     <div class="container w-50">
-        <h1>Sjmelck blog posts</h1>
+        <h1>Sjmelck blog posts </h1>
 
-        <p>Contained here is some content relating to Python, signal processing, machine learning, and anything else we
-        feel like posting about. Enjoy!
+        <p>Contained here is some content relating to the user selected tag: <b>{{ .Page.Name }}</b>.
+            <br>
+            Enjoy!
         </p>
 
     </div>
