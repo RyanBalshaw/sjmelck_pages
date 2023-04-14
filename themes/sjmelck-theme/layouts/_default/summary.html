@@ -11,8 +11,30 @@
             {{ .PublishDate.Format "Jan 2, 2006" }} · {{ .ReadingTime}} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
           </div>
 
+<!--          <div>-->
+<!--            <a href='{{ .Permalink }}' class="stretched-link"><nobr></nobr></a>-->
+<!--          </div>-->
+
           <div>
-            <a href='{{ .Permalink }}' class="stretched-link"><nobr></nobr></a>
+            <b>Tags: </b>
+
+              {{ range (.GetTerms "tags") }}
+                  <a class="btn btn-primary rounded-pill" href="{{ .Permalink }}">
+                    {{ .LinkTitle }}
+                  </a>
+              {{ end }}
+
+          </div>
+
+          <div>
+            <b>Categories: </b>
+
+              {{ range (.GetTerms "categories") }}
+                  <a class="btn btn-primary rounded-pill" style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .15rem; --bs-btn-font-size: .75rem; --bs-background-color: #9e8ad8;" href="{{ .Permalink }}">
+                    {{ .LinkTitle }}
+                  </a>
+              {{ end }}
+
           </div>
         </div>
 

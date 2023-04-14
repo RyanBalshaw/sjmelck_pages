@@ -22,7 +22,7 @@ P.S. The initial part of this document is largely based off a video from [3blue1
 
 # Introduction
 
-This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT's algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency $f$ or $\omega$?. Hopefully, the following may come to mind:
+This tutorial will begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT's algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency $f$ or $\omega$?. Hopefully, the following may come to mind:
 - It describes some rate, such as the rate of oscillation in sinusoids.
 
 - It is a term used in MEV that has units of $Hz$ or $\frac{rad}{s}$.
