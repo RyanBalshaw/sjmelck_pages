@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About on Sjmelck</title>
-    <link>https://ryanbalshaw.github.io/sjmelck_pages/about/</link>
-    <description>Recent content in About on Sjmelck</description>
+    <title>category1 on Sjmelck</title>
+    <link>https://ryanbalshaw.github.io/sjmelck_pages/categories/category1/</link>
+    <description>Recent content in category1 on Sjmelck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Apr 2023 10:33:53 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Apr 2023 10:33:53 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/categories/category1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Johann Bouwer</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</link>
@@ -38,14 +38,12 @@ Who is Ryan Balshaw? What is the answer to the ultimate question of life, the un
     </item>
 
     <item>
-      <title>The Origins of Sjmelck</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</link>
-      <pubDate>Thu, 12 Jan 2023 12:36:40 +0200</pubDate>
+      <title>Pretty Plotting in Python with a super, super, super long title.</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
+      <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
 
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
-      <description>Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
-What is Sjmelck? Put simply, Sjmelck Just Means Engineers Love Computers K?
-Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.</description>
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
+      <description>How to get really nice plots Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc.</description>
     </item>
 
   </channel>
