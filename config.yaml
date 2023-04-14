@@ -30,23 +30,34 @@ menu:
       url: 'about/douw-marx'
       params:
         author_name: "douw"
+    - identifier: johann
+      name: Contributor - Johann Bouwer
+      url: 'about/johann-bouwer'
+      params:
+        author_name: "johann"
     - identifier: about-sjmelck
       name: The Sjmelck vision
       url: 'about/the-origins-of-sjmelck'
   ryan_social:
-      - name: Github
-        url: "https://github.com/RyanBalshaw/"
-        pre: "<i class='bi bi-github socialIcon'></i>"
-      - name: Linkedin
-        url: "https://linkedin.com/in/ryan-balshaw/"
-        pre: "<i class='bi bi-linkedin socialIcon'></i>"
-      - name: Twitter
-        url: "https://twitter.com/ryan_balshaw/"
-        pre: "<i class='bi bi-twitter socialIcon'></i>"
-      - name: Email
-        url: "mailto: ryanbalshaw81@gmail.com"
-        pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+    - identifier: 'description'
+      name: "PhD Candidate at the University of Pretoria"
+      weight: 20
+    - name: 'Github'
+      url: "https://github.com/RyanBalshaw/"
+      pre: "<i class='bi bi-github socialIcon'></i>"
+    - name: Linkedin
+      url: "https://linkedin.com/in/ryan-balshaw/"
+      pre: "<i class='bi bi-linkedin socialIcon'></i>"
+    - name: Twitter
+      url: "https://twitter.com/ryan_balshaw/"
+      pre: "<i class='bi bi-twitter socialIcon'></i>"
+    - name: Email
+      url: "mailto: ryanbalshaw81@gmail.com"
+      pre: "<i class='bi bi-envelope-at socialIcon'></i>"
   douw_social:
+    - identifier: 'description'
+      name: "Research associate at KU Leuven"
+      weight: 20
     - name: Github
       url: "https://github.com/DouwMarx/"
       pre: "<i class='bi bi-github socialIcon'></i>"
@@ -55,4 +66,17 @@ menu:
       pre: "<i class='bi bi-linkedin socialIcon'></i>"
     - name: Email
       url: "mailto: douwmarx@gmail.com"
+      pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+  johann_social:
+    - identifier: 'description'
+      name: "PhD candidate and assistant lecturer at the University of Pretoria"
+      weight: 20
+    - name: Github
+      url: "https://github.com/JohannBouwer/"
+      pre: "<i class='bi bi-github socialIcon'></i>"
+    - name: Linkedin
+      url: "https://orcid.org/0000-0002-0597-3560/"
+      pre: "<i class='bi bi-linkedin socialIcon'></i>"
+    - name: Email
+      url: "mailto: bouwer2608@gmail.com"
       pre: "<i class='bi bi-envelope-at socialIcon'></i>"
