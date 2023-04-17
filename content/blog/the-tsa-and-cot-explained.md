@@ -3,7 +3,7 @@ title: "Time synchronous averaging and computed order tracking: Explained"
 publishdate: 2023-04-14T16:14:08+02:00
 author: Ryan Balshaw
 description: This is a simple explanation of the TSA and COT.
-draft: true
+draft: false
 toc: true
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
