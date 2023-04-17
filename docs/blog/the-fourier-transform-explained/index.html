@@ -240,6 +240,7 @@ This expansion is visualised below, and the relation between the Fourier Series 
     /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_series_hu0110eb34030e397e55dcf64433cb8061_3710690_700x700_fit_q75_box.gif
     " alt="image alt text" />
   </p>
+
 </p>
 <p>To describe the Fourier Transform, I will quote Wikipedia (i.e., the \(0^{th}\) iteration of <a href="https://openai.com/blog/chatgpt">ChatGPT</a>): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
 <p>This may seem intimidating for those less well versed with the Fourier Transform, so let&rsquo;s decompose this into sub-ideas:</p>
@@ -278,6 +279,7 @@ where \( f_1 = 2 \) and \( f_2 = 3 \). This function consists of two cosines add
     /sjmelck_pages/images/the-fourier-transform-explained/function_hu84c53a96616385ea2a4778ea549e8cd6_48771_700x700_fit_q75_box_3.png
     " alt="function of interest" />
   </p>
+
 </p>
 <h3 id="step-2-define--f--and-calculate-the-angular-displacement--theta-">Step 2: define \( f \) and calculate the angular displacement \( \theta \).</h3>
 <p>Let
@@ -298,6 +300,7 @@ where \( t_i \) is the \( i^{th} \) index in some time vector \( \mathbf{t} \). 
     /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_wrapping_hu1cd69e7223f7bd981b0db1410814d1c9_1952114_700x700_fit_q75_box.gif
     " alt="axis wrapping for f0 = 2.5" />
   </p>
+
 </p>
 <p>Let&rsquo;s now consider the case where we use different $f_0$ values. In the graphic below, I have visualised this wrapping for
 $f_0 \in [0, 1, 2, 3, 4, 5]$. If we inspect the center of mass in each plot (demonstrated by the red cross), we
@@ -312,6 +315,7 @@ can see that for \( f_0=0, 2, \) and \( 3 \) the center of mass is not equal to 
     /sjmelck_pages/images/the-fourier-transform-explained/different_wraps_and_com_hudbde1174b9af3938befc8865a78d0661_99969_700x700_fit_q75_box_3.png
     " alt="axis wrapping for different f0 values" />
   </p>
+
 </p>
 <p>Now that we have some idea of how to wrap signals around a 2D axis, let&rsquo;s try and visualise some
 information that we can obtain from the 2D plot. For this example, we will consider the centre of mass
@@ -340,6 +344,7 @@ four representations of the centre of mass vary for different values of \( f \).
     /sjmelck_pages/images/the-fourier-transform-explained/animation_real_imag_components_hud6ee5b1dd06c5622fed1ded2271a1379_2070194_700x700_fit_q75_box.gif
     " alt="axis wrapping for f0 = 2.5" />
   </p>
+
 </p>
 <p>What we can now see is that the centre of mass shows some interesting phenomena, where if \( f_0 \) matches some of the
 frequencies in our signal, it grows in magnitude. This phenomena is the underlying principle of the Fourier Transform!
@@ -481,6 +486,7 @@ However, in the complex-time plane, the lines are out of sync. This is an import
     /sjmelck_pages/images/the-fourier-transform-explained/animation_rotation_hufc1be7e763194454c1541f70efe0cc44_6383201_700x700_fit_q75_box.gif
     " alt="axis rotation example" />
   </p>
+
 </p>
 <p>To detail why this rotation idea is important, we need to consider the mathematics in the Fourier Transform and the Discrete
 Fourier Transform:
@@ -568,6 +574,9 @@ refer to this <a href="https://www.analog.com/media/en/technical-documentation/d
                       <div class="card-body text-start">
                         <p class="card-subtitle mb-2 text-muted">Next article</p>
                         <p class="card-text">
+
+                                <h3> Time synchronous averaging and computed order tracking: Explained </h3>
+                                <a class="previous stretched-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/"></a>
 
                         </p>
                       </div>

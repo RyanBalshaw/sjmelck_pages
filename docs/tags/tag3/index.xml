@@ -6,7 +6,17 @@
     <description>Recent content in tag3 on Sjmelck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Apr 2023 10:33:53 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/tags/tag3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Apr 2023 16:14:08 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/tags/tag3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time synchronous averaging and computed order tracking: Explained</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</link>
+      <pubDate>Fri, 14 Apr 2023 16:14:08 +0200</pubDate>
+
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</guid>
+      <description>Good day 👋
+The purpose of this explanation is to detail a high-level overview of the time-synchronous average (TSA) and Computed Order Tracking (COT). This will require a basic understanding of the objectives of TSA and COT, and I will try to provide some explanations and intuition to help those who do not have a good grasp on the concepts.</description>
+    </item>
+
     <item>
       <title>Johann Bouwer</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</link>
