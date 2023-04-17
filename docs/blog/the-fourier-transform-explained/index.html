@@ -192,13 +192,13 @@
 
                 <article>
                     <h2 id="explanation-purpose">Explanation purpose</h2>
-<p>Good day MEV student,</p>
-<p>So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document!</p>
+<p>Good day 👋</p>
+<p>So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document! If you have any questions, please feel to contact me at <a href="mailto:ryanbalshaw81@gmail.com">ryanbalshaw81@gmail.com</a>.</p>
 <p>Kind regards,</p>
-<p>Ryan Balshaw, 21 May 2021</p>
+<p>Ryan Balshaw 🧌</p>
 <p>P.S. The initial part of this document is largely based off a video from <a href="https://www.youtube.com/watch?v=spUNpyF58BY">3blue1brown</a>, but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.</p>
 <h1 id="introduction">Introduction</h1>
-<p>This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT&rsquo;s algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency $f$ or $\omega$?. Hopefully, the following may come to mind:</p>
+<p>This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT&rsquo;s algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency \(f\) or \(\omega\)?. Hopefully, the following may come to mind:</p>
 <ul>
 <li>
 <p>It describes some rate, such as the rate of oscillation in sinusoids.</p>
@@ -230,8 +230,18 @@ $$
 g_N(x) = \frac{1}{2} - \sum_{n=1}^N \frac{1}{\pi n} \sin(2 \pi n x).
 $$
 This expansion is visualised below, and the relation between the Fourier Series and the Fourier Transform is that the amplitude of the sinusoidal components at a given integer harmonic provides some indication of how the Fourier Transform will look (this is not completely correct, but it is a sufficient proxy at this stage so do not read too much into it).</p>
-<p><img src="animation_fourier_series.gif#center" alt="image alt text"></p>
-<p>To describe the Fourier Transform, I will quote Wikipedia (i.e., basic ChatGPT): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
+<p>
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_series_hu0110eb34030e397e55dcf64433cb8061_3710690_700x700_fit_q75_box.gif
+    " alt="image alt text" />
+  </p>
+</p>
+<p>To describe the Fourier Transform, I will quote Wikipedia (i.e., the \(0^{th}\) iteration of <a href="https://openai.com/blog/chatgpt">ChatGPT</a>): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
 <p>This may seem intimidating for those less well versed with the Fourier Transform, so let&rsquo;s decompose this into sub-ideas:</p>
 <ol>
 <li>
@@ -258,7 +268,17 @@ This expression allows us to work out where \( g(t = t_i) \) will lie in a 2D pl
 g(t) = \frac{1}{4}\cos(2 \pi f_1 t) + \cos(2 \pi f_2 t) + 1,
 $$
 where \( f_1 = 2 \) and \( f_2 = 3 \). This function consists of two cosines addes together with some pre-defined offset. Now, let&rsquo;s try this wrapping around an axis idea! First let&rsquo;s define \( f \) and calculate \( \theta \).</p>
-<p><img src="function.png#center" alt="function of interest"></p>
+<p>
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/function_hu84c53a96616385ea2a4778ea549e8cd6_48771_700x700_fit_q75_box_3.png
+    " alt="function of interest" />
+  </p>
+</p>
 <h3 id="step-2-define--f--and-calculate-the-angular-displacement--theta-">Step 2: define \( f \) and calculate the angular displacement \( \theta \).</h3>
 <p>Let
 $$
@@ -268,11 +288,31 @@ $$
 \theta_i =2 \pi f_0 t_i,
 $$
 where \( t_i \) is the \( i^{th} \) index in some time vector \( \mathbf{t} \). Now, let&rsquo;s wrap the signal around an axis! I have done this for you, in an interactive fashion, but it is simply working out \([x_i,y_i]\) using \([x_i = g(t_i) \cos(\theta_i), y_i = g(t_i) \sin(\theta_i)]\). I have also plotted the centre of mass of the signal with a red cross, but don&rsquo;t pay too much attention to this yet.</p>
-<p><img src="animation_fourier_wrapping.gif#center" alt="axis wrapping for f0 = 2.5"></p>
+<p>
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_wrapping_hu1cd69e7223f7bd981b0db1410814d1c9_1952114_700x700_fit_q75_box.gif
+    " alt="axis wrapping for f0 = 2.5" />
+  </p>
+</p>
 <p>Let&rsquo;s now consider the case where we use different $f_0$ values. In the graphic below, I have visualised this wrapping for
 $f_0 \in [0, 1, 2, 3, 4, 5]$. If we inspect the center of mass in each plot (demonstrated by the red cross), we
 can see that for \( f_0=0, 2, \) and \( 3 \) the center of mass is not equal to zero.
-<img src="different_wraps_and_com.png#center" alt="axis wrapping for different f0 values"></p>
+
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/different_wraps_and_com_hudbde1174b9af3938befc8865a78d0661_99969_700x700_fit_q75_box_3.png
+    " alt="axis wrapping for different f0 values" />
+  </p>
+</p>
 <p>Now that we have some idea of how to wrap signals around a 2D axis, let&rsquo;s try and visualise some
 information that we can obtain from the 2D plot. For this example, we will consider the centre of mass
 of the line \(\mathbf{r} = [\mu_x, \mu_y]\), which is given through
@@ -290,7 +330,17 @@ Since we assume each point has equal mass, \( m_i \) can be factored out and \( 
 <p>For visualisation, we can also consider the vector norm of the centre of mass \(\Vert r \Vert_2 = \sqrt{\mu_{x}^2 + \mu_{y}^2}\)
 and angle \( \theta = \tan^{-1} \left( \frac{\mu_{y}}{\mu_{x}} \right) \). Let&rsquo;s visualise how these
 four representations of the centre of mass vary for different values of \( f \).
-<img src="animation_real_imag_components.gif#center" alt="axis wrapping for f0 = 2.5"></p>
+
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/animation_real_imag_components_hud6ee5b1dd06c5622fed1ded2271a1379_2070194_700x700_fit_q75_box.gif
+    " alt="axis wrapping for f0 = 2.5" />
+  </p>
+</p>
 <p>What we can now see is that the centre of mass shows some interesting phenomena, where if \( f_0 \) matches some of the
 frequencies in our signal, it grows in magnitude. This phenomena is the underlying principle of the Fourier Transform!
 To realise this, let&rsquo;s introduce a version of the Fourier Transform mathematics:
@@ -363,7 +413,7 @@ $$
 $$</p>
 </li>
 <li>
-<p>Does the \( -\infty \) and \( \infty \) bounds on the integral change affect the process we have gone through?<br>
+<p>Does the \( -\infty \) and \( \infty \) bounds on the integral change affect the process we have gone through?
 Well, when we implement the FT, in practice, we often do not know the true signal function \( x(t) \) and we can only discretely
 sample the signal in some interval. To address the integral bounds, we assume that the sampled signal is continuously recirculated
 and thus represents a signal \( x(t) \) with period T.</p>
@@ -421,7 +471,17 @@ of the DFT. The basic reason can be elaborated through the rotation direction, w
 domain cannot be detected in the real domain. To make this clearer, consider the cell below (please run it, observe what happens
 and then come back here). Notice that the line in the real-time plane is equivalent and the rotation direction cannot be identified.
 However, in the complex-time plane, the lines are out of sync. This is an important result from the FT that also manifests in the DFT.
-<img src="animation_rotation.gif#center" alt="axis rotation example"></p>
+
+
+
+
+
+  <p align="center">
+    <img src="
+    /sjmelck_pages/images/the-fourier-transform-explained/animation_rotation_hufc1be7e763194454c1541f70efe0cc44_6383201_700x700_fit_q75_box.gif
+    " alt="axis rotation example" />
+  </p>
+</p>
 <p>To detail why this rotation idea is important, we need to consider the mathematics in the Fourier Transform and the Discrete
 Fourier Transform:
 $$
@@ -467,8 +527,8 @@ Hence, it is common to plot the one-sided magnitude of the DFT. However, if you 
 by two to account for the fact that you removed half of the information from the DFT.</p>
 <p>Finally, there are some key differences in terminology that you can slip up on, and to make sure you are aware of them please
 refer to this <a href="https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch31.pdf">document</a>.</p>
-<p>If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening. If you have any issues
-or notice any problems or flaws with this document, please reach out to me at <a href="mailto:ryanbalshaw81@gmail.com">ryanbalshaw81@gmail.com</a>.</p>
+<p>If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening.</p>
+<p>As always, thanks for reading! 👨‍💻</p>
 
                 </article>
 
@@ -490,7 +550,7 @@ or notice any problems or flaws with this document, please reach out to me at <a
                         <p class="card-subtitle mb-2 text-muted">Previous article</p>
                         <p class="card-text">
 
-                                <h3> Pretty Plotting in Python with a super, super, super long title. </h3>
+                                <h3> Pretty plotting in Python. </h3>
                                 <a class="previous stretched-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/"></a>
 
                         </p>

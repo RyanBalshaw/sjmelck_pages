@@ -1,5 +1,5 @@
 ---
-title: "Pretty Plotting in Python with a super, super, super long title."
+title: "Pretty plotting in Python."
 publishdate: 2023-01-11T17:18:41+02:00
 draft: false
 author: Ryan Balshaw
@@ -9,6 +9,14 @@ categories: ["category1"]
 ---
 
 ## How to get really nice plots
+
+Good day :waving_hand:
+
+The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).
+
+Kind regards,
+
+Ryan Balshaw :troll:
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Interdum velit euismod in pellentesque. Adipiscing tristique risus nec feugiat in fermentum posuere. Feugiat vivamus at augue eget arcu dictum varius duis. Odio euismod lacinia at quis risus sed vulputate. Id leo in vitae turpis massa sed. Dictum sit amet justo donec enim. Ridiculus mus mauris vitae ultricies leo integer. Duis convallis convallis tellus id interdum velit laoreet id donec.
 

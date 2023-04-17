@@ -8,6 +8,7 @@ publishDir: "docs"
 summaryLength: 50
 title: Sjmelck
 enableRobotsTXT: true
+enableEmoji: true
 menu:
   main:
     - identifier: about

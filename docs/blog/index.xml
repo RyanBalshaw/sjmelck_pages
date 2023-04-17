@@ -13,44 +13,18 @@
       <pubDate>Thu, 19 Jan 2023 16:18:44 +0200</pubDate>
 
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</guid>
-      <description>Explanation purpose Good day MEV student,
+      <description>Explanation purpose Good day 👋
 So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive.</description>
     </item>
 
     <item>
-      <title>Pretty Plotting in Python with a super, super, super long title.</title>
+      <title>Pretty plotting in Python.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
 
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
-      <description>How to get really nice plots Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc.</description>
-    </item>
-
-    <item>
-      <title>Post 1</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/</link>
-      <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-1/</guid>
-      <description>Post 1 title Lorem&amp;hellip;</description>
-    </item>
-
-    <item>
-      <title>Post 2</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/</link>
-      <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-2/</guid>
-      <description>Post 2 title Lorem&amp;hellip;</description>
-    </item>
-
-    <item>
-      <title>Post 3</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/</link>
-      <pubDate>Sun, 27 Dec 2020 22:37:51 +0530</pubDate>
-
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/post-3/</guid>
-      <description>Post 3 title Lorem&amp;hellip;</description>
+      <description>How to get really nice plots Good day 👋
+The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).</description>
     </item>
 
   </channel>

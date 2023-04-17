@@ -1,0 +1,11 @@
+{{ $destination_path := (path.Join "/images" .Page.File.TranslationBaseName .Destination) }}
+
+{{ if (resources.GetMatch $destination_path) }}
+<!--  <p>{{ $destination_path }}</p>-->
+  {{$image := resources.Get $destination_path }}
+  <p align="center">
+    <img src="
+    {{ ($image.Fit `700x700 Smart q75`).RelPermalink | safeURL }}
+    " alt="{{ .Text }}" />
+  </p>
+{{ end }}

@@ -14,19 +14,19 @@ _build:
 ---
 
 ## Explanation purpose
-Good day MEV student,
+Good day :waving_hand:
 
-So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document!
+So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document! If you have any questions, please feel to contact me at ryanbalshaw81@gmail.com.
 
 Kind regards,
 
-Ryan Balshaw, 21 May 2021
+Ryan Balshaw :troll:
 
 P.S. The initial part of this document is largely based off a video from [3blue1brown](https://www.youtube.com/watch?v=spUNpyF58BY), but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.
 
 # Introduction
 
-This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT's algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency $f$ or $\omega$?. Hopefully, the following may come to mind:
+This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT's algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency \\(f\\) or \\(\omega\\)?. Hopefully, the following may come to mind:
 - It describes some rate, such as the rate of oscillation in sinusoids.
 
 - It is a term used in MEV that has units of \\(Hz\\) or \\( \frac{rad}{s} \\).
@@ -55,9 +55,9 @@ g_N(x) = \frac{1}{2} - \sum_{n=1}^N \frac{1}{\pi n} \sin(2 \pi n x).
 $$
 This expansion is visualised below, and the relation between the Fourier Series and the Fourier Transform is that the amplitude of the sinusoidal components at a given integer harmonic provides some indication of how the Fourier Transform will look (this is not completely correct, but it is a sufficient proxy at this stage so do not read too much into it).
 
-![image alt text](animation_fourier_series.gif#center)
+![image alt text](animation_fourier_series.gif)
 
-To describe the Fourier Transform, I will quote Wikipedia (i.e., basic ChatGPT): "In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time."
+To describe the Fourier Transform, I will quote Wikipedia (i.e., the \\(0^{th}\\) iteration of [ChatGPT](https://openai.com/blog/chatgpt)): "In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time."
 
 This may seem intimidating for those less well versed with the Fourier Transform, so let's decompose this into sub-ideas:
 1. The Fourier Transform shifts/transforms functions in the time domain to the frequency domain.
@@ -87,7 +87,7 @@ g(t) = \frac{1}{4}\cos(2 \pi f_1 t) + \cos(2 \pi f_2 t) + 1,
 $$
 where \\( f_1 = 2 \\) and \\( f_2 = 3 \\). This function consists of two cosines addes together with some pre-defined offset. Now, let's try this wrapping around an axis idea! First let's define \\( f \\) and calculate \\( \theta \\).
 
-![function of interest](function.png#center)
+![function of interest](function.png)
 
 ### Step 2: define \\( f \\) and calculate the angular displacement \\( \theta \\).
 Let
@@ -99,12 +99,12 @@ $$
 $$
 where \\( t_i \\) is the \\( i^{th} \\) index in some time vector \\( \mathbf{t} \\). Now, let's wrap the signal around an axis! I have done this for you, in an interactive fashion, but it is simply working out \\([x_i,y_i]\\) using \\([x_i = g(t_i) \cos(\theta_i), y_i = g(t_i) \sin(\theta_i)]\\). I have also plotted the centre of mass of the signal with a red cross, but don't pay too much attention to this yet.
 
-![axis wrapping for f0 = 2.5](animation_fourier_wrapping.gif#center)
+![axis wrapping for f0 = 2.5](animation_fourier_wrapping.gif)
 
 Let's now consider the case where we use different $f_0$ values. In the graphic below, I have visualised this wrapping for
 $f_0 \in [0, 1, 2, 3, 4, 5]$. If we inspect the center of mass in each plot (demonstrated by the red cross), we
 can see that for \\( f_0=0, 2, \\) and \\( 3 \\) the center of mass is not equal to zero.
-![axis wrapping for different f0 values](different_wraps_and_com.png#center)
+![axis wrapping for different f0 values](different_wraps_and_com.png)
 
 Now that we have some idea of how to wrap signals around a 2D axis, let's try and visualise some
 information that we can obtain from the 2D plot. For this example, we will consider the centre of mass
@@ -125,7 +125,7 @@ Since we assume each point has equal mass, \\( m_i \\) can be factored out and \
 For visualisation, we can also consider the vector norm of the centre of mass \\(\Vert r \Vert_2 = \sqrt{\mu_{x}^2 + \mu_{y}^2}\\)
 and angle \\( \theta = \tan^{-1} \left( \frac{\mu_{y}}{\mu_{x}} \right) \\). Let's visualise how these
 four representations of the centre of mass vary for different values of \\( f \\).
-![axis wrapping for f0 = 2.5](animation_real_imag_components.gif#center)
+![axis wrapping for f0 = 2.5](animation_real_imag_components.gif)
 
 What we can now see is that the centre of mass shows some interesting phenomena, where if \\( f_0 \\) matches some of the
 frequencies in our signal, it grows in magnitude. This phenomena is the underlying principle of the Fourier Transform!
@@ -264,7 +264,7 @@ of the DFT. The basic reason can be elaborated through the rotation direction, w
 domain cannot be detected in the real domain. To make this clearer, consider the cell below (please run it, observe what happens
 and then come back here). Notice that the line in the real-time plane is equivalent and the rotation direction cannot be identified.
 However, in the complex-time plane, the lines are out of sync. This is an important result from the FT that also manifests in the DFT.
-![axis rotation example](animation_rotation.gif#center)
+![axis rotation example](animation_rotation.gif)
 
 
 To detail why this rotation idea is important, we need to consider the mathematics in the Fourier Transform and the Discrete
@@ -317,5 +317,6 @@ by two to account for the fact that you removed half of the information from the
 Finally, there are some key differences in terminology that you can slip up on, and to make sure you are aware of them please
 refer to this [document](https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch31.pdf).
 
-If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening. If you have any issues
-or notice any problems or flaws with this document, please reach out to me at ryanbalshaw81@gmail.com.
+If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening.
+
+As always, thanks for reading! :man_technologist:
