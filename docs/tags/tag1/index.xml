@@ -38,12 +38,13 @@ Who is Ryan Balshaw? What is the answer to the ultimate question of life, the un
     </item>
 
     <item>
-      <title>Pretty Plotting in Python with a super, super, super long title.</title>
+      <title>Pretty plotting in Python.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
 
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
-      <description>How to get really nice plots Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet commodo nulla facilisi nullam vehicula ipsum a. Ipsum consequat nisl vel pretium lectus quam id leo in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc.</description>
+      <description>How to get really nice plots Good day 👋
+The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).</description>
     </item>
 
   </channel>
