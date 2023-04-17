@@ -11,51 +11,51 @@
       <title>Time synchronous averaging and computed order tracking: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</link>
       <pubDate>Fri, 14 Apr 2023 16:14:08 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</guid>
       <description>Good day 👋
 The purpose of this explanation is to detail a high-level overview of the time-synchronous average (TSA) and Computed Order Tracking (COT). This will require a basic understanding of the objectives of TSA and COT, and I will try to provide some explanations and intuition to help those who do not have a good grasp on the concepts.</description>
     </item>
-
+    
     <item>
       <title>Johann Bouwer</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</link>
       <pubDate>Fri, 14 Apr 2023 10:33:53 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</guid>
       <description>Welcome to the landing page of Johann Bouwer.
 Who is Johann Bouwer? What do you get if you take the square root of 1764? 42</description>
     </item>
-
+    
     <item>
       <title>Douw Marx</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:52 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
       <description>Welcome to the landing page of Douw Marx.
 Who is Douw Marx? What do you get if you multiply six by nine? 42</description>
     </item>
-
+    
     <item>
       <title>Ryan Balshaw</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:47 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
       <description>Welcome to the landing page of Ryan Balshaw.
 Who is Ryan Balshaw? What is the answer to the ultimate question of life, the universe, and everything? 42</description>
     </item>
-
+    
     <item>
       <title>Pretty plotting in Python.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
       <description>How to get really nice plots Good day 👋
 The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).</description>
     </item>
-
+    
   </channel>
 </rss>

@@ -11,31 +11,31 @@
       <title>Time synchronous averaging and computed order tracking: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</link>
       <pubDate>Fri, 14 Apr 2023 16:14:08 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</guid>
       <description>Good day 👋
 The purpose of this explanation is to detail a high-level overview of the time-synchronous average (TSA) and Computed Order Tracking (COT). This will require a basic understanding of the objectives of TSA and COT, and I will try to provide some explanations and intuition to help those who do not have a good grasp on the concepts.</description>
     </item>
-
+    
     <item>
       <title>The Fourier transform: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</link>
       <pubDate>Thu, 19 Jan 2023 16:18:44 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</guid>
       <description>Explanation purpose Good day 👋
 So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive.</description>
     </item>
-
+    
     <item>
       <title>Pretty plotting in Python.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
-
+      
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
       <description>How to get really nice plots Good day 👋
 The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).</description>
     </item>
-
+    
   </channel>
 </rss>
