@@ -36,6 +36,18 @@
 
 
 
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TZK5KHZQ8Y', 'auto');
+
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZK5KHZQ8Y"></script>
 <script>
 var doNotTrack = false;
@@ -47,6 +59,16 @@ if (!doNotTrack) {
 }
 </script>
 
+
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZK5KHZQ8Y"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-TZK5KHZQ8Y');
+        </script>
     </head>
 </html>
 <body>
@@ -222,7 +244,8 @@ if (!doNotTrack) {
 <a href="mailto:ryanbalshaw81@gmail.com"
    title="ryanbalshaw81@gmail.com"
   >
-  ryanbalshaw81@gmail.com</a>.</p>
+  ryanbalshaw81@gmail.com</a>
+.</p>
 <p>Kind regards,</p>
 <p>Ryan Balshaw 🧌</p>
 <p>P.S. The initial part of this document is largely based off a video from
@@ -230,7 +253,8 @@ if (!doNotTrack) {
 <a href="https://www.youtube.com/watch?v=spUNpyF58BY"
    title="3blue1brown"
    target="_blank" rel="nofollow noopener">
-  3blue1brown</a>, but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.</p>
+  3blue1brown</a>
+, but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.</p>
 <h1 id="introduction">Introduction</h1>
 <p>This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT&rsquo;s algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency \(f\) or \(\omega\)?. Hopefully, the following may come to mind:</p>
 <ul>
@@ -264,7 +288,8 @@ However, what if we wish to determine which sinusoidal components are dominant i
 <a href="https://github.com/RyanBalshaw/MEV781_Tutorials"
    title="github repository"
    target="_blank" rel="nofollow noopener">
-  github repository</a>)
+  github repository</a>
+)
 $$
 g_N(x) = \frac{1}{2} - \sum_{n=1}^N \frac{1}{\pi n} \sin(2 \pi n x).
 $$
@@ -286,7 +311,8 @@ This expansion is visualised below, and the relation between the Fourier Series 
 <a href="https://openai.com/blog/chatgpt"
    title="ChatGPT"
    target="_blank" rel="nofollow noopener">
-  ChatGPT</a>): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
+  ChatGPT</a>
+): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
 <p>This may seem intimidating for those less well versed with the Fourier Transform, so let&rsquo;s decompose this into sub-ideas:</p>
 <ol>
 <li>
@@ -449,7 +475,8 @@ and intuitive discussion around the relationship between these two transforms ca
 <a href="https://www.youtube.com/watch?v=n2y7n6jw5d0"
    title="here"
    target="_blank" rel="nofollow noopener">
-  here</a>.</p>
+  here</a>
+.</p>
 </li>
 <li>
 <p>What is the offset we see when \( f=0 \)? This is simply the DC offset of the signal, otherwise referred to as the signal mean. To prove this, consider the following:
@@ -514,7 +541,8 @@ I recommend watching the following
 <a href="https://www.youtube.com/watch?v=h7apO7q16V0"
    title="video"
    target="_blank" rel="nofollow noopener">
-  video</a>.</p>
+  video</a>
+.</p>
 <p>Since the FFT is a technique to obtain the DFT coefficients, all that is missing to complete the picture is to relate the \(N\)
 complex coefficients to frequency components. To do this, we need to convert the integer indices to frequencies, and we need
 use the signal sampling frequency \(F_s\) for this conversion. Each index of the DFT then spaced using \(freq_{@X[k]} = k\times
@@ -591,7 +619,8 @@ refer to this
 <a href="https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch31.pdf"
    title="document"
    target="_blank" rel="nofollow noopener">
-  document</a>.</p>
+  document</a>
+.</p>
 <p>If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening.</p>
 <p>As always, thanks for reading! 👨‍💻</p>
 
