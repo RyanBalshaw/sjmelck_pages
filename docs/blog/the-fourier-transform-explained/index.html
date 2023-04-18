@@ -6,14 +6,13 @@
     <head>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="/sjmelck_pages/css/custom-styles.css">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
-        <title>Sjmelck Blog</title>
         <link rel="icon" href="https://icons.getbootstrap.com/assets/icons/robot.svg" color="#000000">
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://icons.getbootstrap.com/assets/icons/robot.svg" color = "#000000">
         <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
@@ -23,6 +22,31 @@
 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+        <title>Sjmelck Blog</title>
+
+<meta name="description" content="This is an explanation of the Fourier transform for MEV781 students." />
+
+
+        <link rel="canonical" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/" />
+
+
+        <meta name="keywords" content="Fourier Transform">
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZK5KHZQ8Y"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-TZK5KHZQ8Y', { 'anonymize_ip': false });
+}
+</script>
+
     </head>
 </html>
 <body>
@@ -31,30 +55,30 @@
 
 
 <header>
-    
 
-    
-        
-    
 
-    
-    
 
-        
-        
-    
 
-        
-        
-    
 
-        
-        
-    
 
-        
-        
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
             <div class="container ">
@@ -91,56 +115,56 @@
                                 About us
                             </a>
                             <ul class="dropdown-menu">
-                                
-                                
 
-                                    
-                                        
-                                    
+
+
+
+
+
 
                                     <li>
                                     <a class="dropdown-item " href="https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw">Contributor - Ryan Balshaw</a>
                                     </li>
 
-                                    
 
-                                
 
-                                    
-                                        
-                                    
+
+
+
+
+
 
                                     <li>
                                     <a class="dropdown-item " href="https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx">Contributor - Douw Marx</a>
                                     </li>
 
-                                    
 
-                                
 
-                                    
-                                        
-                                    
+
+
+
+
+
 
                                     <li>
                                     <a class="dropdown-item " href="https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer">Contributor - Johann Bouwer</a>
                                     </li>
 
-                                    
 
-                                
 
-                                    
-                                        
-                                    
+
+
+
+
+
 
                                     <li>
                                     <a class="dropdown-item " href="https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck">The Sjmelck vision</a>
                                     </li>
 
-                                    
 
-                                
+
+
                             </ul>
                         </li>
                     </ul>
@@ -193,10 +217,20 @@
                 <article>
                     <h2 id="explanation-purpose">Explanation purpose</h2>
 <p>Good day 👋</p>
-<p>So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document! If you have any questions, please feel to contact me at <a href="mailto:ryanbalshaw81@gmail.com">ryanbalshaw81@gmail.com</a>.</p>
+<p>So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document! If you have any questions, please feel to contact me at
+
+<a href="mailto:ryanbalshaw81@gmail.com"
+   title="ryanbalshaw81@gmail.com"
+  >
+  ryanbalshaw81@gmail.com</a>.</p>
 <p>Kind regards,</p>
 <p>Ryan Balshaw 🧌</p>
-<p>P.S. The initial part of this document is largely based off a video from <a href="https://www.youtube.com/watch?v=spUNpyF58BY">3blue1brown</a>, but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.</p>
+<p>P.S. The initial part of this document is largely based off a video from
+
+<a href="https://www.youtube.com/watch?v=spUNpyF58BY"
+   title="3blue1brown"
+   target="_blank" rel="nofollow noopener">
+  3blue1brown</a>, but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.</p>
 <h1 id="introduction">Introduction</h1>
 <p>This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT&rsquo;s algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency \(f\) or \(\omega\)?. Hopefully, the following may come to mind:</p>
 <ul>
@@ -225,7 +259,12 @@ $$
 $$
 a_0 = \frac{2}{P} \int_P g(x) dx.
 $$
-However, what if we wish to determine which sinusoidal components are dominant in the signal without knowing its analytical function? To do this, we move away from the Fourier series and introduce the idea behind the Fourier Transform. It is of crucial importance to note that these two methods are <em>not the same</em>, but they have strong connections to one another. To show the relation between the two, consider the following Fourier Series formulation of \( g(x) = x - \lfloor x \rfloor \) (using the first question from the first assignment, the derivation is on the <a href="https://github.com/RyanBalshaw/MEV781_Tutorials">github repository</a>)
+However, what if we wish to determine which sinusoidal components are dominant in the signal without knowing its analytical function? To do this, we move away from the Fourier series and introduce the idea behind the Fourier Transform. It is of crucial importance to note that these two methods are <em>not the same</em>, but they have strong connections to one another. To show the relation between the two, consider the following Fourier Series formulation of \( g(x) = x - \lfloor x \rfloor \) (using the first question from the first assignment, the derivation is on the
+
+<a href="https://github.com/RyanBalshaw/MEV781_Tutorials"
+   title="github repository"
+   target="_blank" rel="nofollow noopener">
+  github repository</a>)
 $$
 g_N(x) = \frac{1}{2} - \sum_{n=1}^N \frac{1}{\pi n} \sin(2 \pi n x).
 $$
@@ -234,7 +273,7 @@ This expansion is visualised below, and the relation between the Fourier Series 
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_series_hu0110eb34030e397e55dcf64433cb8061_3710690_700x700_fit_q75_box.gif
@@ -242,7 +281,12 @@ This expansion is visualised below, and the relation between the Fourier Series 
   </p>
 
 </p>
-<p>To describe the Fourier Transform, I will quote Wikipedia (i.e., the \(0^{th}\) iteration of <a href="https://openai.com/blog/chatgpt">ChatGPT</a>): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
+<p>To describe the Fourier Transform, I will quote Wikipedia (i.e., the \(0^{th}\) iteration of
+
+<a href="https://openai.com/blog/chatgpt"
+   title="ChatGPT"
+   target="_blank" rel="nofollow noopener">
+  ChatGPT</a>): &ldquo;In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time.&rdquo;</p>
 <p>This may seem intimidating for those less well versed with the Fourier Transform, so let&rsquo;s decompose this into sub-ideas:</p>
 <ol>
 <li>
@@ -273,7 +317,7 @@ where \( f_1 = 2 \) and \( f_2 = 3 \). This function consists of two cosines add
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/function_hu84c53a96616385ea2a4778ea549e8cd6_48771_700x700_fit_q75_box_3.png
@@ -294,7 +338,7 @@ where \( t_i \) is the \( i^{th} \) index in some time vector \( \mathbf{t} \). 
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/animation_fourier_wrapping_hu1cd69e7223f7bd981b0db1410814d1c9_1952114_700x700_fit_q75_box.gif
@@ -309,7 +353,7 @@ can see that for \( f_0=0, 2, \) and \( 3 \) the center of mass is not equal to 
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/different_wraps_and_com_hudbde1174b9af3938befc8865a78d0661_99969_700x700_fit_q75_box_3.png
@@ -338,7 +382,7 @@ four representations of the centre of mass vary for different values of \( f \).
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/animation_real_imag_components_hud6ee5b1dd06c5622fed1ded2271a1379_2070194_700x700_fit_q75_box.gif
@@ -400,7 +444,12 @@ $$
 \mathcal{X}(s) = \int_{-\infty}^{\infty} x(t) e^{st}dt,
 $$
 where \( s = \alpha + i \omega \). Simply zeroing \( \alpha \) leaves us with the original Fourier transform. A more in-depth
-and intuitive discussion around the relationship between these two transforms can be found <a href="https://www.youtube.com/watch?v=n2y7n6jw5d0">here</a>.</p>
+and intuitive discussion around the relationship between these two transforms can be found
+
+<a href="https://www.youtube.com/watch?v=n2y7n6jw5d0"
+   title="here"
+   target="_blank" rel="nofollow noopener">
+  here</a>.</p>
 </li>
 <li>
 <p>What is the offset we see when \( f=0 \)? This is simply the DC offset of the signal, otherwise referred to as the signal mean. To prove this, consider the following:
@@ -460,7 +509,12 @@ x[n] = \sum_{k=0}^{N-1}X[k] e^{j 2 \pi \frac{kn}{N}}.
 $$</p>
 <h2 id="how-do-we-use-commercial-software-packages">How do we use commercial software packages</h2>
 <p>The FFT is an algorithm that is used to efficiently calculate the complex DFT. For those interested in how the FFT algorithm works,
-I recommend watching the following <a href="https://www.youtube.com/watch?v=h7apO7q16V0">video</a>.</p>
+I recommend watching the following
+
+<a href="https://www.youtube.com/watch?v=h7apO7q16V0"
+   title="video"
+   target="_blank" rel="nofollow noopener">
+  video</a>.</p>
 <p>Since the FFT is a technique to obtain the DFT coefficients, all that is missing to complete the picture is to relate the \(N\)
 complex coefficients to frequency components. To do this, we need to convert the integer indices to frequencies, and we need
 use the signal sampling frequency \(F_s\) for this conversion. Each index of the DFT then spaced using \(freq_{@X[k]} = k\times
@@ -480,7 +534,7 @@ However, in the complex-time plane, the lines are out of sync. This is an import
 
 
 
-  
+
   <p align="center">
     <img src="
     /sjmelck_pages/images/the-fourier-transform-explained/animation_rotation_hufc1be7e763194454c1541f70efe0cc44_6383201_700x700_fit_q75_box.gif
@@ -532,7 +586,12 @@ Nyquist frequency. After this point, all of the DFT indices are simply the compl
 Hence, it is common to plot the one-sided magnitude of the DFT. However, if you do so, please multiply the one-sided magnitude
 by two to account for the fact that you removed half of the information from the DFT.</p>
 <p>Finally, there are some key differences in terminology that you can slip up on, and to make sure you are aware of them please
-refer to this <a href="https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch31.pdf">document</a>.</p>
+refer to this
+
+<a href="https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch31.pdf"
+   title="document"
+   target="_blank" rel="nofollow noopener">
+  document</a>.</p>
 <p>If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening.</p>
 <p>As always, thanks for reading! 👨‍💻</p>
 
@@ -555,10 +614,10 @@ refer to this <a href="https://www.analog.com/media/en/technical-documentation/d
                       <div class="card-body text-end">
                         <p class="card-subtitle mb-2 text-muted">Previous article</p>
                         <p class="card-text">
-                            
+
                                 <h3> Pretty plotting in Python. </h3>
                                 <a class="previous stretched-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/"></a>
-                            
+
                         </p>
                       </div>
                     </div>
@@ -574,10 +633,10 @@ refer to this <a href="https://www.analog.com/media/en/technical-documentation/d
                       <div class="card-body text-start">
                         <p class="card-subtitle mb-2 text-muted">Next article</p>
                         <p class="card-text">
-                            
+
                                 <h3> Time synchronous averaging and computed order tracking: Explained </h3>
                                 <a class="previous stretched-link" href="https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/"></a>
-                            
+
                         </p>
                       </div>
                     </div>
@@ -597,7 +656,7 @@ refer to this <a href="https://www.analog.com/media/en/technical-documentation/d
 
 
 
-        
+
     </body><footer id="footer">
     <div>
     <p class="text-center">

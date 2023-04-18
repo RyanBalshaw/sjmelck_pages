@@ -9,6 +9,15 @@ summaryLength: 50
 title: Sjmelck
 enableRobotsTXT: true
 enableEmoji: true
+googleAnalytics: "G-TZK5KHZQ8Y"
+params:
+  AuthorName: Ryan Balshaw
+  GitHubUser: RyanBalshaw
+  description: "Sjmelck Just Means Engineers Love Computers K? Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing."
+sitemap:
+  changefreq: "weekly"
+  filename: "sitemap.xml"
+  priority: 0.5
 menu:
   main:
     - identifier: about
