@@ -20,123 +20,105 @@ A quick introduction of the minimal setup you need to get a blog post up and run
 1. [Hugo](https://gohugo.io/)
 2. [git](https://git-scm.com/)
 
-Once these have been installed, you are welcome to .
+Once these have been installed, you are welcome to run the following:
 ```shell
 git clone https://github.com/RyanBalshaw/sjmelck_pages.git
 cd sjmelck_pages
-hugo server -D # Creates a local version
+hugo server # Creates a local version
 ```
 
-This will clone the repo and
+This will clone the repo and open up a local version of the website. Press `Ctrl + C` to stop the local server.
 
-### Initial Configuration
+## Creating a blog post
 
-Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
-This is the section where you would document those requirements.
-
-## Developing
-
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
+If you wish to create a blog post, it is as simple as navigating to the base directory and running:
 
 ```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
+hugo new blog/a-new-blog-post.md
 ```
 
-And state what happens step-by-step.
+This will create a new file in the `contents/blog` directory. You can then open the file with any editor of your choosing.
 
-### Building
+```
+---
+title: "A Trial Blog Post"
+publishdate: 2023-04-20T16:19:31+02:00
+author: dummy-name
+description: dummy-description
+draft: true
+toc: true
+tags: ["tag1", "tag2", "tag3"]
+categories: ["category1"]
+_build:
+  list: always
+  publishResources: true
+  render: always
+---
+```
 
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here:
+This information will be at the start of the file. Please change the information as necessary. Importantly, if you wish to push your blog post to the main branch you will need to change `draft: false` to `draft: true`. You can then add [markdown](https://commonmark.org/help/) to the post.
 
+Save the file, then start a local server to view the changes you made.
 ```shell
-./configure
-make
-make install
+hugo server --buildDrafts
+hugo server -D
 ```
 
-Here again you should state what actually happens when the code above gets
-executed.
+View the blog post and make changes as necessary.
 
-### Deploying / Publishing
+## Adding equations in markdown
 
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
+Adding equations is simple, and [Mathjax]() is used to support any equations. Inline equations can be created using
+```markdown
+\\( ... \\)
+```
+and equations can be created using
+```markdown
+\[ ... \]
+```
+or
+```markdown
+$$ ... $$
 ```
 
-And again you'd need to tell what the previous code actually does.
-
-## Features
-
-What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when
-using the project.
-
-#### Argument 1
-Type: `String`
-Default: `'default value'`
-
-State what an argument does and how you can use it. If needed, you can provide
-an example below.
-
-Example:
-```bash
-awesome-project "Some other value"  # Prints "You're nailing this readme!"
-```
-
-#### Argument 2
-Type: `Number|Boolean`
-Default: 100
-
-Copy-paste as many of these as you need.
+More information can be found [here](https://docs.mathjax.org/en/latest/input/tex/delimiters.html)
 
 ## Contributing
 
-When you publish something open source, one of the greatest motivations is that
-anyone can just jump in and start contributing to your project.
+If you'd like to contribute, please fork the repository and use a feature
+branch. Pull requests are warmly welcome.
 
-These paragraphs are meant to welcome those kind souls to feel that they are
-needed. You should state something like:
+[//]: # (## Links)
 
-"If you'd like to contribute, please fork the repository and use a feature
-branch. Pull requests are warmly welcome."
+[//]: # ()
+[//]: # (Even though this information can be found inside the project on machine-readable)
 
-If there's anything else the developer needs to know (e.g. the code style
-guide), you should link it here. If there's a lot of things to take into
-consideration, it is common to separate this section to its own file called
-`CONTRIBUTING.md` (or similar). If so, you should say that it exists here.
+[//]: # (format like in a .json file, it's good to include a summary of most useful)
 
-## Links
+[//]: # (links to humans using your project. You can include links like:)
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
+[//]: # ()
+[//]: # (- Project homepage: https://your.github.com/awesome-project/)
 
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+[//]: # (- Repository: https://github.com/your/awesome-project/)
+
+[//]: # (- Issue tracker: https://github.com/your/awesome-project/issues)
+
+[//]: # (  - In case of sensitive bugs like security vulnerabilities, please contact)
+
+[//]: # (    my@email.com directly instead of using issue tracker. We value your effort)
+
+[//]: # (    to improve the security and privacy of this project!)
+
+[//]: # (- Related projects:)
+
+[//]: # (  - Your other project: https://github.com/your/other-project/)
+
+[//]: # (  - Someone else's project: https://github.com/someones/awesome-project/)
 
 
 ## Licensing
 
 The code in this project is licensed under MIT license.
 
-<!-- Begin section: Overview -->
+<!-- End section: Overview -->
