@@ -1,6 +1,8 @@
 <!-- Begin section: Overview -->
 
-![Logo of the project](https://github.com/RyanBalshaw/sjmelck_pages/main/robots_logo.svg)
+[//]: # (https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png&#41;)
+
+[//]: # (![Logo of the project]&#40;https://raw.githubusercontent.com/RyanBalshaw/sjmelck_pages/main/robot_logo.svg&#41;)
 
 # Sjmelck
 > Sjmelck just means that engineers love computers, k?
