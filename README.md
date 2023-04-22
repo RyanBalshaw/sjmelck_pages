@@ -5,7 +5,11 @@
 [//]: # (![Logo of the project]&#40;https://raw.githubusercontent.com/RyanBalshaw/sjmelck_pages/main/robot_logo.svg&#41;)
 
 # Sjmelck
-> Sjmelck just means that engineers love computers, k?
+> Sjmelck just means engineers love computers, k?
+
+<br/>
+
+View the page [here](https://ryanbalshaw.github.io/sjmelck_pages/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/RyanBalshaw/sjmelck_pages?color=important)
 ![GitHub contributors](https://img.shields.io/github/contributors/RyanBalshaw/sjmelck_pages?style=flat-square)
