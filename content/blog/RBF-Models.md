@@ -20,7 +20,11 @@ _build:
 - the maths for gradients
 - the GE method in python
 
-'''python
+$$
+F(x) = x^2
+$$
+
+```python
 def test(x):
 	return x
-'''
+```
