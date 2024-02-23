@@ -91,8 +91,6 @@ More information can be found [here](https://docs.mathjax.org/en/latest/input/te
 
 ## Contributing
 
-Johann testing
-
 If you'd like to contribute, please fork the repository and use a feature
 branch. Pull requests are warmly welcome.
 
