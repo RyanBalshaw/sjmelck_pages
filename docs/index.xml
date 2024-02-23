@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Jan 2023 17:49:55 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>RBF Models</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</link>
+      <pubDate>Sat, 08 Jul 2023 11:59:05 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</guid>
+      <description>Gradient Enhanced Radial Basis Function Surrogate Models (GE-RBF) the maths the function based method in python the maths for gradients the GE method in python $$ F(x) = x^2 $$
+def test(x): return x </description>
+    </item>
+    
+    <item>
       <title>Time synchronous averaging and computed order tracking: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</link>
       <pubDate>Fri, 14 Apr 2023 16:14:08 +0200</pubDate>

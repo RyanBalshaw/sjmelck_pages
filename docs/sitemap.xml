@@ -3,93 +3,118 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/</loc>
-    <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/categories/</loc>
-    <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/gradients/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/categories/python/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/rbf/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/surrogate-models/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/</loc>
+    <lastmod>2023-07-08T11:59:05+02:00</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/categories/category1/</loc>
     <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/tag1/</loc>
     <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/tag2/</loc>
     <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/tag3/</loc>
     <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/</loc>
-    <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</loc>
     <lastmod>2023-04-14T16:14:08+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/</loc>
     <lastmod>2023-04-14T10:33:53+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</loc>
     <lastmod>2023-04-14T10:33:53+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/tags/fourier-transform/</loc>
     <lastmod>2023-01-19T16:18:44+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/categories/signal-processing/</loc>
     <lastmod>2023-01-19T16:18:44+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</loc>
     <lastmod>2023-01-19T16:18:44+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</loc>
     <lastmod>2023-01-12T12:36:52+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</loc>
     <lastmod>2023-01-12T12:36:47+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</loc>
     <lastmod>2023-01-12T12:36:40+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/</loc>
     <lastmod>2023-01-11T17:49:55+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</loc>
     <lastmod>2023-01-11T17:18:41+02:00</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
 </urlset>
