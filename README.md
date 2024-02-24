@@ -25,15 +25,41 @@ The purpose of Sjmelck is to provide an awesome blog for content related to engi
 A quick introduction of the minimal setup you need to get a blog post up and running. As a first step, please make sure the following packages are installed:
 1. [Hugo](https://gohugo.io/)
 2. [git](https://git-scm.com/)
+3. [Poetry](https://python-poetry.org/)
 
 Once these have been installed, you are welcome to run the following:
 ```shell
 git clone https://github.com/RyanBalshaw/sjmelck_pages.git
 cd sjmelck_pages
-hugo server # Creates a local version
+hugo server # Creates a local version of the website
 ```
 
-This will clone the repo and open up a local version of the website. Press `Ctrl + C` to stop the local server.
+This will clone the repo and open up a local version of the website. Press `Ctrl + C` in the terminal to stop the local server.
+
+## Configuring python and commits
+[Poetry](https://python-poetry.org/) is the approach chosen to manage the python environment and setting up the virtual environment is incredibly simple. Once poetry is correctly installed, you can set up the virtual environment by running
+```shell
+cd sjmelck_pages # If you aren't already within the repo directory. Skip otherwise.
+poetry install
+```
+
+You can then step into the virtual environment using
+```shell
+poetry shell
+```
+to use the packages specified. Poetry is also supported by many IDEs, so you can easily get it incorporated within your IDE of choice.
+
+[Pre-commit]() is set up as the default development approach to linting to improve the readability and eligibility of the repository. Setting up pre-commit is simple (it is included in the pyproject.toml file used for Poetry) and can be done via
+```code
+pre-commit install -t pre-push
+```
+
+This ensures that prior to any changes done to the remote repository, pre-commit hooks are run. The changes will occur in
+```code
+git add ...
+git commit -m "Added changes to repo to solve XXX."
+git push # Pre-commit hooks are invoked here.
+```
 
 ## Creating a blog post
 
@@ -87,7 +113,21 @@ or
 $$ ... $$
 ```
 
-More information can be found [here](https://docs.mathjax.org/en/latest/input/tex/delimiters.html)
+More information can be found [here](https://docs.mathjax.org/en/latest/input/tex/delimiters.html).
+
+## Adding figures
+Adding figures is relatively simple, some structure was just set up to ensure that everything is consistent. All python scripts used to generate figures are stored in the `C:\...\sjmelck_pages\assets\images\` directory and the assumption is that one would then create a directory within `\assets\images\` with the exact same name as the blog post of interest and store all figures necessary for the blog post in there.
+
+This enables one to simply place
+```markdown
+![Figure title](figure_file.extension)
+```
+in the markdown of the relevant blog to render the figure and all paths to the file are handled internally.
+
+**Note:**
+```note
+What would be awesome is a way to automatically create a blank python script and folder within assets\images. I am not sure how to do it yet, but it is an open issue.
+```
 
 ## Contributing
 
