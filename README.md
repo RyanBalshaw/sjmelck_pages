@@ -85,6 +85,10 @@ $$ ... $$
 
 More information can be found [here](https://docs.mathjax.org/en/latest/input/tex/delimiters.html)
 
+## Adding figures
+Adding figures is relatively simple, the path of the repo just needs to be cor
+
+
 ## Contributing
 
 If you'd like to contribute, please fork the repository and use a feature
