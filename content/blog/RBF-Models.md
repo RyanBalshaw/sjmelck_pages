@@ -15,6 +15,11 @@ _build:
 
 # Gradient Enhanced Radial Basis Function Surrogate Models (GE-RBF)
 
+[SCIPY](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RBFInterpolator.html#scipy.interpolate.RBFInterpolator)
+
+![Alt Text](C:\Users/bouwe/OneDrive/Desktop/GitCode/sjmelck_pages/assets/images/RBF-Models/test.png)
+
+
 - the maths
 - the function based method in python
 - the maths for gradients
