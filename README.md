@@ -22,7 +22,7 @@ A quick introduction of the minimal setup you need to get a blog post up and run
 1. [Hugo](https://gohugo.io/)
 2. [git](https://git-scm.com/)
 3. [Poetry](https://python-poetry.org/)
-4.
+
 Once these have been installed, you are welcome to run the following:
 ```shell
 git clone https://github.com/RyanBalshaw/sjmelck_pages.git
