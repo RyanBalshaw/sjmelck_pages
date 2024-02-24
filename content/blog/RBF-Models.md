@@ -17,7 +17,7 @@ _build:
 
 [SCIPY](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RBFInterpolator.html#scipy.interpolate.RBFInterpolator)
 
-![Alt Text](C:\Users/bouwe/OneDrive/Desktop/GitCode/sjmelck_pages/assets/images/RBF-Models/test.png)
+![Alt Text](test.png)
 
 
 - the maths
