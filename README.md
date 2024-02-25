@@ -131,8 +131,6 @@ What would be awesome is a way to automatically create a blank python script and
 
 ## Contributing
 
-Johann testing
-
 If you'd like to contribute, please fork the repository and use a feature
 branch. Pull requests are warmly welcome.
 
