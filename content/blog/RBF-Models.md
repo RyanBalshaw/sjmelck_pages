@@ -2,7 +2,8 @@
 title: "RBF Models"
 publishdate: 2023-07-08T11:59:05+02:00
 author: Johann Bouwer
-description: A how-to on implementing gradients into the radial basis function surrogate model.
+description: A how-to on implementing gradients into the radial basis function
+  surrogate model.
 draft: true
 toc: true
 tags: ["Gradients", "RBF", "surrogate models"]
@@ -15,7 +16,11 @@ _build:
 
 # Gradient Enhanced Radial Basis Function Surrogate Models (GE-RBF)
 
-[SCIPY](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RBFInterpolator.html#scipy.interpolate.RBFInterpolator)
+Radial Basis Functions (RBF) surrogate models are used to approximate 
+complex and computationally expensive functions. Most commonly, some data set 
+\\( X\\) and function values \\( y\\) are used to construct a computationally 
+inexpensive model. [SCIPY](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RBFInterpolator.html#scipy.interpolate.RBFInterpolator) 
+has an implementation of this.
 
 ![Alt Text](test.png)
 
