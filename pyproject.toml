@@ -22,7 +22,7 @@ pre-commit = "^2.20.0"
 black = "^22.6.0"
 isort = "^5.10.1"
 flake8 = "^5.0.4"
-interrogate = "^1.5.0"
+# interrogate = "^1.5.0" # Removed for now, it is a little irritating at times.
 
 [build-system]
 requires = ["poetry-core"]

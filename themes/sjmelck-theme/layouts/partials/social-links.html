@@ -84,7 +84,33 @@
                         </div>
                     {{ end }}
 
+                    {{ if and (eq $about_menu.Params.author_name "justin") (eq $about_menu.URL $tmp_dir) }}
+                        <div class="d-flex flex-column align-items-center">
+
+                            <div class="p-1">
+                                <img src="{{ "img/justin_head.jpg" | absURL }}" class="img-thumbnail rounded" alt="Justin Smith picture">
+                            </div>
+
+                            {{ range $user_links_array := $.Site.Menus.justin_social }}
+
+                            {{ if eq $user_links_array.Identifier "description" }}
+                                <div class="text-center">
+                                    {{ $user_links_array.Name }}
+                                </div>
+
+                            {{ end }}
+
+                            <div class="p-2">
+                                <a class="p-2-element" target="_blank" rel="noopener noreferrer" href="{{ $user_links_array.URL }}"> {{ $user_links_array.Pre }} </a>
+                            </div>
+
+                            {{ end }}
+                        </div>
+                    {{ end }}
+
                 {{ end }}
+
+
 
                 </div>
                 <div class="col-lg-8 mb-4">
