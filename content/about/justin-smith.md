@@ -1,6 +1,6 @@
 ---
-title: "Johann Bouwer"
-publishdate: 2023-04-14T10:33:53+02:00
+title: "Justin Smith"
+publishdate: 2024-02-26T15:48:07+02:00
 author: dummy-name
 description: dummy-description
 draft: false
@@ -13,15 +13,15 @@ _build:
   render: always
 ---
 
-Welcome to the landing page of Johann Bouwer.
+Welcome to the landing page of Justin Smith.
 
-### :ramen: Who is Johann Bouwer? 
+### :dragon: Who is Justin Smith?
 
-Content loading... 
+I am a post-graduate mechanical engineering student at the University of Pretoria with a passion for condition monitoring and machine learning.
 
-### :heart: Fun question
+### :green_heart: Fun question
 
-What do you get if you take the square root of 1764? 
+How can you use the ASCII values of the characters in the word "math" to get to the question posed by Ryan Balshaw?
 
 {{< reveal "Click here to reveal" >}}
 

@@ -129,9 +129,40 @@ in the markdown of the relevant blog to render the figure and all paths to the f
 What would be awesome is a way to automatically create a blank python script and folder within assets\images. I am not sure how to do it yet, but it is an open issue.
 ```
 
-## Contributing
+## Adding mermaid diagrams
 
-Johann testing
+Please ensure that the `hasMermaid` config is enabled in the post 
+```markdown
+---
+title: "My Page with Mermaid Diagrams"
+hasMermaid: true
+---
+```
+
+You can then add diagrams in the markdown files using standard markdown syntax:
+```mermaid
+graph LR
+    A[Enter Chart Definition] --> B(Preview)
+    B --> C{decide}
+    C --> D[Keep]
+    C --> E[Edit Definition]
+    E --> B
+    D --> F[Save Image and Code]
+    F --> B
+```
+
+## Adding reveal sections
+
+Sections that are clickable with a dropdown to reveal content can be added by including a block of text with the following configuration in the Markdown file:
+```markdown
+{{< reveal "Click here to reveal" >}}
+
+Markdown text! :v:
+
+{{< /reveal >}}
+```
+
+## Contributing
 
 If you'd like to contribute, please fork the repository and use a feature
 branch. Pull requests are warmly welcome.
