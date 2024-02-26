@@ -20,7 +20,7 @@ Current PhD candidate in Mechanical Engineering at the University of Pretoria, m
 
 ### :purple_heart: Fun question
 
-What is the answer to the ultimate question of life, the universe, and everything? 
+What is the answer to the ultimate question of life, the universe, and everything?
 
 {{< reveal "Click here to reveal" >}}
 

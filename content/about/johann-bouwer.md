@@ -15,13 +15,13 @@ _build:
 
 Welcome to the landing page of Johann Bouwer.
 
-### :ramen: Who is Johann Bouwer? 
+### :ramen: Who is Johann Bouwer?
 
-Content loading... 
+Content loading...
 
 ### :heart: Fun question
 
-What do you get if you take the square root of 1764? 
+What do you get if you take the square root of 1764?
 
 {{< reveal "Click here to reveal" >}}
 

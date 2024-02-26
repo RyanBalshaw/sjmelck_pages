@@ -131,7 +131,7 @@ What would be awesome is a way to automatically create a blank python script and
 
 ## Adding mermaid diagrams
 
-Please ensure that the `hasMermaid` config is enabled in the post 
+Please ensure that the `hasMermaid` config is enabled in the post
 ```markdown
 ---
 title: "My Page with Mermaid Diagrams"

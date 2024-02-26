@@ -19,7 +19,7 @@ I am a Mechanical Engineer. I completed my Masters in Mechanical engineering (wi
 
 ### :blue_heart: Fun question
 
-What do you get if you multiply six by nine? 
+What do you get if you multiply six by nine?
 
 {{< reveal "Click here to reveal" >}}
 
