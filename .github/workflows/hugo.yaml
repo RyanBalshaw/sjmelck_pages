@@ -1,8 +1,9 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+# Sample workflow from Hugo website for building and deploying a Hugo site to GitHub Pages
+name: deploy-hugo-site-to-github-pages
+run-name: ${{ github.actor }} is Deploy Hugo site to Github Pages
 
+# Runs on pushes targeting the default branch
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches:
       - main
@@ -29,7 +30,7 @@ defaults:
 
 jobs:
   # Build job
-  build:
+  build-hugo:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.123.0
@@ -59,7 +60,6 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
