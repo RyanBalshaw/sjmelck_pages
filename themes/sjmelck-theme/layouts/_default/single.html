@@ -32,6 +32,11 @@
                     {{ .PublishDate.Format "January 2, 2006" }} · {{ .ReadingTime}} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
                 </div>
 
+                    <aside>
+                      {{ partial "toc.html" . }}
+                    </aside>
+
+
                 <article>
                     {{ .Content }}
                 </article>
