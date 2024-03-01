@@ -51,6 +51,9 @@ some \\( n\\)-dimensional space. Common options include:
 - Gaussian: \\(\phi(\boldsymbol{x}, \boldsymbol{c}, \epsilon) = e^
   {-\epsilon||\boldsymbol{x} - \boldsymbol{c}||^2}\\),
 
+The most common option is the Gaussian basis function, which is useful for 
+the gradient enhanced case as the math is far more convenient.
+
 ## Function Only Training
 
 Training a RBF model involves taking some same data set \\( X, y \\), where 
@@ -61,6 +64,29 @@ has an efficient and powerful implementation of the RBF model. What this
 implementation lacks however, is the ability to include sampled gradient 
 information into the model. To understand the gradient enhanced version of 
 model, the function version must first be understood.
+
+The RBF model is expressed as a system of equations 
+$$
+   RBF(\boldsymbol{x}) = \boldsymbol{\Phi}(\boldsymbol{x}, \boldsymbol{c}, 
+\epsilon)\boldsymbol{w},
+$$
+where \\( \boldsymbol{w} \\) is the column vector of the weights for each 
+basis function or kernel, and \\(\boldsymbol{\Phi}\\) is now matrix
+$$
+\begin{bmatrix}
+    \phi(\boldsymbol{x}_1, \boldsymbol{c}_1, \epsilon) & \phi(\boldsymbol{x}
+_1, \boldsymbol{c}_2, \epsilon) & ... & \phi(\boldsymbol{x}_1, \boldsymbol{c}
+_k, \epsilon) \\\
+   \phi(\boldsymbol{x}_2, \boldsymbol{c}_1, \epsilon) & \phi(\boldsymbol{x}
+_2, \boldsymbol{c}_2, \epsilon) & ... & \phi(\boldsymbol{x}_2, \boldsymbol{c}
+_k, \epsilon) \\\
+    : & : & : & : \\\
+    \phi(\boldsymbol{x}_p, \boldsymbol{c}_1, \epsilon) & \phi(\boldsymbol{x}
+_p, \boldsymbol{c}_2, \epsilon) & ... & \phi(\boldsymbol{x}_p, \boldsymbol{c}
+_k, \epsilon) 
+\end{bmatrix},
+$$
+where \\( p \\) is the number of samples in the data set.
 
 ## Adding the Gradients
 
