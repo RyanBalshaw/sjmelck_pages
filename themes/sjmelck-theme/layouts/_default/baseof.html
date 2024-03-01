@@ -3,6 +3,8 @@
 
 <html data-bs-theme= {{ $colour_mode }}>
     {{- partial "head.html" . -}}
+    {{- partial "init-popovers.html" . -}}
+
     <body>
         {{- partial "header.html" . -}}
 
@@ -28,3 +30,4 @@
     {{- partial "footer.html" . -}}
 
 </html>
+

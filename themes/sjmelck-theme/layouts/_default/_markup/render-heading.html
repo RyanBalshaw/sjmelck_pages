@@ -1,0 +1,18 @@
+<!--https://dariusz.wieckiewicz.org/en/supercharge-your-headings-in-hugo-with-render-hooks/-->
+
+<!-- Use the 'link-hover' class to provide hover behavior defined in your JS -->
+<h{{ .Level }} id="{{ .Anchor | safeURL }}" class="link-hover">
+    <span> {{ .Text | safeHTML }} </span>
+    <a class="anchor-link" onclick="CopyLink({{ printf "%s#%s" .Page.Permalink (.Anchor | safeURL) | safeURL }})">
+        <i class="bi bi-link copy-link-icon" style="display: none;"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover focus"
+            data-bs-placement="bottom"
+            data-bs-content="Copy link to this section: {{ .Text | safeHTML }}">
+
+        </i>
+    </a>
+</h{{ .Level }}>
+
+<!--getLinkFunction("{{ .Anchor | safeURL }})-->
+<!--href="#{{ .Anchor | safeURL }}"-->
