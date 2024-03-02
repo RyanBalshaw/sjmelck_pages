@@ -5,24 +5,22 @@
 
     <div class="container mx-auto">
 
-<!--        {{ if .Params.toc }}-->
-<!--        <div class="row">-->
-<!--            <div class="col-sm-8" style="position:fixed;top:160px;float:left;left:50px;">-->
-
-<!--                <div id="toc-section">-->
-<!--                    <h3 class="ml-1">Table of contents</h3>-->
-
-<!--                    {{ .TableOfContents  }}-->
-
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--        {{ end }}-->
-
         <div class="progress sticky-top"  role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" id="progressElement" style="width: 0%"></div>
         </div>
+
+        {{ if .Params.toc }}
+
+        <div class="row">
+            <div class="col-md-auto" style="position:fixed;top:160px;float:left;left:50px;">
+
+                    {{ partial "toc.html" . }}
+
+            </div>
+        </div>
+        {{ end }}
+
+
         <div class="row">
 
             <div class="container w-75">
@@ -32,12 +30,10 @@
                     {{ .PublishDate.Format "January 2, 2006" }} · {{ .ReadingTime}} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
                 </div>
 
-                    <aside>
-                      {{ partial "toc.html" . }}
-                    </aside>
+                <div class="toc-list">
+                </div>
 
-
-                <article>
+                <article class="js-toc-content">
                     {{ .Content }}
                 </article>
 

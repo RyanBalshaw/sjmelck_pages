@@ -1,5 +1,38 @@
 {{ if and (gt .WordCount 400 ) (.Params.toc) }}
-<aside>
-    {{ .TableOfContents }}
-</aside>
+
+
+<p style="">
+  <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+    Toggle Table of contents
+  </button>
+</p>
+<div>
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div id="toc-section">
+        <h3 class="ml-1">Table of contents</h3>
+        <div class="js-toc" style="overflow: hidden; width: 300px; height: 200px;">
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded",
+function(){
+tocbot.init({
+  // Where to render the table of contents.
+  tocSelector: '.js-toc',
+  // Where to grab the headings to build the table of contents.
+  contentSelector: '.js-toc-content',
+  // Which headings to grab inside of the contentSelector element.
+  headingSelector: 'h1, h2, h3',
+  headingsOffset :  1,
+  orderedList    :  true
+});
+}
+);
+</script>
+
 {{ end }}
