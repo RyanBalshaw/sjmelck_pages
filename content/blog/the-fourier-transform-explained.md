@@ -13,14 +13,13 @@ _build:
   render: always
 ---
 
-## Explanation purpose
-Good day :waving_hand:
+Good day 👋
 
 So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive. I have attempted to write this from a basic Mechanical Engineering context, so I hope you enjoy this document! If you have any questions, please feel to contact me at ryanbalshaw81@gmail.com.
 
 Kind regards,
 
-Ryan Balshaw :troll:
+Ryan Balshaw 🦮
 
 P.S. The initial part of this document is largely based off a video from [3blue1brown](https://www.youtube.com/watch?v=spUNpyF58BY), but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.
 
@@ -80,7 +79,7 @@ $$
 $$
 This expression allows us to work out where \\( g(t = t_i) \\) will lie in a 2D plane by working out the angular position in the 2D plane and by letting \\( g(t = t_i) \\) be the distance from the origin at some angular position \\( \theta(t=t_i) \\). More realistically, we can just work out the rotation  \\( \theta_i \\) for all time indices \\( t_i \\) and then plot the data using \\( x(t_i) = g(t_i) \cos(\theta_i) \\) and \\( y(t_i) = g(t_i) \sin(\theta_i) \\), where we obtain the rotation \\( \theta \\) through \\( \theta_i = 2 \pi f_0 t_i \\) (note here that I dropped the time index notation  \\( \cdot(t) \\) and replaced it with an index notation \\( \cdot_i \\) as I need to discretise the system to plot it). This effectively shifts the signal from a 2-dimensional Euclidean coordinate system into the polar coordinate system. Let's now go through this process cell by cell.
 
-### Step 1: define a function g(t)
+## Step 1: define a function g(t)
 
 $$
 g(t) = \frac{1}{4}\cos(2 \pi f_1 t) + \cos(2 \pi f_2 t) + 1,
@@ -89,7 +88,7 @@ where \\( f_1 = 2 \\) and \\( f_2 = 3 \\). This function consists of two cosines
 
 ![function of interest](function.png)
 
-### Step 2: define \\( f \\) and calculate the angular displacement \\( \theta \\).
+## Step 2: define \\( f \\) and calculate the angular displacement \\( \theta \\).
 Let
 $$
 f_0 = 2.5,
@@ -319,4 +318,4 @@ refer to this [document](https://www.analog.com/media/en/technical-documentation
 
 If you managed to get this far, thank you for reading this! I hope that you found it mildly enlightening.
 
-As always, thanks for reading! :man_technologist:
+As always, thanks for reading! 👨🏼‍💻

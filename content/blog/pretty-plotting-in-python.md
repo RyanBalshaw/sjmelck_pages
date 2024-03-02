@@ -7,7 +7,13 @@ toc: true
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
 ---
+Good day 👋
 
+This post is still under development, but I hope to update it soon
+
+Kind regards,
+
+Ryan Balshaw 🦮
 ## How to get really nice plots
 
 
@@ -130,5 +136,3 @@ fix(ax[1], minor_flag=False, flag_3d=False)
 plt.show(block=True)
 ```
 
-Do equations render?
-$$ y = x^2 \( 4 - 3 \) $$
