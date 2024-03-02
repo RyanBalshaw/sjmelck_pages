@@ -4,18 +4,3 @@ document.addEventListener("DOMContentLoaded", function() {
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 });
 </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.link-hover').forEach(function(element) {
-        element.addEventListener('mouseenter', function() {
-            // Show icon
-            this.querySelector('.copy-link-icon').style.display = 'inline-block'; // Or "block", depending on your layout
-        });
-        element.addEventListener('mouseleave', function() {
-            // Hide icon
-            this.querySelector('.copy-link-icon').style.display = 'none';
-        });
-    });
-});
-</script>

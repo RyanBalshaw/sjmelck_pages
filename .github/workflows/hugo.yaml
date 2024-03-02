@@ -61,7 +61,8 @@ jobs:
         run: |
           hugo \
             --gc \
-            --minify
+            --minify \
+            --config config.yaml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
@@ -72,7 +73,7 @@ jobs:
     needs: build-hugo-website
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://ryanbalshaw.github.io/sjmelck_pages/ # ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
