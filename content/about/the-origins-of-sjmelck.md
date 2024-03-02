@@ -3,12 +3,14 @@ title: "The Origins of Sjmelck"
 date: 2023-01-12T12:36:40+02:00
 draft: false
 ---
-Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
+Welcome to the landing page of the origins of Sjmelck! 🎉 We are thrilled to have you join us on this exciting journey.
 
 ## What is Sjmelck?
 
-Put simply, **S**jmelck **J**ust **M**eans **E**ngineers **L**ove **C**omputers **K**?
+In its simplest form, **Sjmelck** stands for "**S**jmelck **J**ust **M**eans **E**ngineers **L**ove **C**omputers **K**?", quite a mouthful, isn't it? But it's so much more than just an acronym. It represents our mission, our passion and our community.
 
-Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.
+Sjmelck (pronounced exactly as it's written 👍), is a beacon of knowledge in the vast realm of engineering and scientific computing. Sjmelck has open doors for all engineers who are passionate about their field and keen on sharing their unique insights.The goal is to create a melting pot of ideas and innovation, where distinguished minds meet to delve into varied fields, break down complex topics and unravel the mysteries of the engineering world.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus metus aliquam eleifend mi. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Lorem ipsum dolor sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Congue eu consequat ac felis donec et odio. In nibh mauris cursus mattis molestie a. Sem fringilla ut morbi tincidunt augue interdum velit euismod. Bibendum neque egestas congue quisque egestas diam in arcu cursus. Vulputate odio ut enim blandit. Tempor id eu nisl nunc mi ipsum faucibus vitae. Mauris pellentesque pulvinar pellentesque habitant morbi. Ullamcorper a lacus vestibulum sed.
+Whether you're eager to explore the intricate workings of vibration-based condition monitoring, or you're bursting to share guides on how to get started with git, or you're simply enthusiastic about the fascinating world of neural networks, Sjmelck is your platform. Our blog is an open stage, always thrilled to showcase different voices and fresh perspectives. 💻🚀
+
+So come join us, let's write, learn, inspire and be inspired. Here at Sjmelck, we believe that technology is the language of the future, and we're here to help every engineer speak it fluently! 🗣️🧠👩‍💻👨‍💻
