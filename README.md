@@ -9,8 +9,6 @@
 
 <br/>
 
-View the page [here](https://ryanbalshaw.github.io/sjmelck_pages/)
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/RyanBalshaw/sjmelck_pages?color=important)
 ![GitHub contributors](https://img.shields.io/github/contributors/RyanBalshaw/sjmelck_pages?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/RyanBalshaw/sjmelck_pages?color=critical&style=flat-square)
@@ -18,7 +16,7 @@ View the page [here](https://ryanbalshaw.github.io/sjmelck_pages/)
 ![GitHub license](https://img.shields.io/github/license/RyanBalshaw/sjmelck_pages?style=flat-square)
 
 
-The purpose of Sjmelck is to provide an awesome blog for content related to engineering, computing, and everything in-between.
+The purpose of [Sjmelck](https://ryanbalshaw.github.io/sjmelck_pages/) is to provide an awesome blog for content related to engineering, computing, and everything in-between.
 
 ## Installing / Getting started
 
