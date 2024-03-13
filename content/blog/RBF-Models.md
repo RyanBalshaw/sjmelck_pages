@@ -248,7 +248,7 @@ def Example(x):
 ```
 figure
 
-create model
+create model [pyDOE](https://pypi.org/project/pyDOE/)
 ```python
 from pyDOE import lhs
 X = lhs(1, 7, criterion='m')
@@ -258,7 +258,7 @@ model = RBFModel(X, y)
 model.FV_fit(epsi = 1)
 ```
 
-sample model [pyDOE](https://pypi.org/project/pyDOE/)
+sample model 
 ```python
 X_pred = np.linspace(0, 1, 100).reshape(-1,1)
 y_pred = model(X_pred)
