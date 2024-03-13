@@ -122,13 +122,14 @@ sample the model at any number of points in the domain.
 
 First, lets set up the constructor
 ```python
+import numpy as np
 class RBFModel:
     """
     A class to implement a Function Value based Radial Basis Function model 
     (FV-RBF)
     """
 
-    def __init__(self, X, y, C=None, dy=None):
+    def __init__(self, X, y, C=None):
         """
         Constructor for the RBF model.
 
@@ -149,8 +150,9 @@ class RBFModel:
         
         return
 ```
-The constructor simply assigns the data as attributes in the class. Next we 
-can create a method that will fit the model to the data. We can also make 
+The constructor simply assigns the data as attributes in the class and if a 
+specific set of centres are not given we set the centres equal to the samples. 
+Next we can create a method that will fit the model to the data. We can also make 
 use of scipys cdist function to find the euclidean distance between all the 
 data points and the centres of the model (the \\(||\boldsymbol{x} - 
 \boldsymbol{c}|| \\) portion of the basis functions). We also want the 
@@ -233,14 +235,41 @@ RBF model or a regressed model.
 
 ## Numerical Example
 
-Let's test the created python class on a simple 1-dimensional example. 
+Let's test the created python class on a simple 1-dimensional example. We 
+will use the function
+$$
+f(x) = \sin(10x) + x.
+$$
 
-- real function
-- sample function
-- create model
-- fit model
-- sample model
+```python
+def Example(x):
+    
+    return np.sin(10*x) + x
+```
+figure
+
+create model
+```python
+from pyDOE import lhs
+X = lhs(1, 7, criterion='m')
+y = Example(X)
+
+model = RBFModel(X, y)
+model.FV_fit(epsi = 1)
+```
+
+sample model [pyDOE](https://pypi.org/project/pyDOE/)
+```python
+X_pred = np.linspace(0, 1, 100).reshape(-1,1)
+y_pred = model(X_pred)
+```
+figure
+
+### Impact of the Shape Parameter 
+
 - show impact of epsilon
+- always interpolates, shape is differnt
+- steeper shallower
 
 
 
