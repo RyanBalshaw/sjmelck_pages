@@ -246,7 +246,7 @@ def Example(x):
     
     return np.sin(10*x) + x
 ```
-figure
+![The 1-dimensional function](Example.png)
 
 create model [pyDOE](https://pypi.org/project/pyDOE/)
 ```python
@@ -263,7 +263,7 @@ sample model
 X_pred = np.linspace(0, 1, 100).reshape(-1,1)
 y_pred = model(X_pred)
 ```
-figure
+![The RBF Model overlaid with the target function](epsi1.png)
 
 ### Impact of the Shape Parameter 
 
@@ -271,7 +271,7 @@ figure
 - always interpolates, shape is differnt
 - steeper shallower
 
-
+![The RBF Model overlaid with the target function](epsi_impact.png)
 
 
 
