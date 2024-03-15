@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gradients on Sjmelck</title>
+    <link>https://ryanbalshaw.github.io/sjmelck_pages/tags/gradients/</link>
+    <description>Recent content in Gradients on Sjmelck</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Jul 2023 11:59:05 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/tags/gradients/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RBF Models</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</link>
+      <pubDate>Sat, 08 Jul 2023 11:59:05 +0200</pubDate>
+      
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</guid>
+      <description>Gradient Enhanced Radial Basis Function Surrogate Models (GE-RBF) the maths the function based method in python the maths for gradients the GE method in python $$ F(x) = x^2 $$
+def test(x): return x </description>
+    </item>
+    
+  </channel>
+</rss>
