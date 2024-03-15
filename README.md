@@ -9,8 +9,6 @@
 
 <br/>
 
-View the page [here](https://ryanbalshaw.github.io/sjmelck_pages/)
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/RyanBalshaw/sjmelck_pages?color=important)
 ![GitHub contributors](https://img.shields.io/github/contributors/RyanBalshaw/sjmelck_pages?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/RyanBalshaw/sjmelck_pages?color=critical&style=flat-square)
@@ -18,7 +16,7 @@ View the page [here](https://ryanbalshaw.github.io/sjmelck_pages/)
 ![GitHub license](https://img.shields.io/github/license/RyanBalshaw/sjmelck_pages?style=flat-square)
 
 
-The purpose of Sjmelck is to provide an awesome blog for content related to engineering, computing, and everything in-between.
+The purpose of [Sjmelck](https://ryanbalshaw.github.io/sjmelck_pages/) is to provide an awesome blog for content related to engineering, computing, and everything in-between.
 
 ## Installing / Getting started
 
@@ -127,6 +125,39 @@ in the markdown of the relevant blog to render the figure and all paths to the f
 **Note:**
 ```note
 What would be awesome is a way to automatically create a blank python script and folder within assets\images. I am not sure how to do it yet, but it is an open issue.
+```
+
+## Adding mermaid diagrams
+
+Please ensure that the `hasMermaid` config is enabled in the post
+```markdown
+---
+title: "My Page with Mermaid Diagrams"
+hasMermaid: true
+---
+```
+
+You can then add diagrams in the markdown files using standard markdown syntax:
+```mermaid
+graph LR
+    A[Enter Chart Definition] --> B(Preview)
+    B --> C{decide}
+    C --> D[Keep]
+    C --> E[Edit Definition]
+    E --> B
+    D --> F[Save Image and Code]
+    F --> B
+```
+
+## Adding reveal sections
+
+Sections that are clickable with a dropdown to reveal content can be added by including a block of text with the following configuration in the Markdown file:
+```markdown
+{{< reveal "Click here to reveal" >}}
+
+Markdown text! :v:
+
+{{< /reveal >}}
 ```
 
 ## Contributing

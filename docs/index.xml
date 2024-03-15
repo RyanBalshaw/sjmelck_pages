@@ -8,85 +8,102 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Jan 2023 17:49:55 +0200</lastBuildDate><atom:link href="https://ryanbalshaw.github.io/sjmelck_pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RBF Models</title>
-      <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</link>
-      <pubDate>Sat, 08 Jul 2023 11:59:05 +0200</pubDate>
-      
-      <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/rbf-models/</guid>
-      <description>Gradient Enhanced Radial Basis Function Surrogate Models (GE-RBF) the maths the function based method in python the maths for gradients the GE method in python $$ F(x) = x^2 $$
-def test(x): return x </description>
+      <title>Justin Smith</title>
+      <link>https://ryanbalshaw.github.io/sjmelck_pages/about/justin-smith/</link>
+      <pubDate>Mon, 26 Feb 2024 15:48:07 +0200</pubDate>
+
+      <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/justin-smith/</guid>
+      <description>Welcome to the landing page of Justin Smith.
+🐉 Who is Justin Smith? I am a post-graduate mechanical engineering student at the University of Pretoria with a passion for condition monitoring and machine learning.
+💚 Fun question How can you use the ASCII values of the characters in the word &amp;ldquo;math&amp;rdquo; to get to the question posed by Ryan Balshaw?</description>
     </item>
-    
+
     <item>
       <title>Time synchronous averaging and computed order tracking: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</link>
       <pubDate>Fri, 14 Apr 2023 16:14:08 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-tsa-and-cot-explained/</guid>
       <description>Good day 👋
 The purpose of this explanation is to detail a high-level overview of the time-synchronous average (TSA) and Computed Order Tracking (COT). This will require a basic understanding of the objectives of TSA and COT, and I will try to provide some explanations and intuition to help those who do not have a good grasp on the concepts.</description>
     </item>
-    
+
     <item>
       <title>Johann Bouwer</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</link>
       <pubDate>Fri, 14 Apr 2023 10:33:53 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/johann-bouwer/</guid>
       <description>Welcome to the landing page of Johann Bouwer.
-Who is Johann Bouwer? What do you get if you take the square root of 1764? 42</description>
+🍜 Who is Johann Bouwer? Content loading&amp;hellip;
+❤️ Fun question What do you get if you take the square root of 1764?
+Click here to reveal
+💡 42
+graph LR;
+2--&gt;sqrt3;
+3--&gt;9;
+3--&gt;6;
+2--&gt;6;
+sqrt3[&#34;sqrt(3)^2&#34;]--&gt;3;
+3--&gt;3pow2[&#34;3^2&#34;];
+2--&gt;3pow2;
+3pow2--&gt;9;
+6--&gt;???;
+9--&gt;???;
+</description>
     </item>
-    
+
     <item>
       <title>The Fourier transform: Explained</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</link>
       <pubDate>Thu, 19 Jan 2023 16:18:44 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/the-fourier-transform-explained/</guid>
       <description>Explanation purpose Good day 👋
 So if you are opening this document, you hopefully have some questions about the Fourier Transform (FT), the Discrete Fourier Transform (DFT) or perhaps you are just curious to see what this document entails. Regardless of your reason for opening, I hope that this document makes the FT and DFT more accessible and intuitive.</description>
     </item>
-    
+
     <item>
       <title>Douw Marx</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:52 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/douw-marx/</guid>
       <description>Welcome to the landing page of Douw Marx.
-Who is Douw Marx? What do you get if you multiply six by nine? 42</description>
+🍻 Who is Douw Marx? I am a Mechanical Engineer. I completed my Masters in Mechanical engineering (with distinction) in the field of condition monitoring. I enjoy programming, statistics and math. I am currently working on my PhD under Prof. Kostis Gryllias
+at KU Leuven, Belgium.</description>
     </item>
-    
+
     <item>
       <title>Ryan Balshaw</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:47 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/ryan-balshaw/</guid>
       <description>Welcome to the landing page of Ryan Balshaw.
-Who is Ryan Balshaw? What is the answer to the ultimate question of life, the universe, and everything? 42</description>
+🐔 Who is Ryan Balshaw? Current PhD candidate in Mechanical Engineering at the University of Pretoria, my research is focused on asset condition monitoring using Artificial Intelligence. I am passionate about vibration analysis, machine learning and asset integrity, with a keen interest in signal processing and it’s applications in practice.</description>
     </item>
-    
+
     <item>
       <title>The Origins of Sjmelck</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</link>
       <pubDate>Thu, 12 Jan 2023 12:36:40 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/about/the-origins-of-sjmelck/</guid>
       <description>Welcome to the landing page of the origins of Sjmelck. It is good to have you here.
 What is Sjmelck? Put simply, Sjmelck Just Means Engineers Love Computers K?
 Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing.</description>
     </item>
-    
+
     <item>
       <title>Pretty plotting in Python.</title>
       <link>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</link>
       <pubDate>Wed, 11 Jan 2023 17:18:41 +0200</pubDate>
-      
+
       <guid>https://ryanbalshaw.github.io/sjmelck_pages/blog/pretty-plotting-in-python/</guid>
       <description>How to get really nice plots Good day 👋
 The purpose of this explanation is to give an example of how to get really nice plots in Python. This is still in development. At this point in time I used it as a trial post when setting up the blog. Hopefully I will fix it soon (17 April 2023).</description>
     </item>
-    
+
   </channel>
 </rss>

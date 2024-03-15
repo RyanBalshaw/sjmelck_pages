@@ -45,6 +45,12 @@ menu:
       url: 'about/johann-bouwer'
       params:
         author_name: "johann"
+    - identifier: about-justin
+      name: Contributor - Justin Smith
+      url: 'about/justin-smith'
+      weight: 40
+      params:
+        author_name: "justin"
     - identifier: about-sjmelck
       name: The Sjmelck vision
       url: 'about/the-origins-of-sjmelck'
@@ -85,8 +91,21 @@ menu:
       url: "https://github.com/JohannBouwer/"
       pre: "<i class='bi bi-github socialIcon'></i>"
     - name: Linkedin
-      url: "https://orcid.org/0000-0002-0597-3560/"
+      url: "https://www.linkedin.com/in/johann-mynhardt-bouwer-3086a3293/"
       pre: "<i class='bi bi-linkedin socialIcon'></i>"
     - name: Email
       url: "mailto: bouwer2608@gmail.com"
+      pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+  justin_social:
+    - identifier: 'description'
+      name: "Masters candidate at the University of Pretoria"
+      weight: 30
+    - name: Github
+      url: "https://github.com/JustinSmith66/"
+      pre: "<i class='bi bi-github socialIcon'></i>"
+    - name: Linkedin
+      url: "https://www.linkedin.com/in/justin-s-507338116/"
+      pre: "<i class='bi bi-linkedin socialIcon'></i>"
+    - name: Email
+      url: "mailto: 66smithjustin@gmail.com"
       pre: "<i class='bi bi-envelope-at socialIcon'></i>"

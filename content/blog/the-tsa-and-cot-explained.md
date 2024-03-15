@@ -13,13 +13,13 @@ _build:
   render: always
 ---
 
-Good day :waving_hand:
+Good day 👋
 
 The purpose of this explanation is to detail a high-level overview of the time-synchronous average (TSA) and Computed Order Tracking (COT). This will require a basic understanding of the objectives of TSA and COT, and I will try to provide some explanations and intuition to help those who do not have a good grasp on the concepts. At the end of each section, I provide a step-by-step guide for implementing these methods. If you have any questions, please feel to contact me at ryanbalshaw81@gmail.com.
 
 Kind regards,
 
-Ryan Balshaw :troll:
+Ryan Balshaw 🦮
 
 ## Introduction
 
@@ -105,7 +105,7 @@ If one re-examines the steps for TSA and COT, it is clear that step 5 is the onl
 
 For those of you who have reached the end of this document, I hope that you have found it useful. All the best with your exams, I hope that they go well!
 
-As always, thanks for reading! :man_technologist:
+As always, thanks for reading! 👨🏼‍💻
 
 ## References
 
