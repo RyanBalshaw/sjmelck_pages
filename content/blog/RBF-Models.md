@@ -14,7 +14,7 @@ _build:
   render: always
 ---
 
-# A basic python implementation of Function Value Radial Basis Function surrogate models (FV-RBF)
+# A basic python implementation of Function Value Radial Basis Function (FV-RBF) surrogate models 
 ![Alt Text](test.png)
 
 ## Table of Contents
@@ -23,13 +23,22 @@ _build:
 2. [Function Only Training](#training-the-model)
 3. [Python Implementation](#python-implementation)
 4. [Numerical Example](#numerical-example)
+5. [Conclusion](#conclusion)
 
 ## Introduction
 
+This is the first in series of posts that deal with radial basis function 
+surrogate models. The end goal will be to implement gradient enhanced models 
+that complete powerful transformation procedures, but, we must first 
+understand and implement the simpleset version of these models.
+
 Radial basis function surrogate models refer to a family surrogate models 
 that use a linear summation of basis functions. These models are useful when 
-some computationally function, such as a Finite Element simulation, is 
-replaced with a computationally inexpensive model. 
+some computationally expensive function, such as a Finite Element 
+simulation, is replaced with a computationally inexpensive model. This 
+simply means we attempt to predict the behaviour of a function that takes a 
+large amount of time solve with a model that can be quickly sampled at 
+numerous locations.
 
 We can express these models as a summation of \\( k \\) basis functions
 $$
@@ -51,8 +60,10 @@ some \\( n\\)-dimensional space. Common options include:
 - Gaussian: \\(\phi(\boldsymbol{x}, \boldsymbol{c}, \epsilon) = e^
   {-\epsilon||\boldsymbol{x} - \boldsymbol{c}||^2}\\),
 
-The most common option is the Gaussian basis function, which is useful for 
-the gradient enhanced case as the math is far more convenient.
+The most common option is the Gaussian basis function, so we will implement 
+it here, but it can be easily replaced if a different function is required. 
+A useful characteristic of the Gaussian basis function that will be used 
+later is how conveniently the gradient of the basis function can be found.
 
 ## Function Only Training
 
@@ -105,16 +116,21 @@ $$
 y = \Phi(X, c, \epsilon) w.
 $$
 Typically in the interpolation case the locations of the basis functions, i.e 
-\\( c \\) are placed at the sample location \\( x\\). The reaming \\( 
-\epsilon \\) is found using a heuristic or 
-[cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
+\\( c \\), are placed at the sample location \\( x\\). The remaining shape 
+parameter \\(\epsilon \\) is found using either a heuristic or a
+[cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics))
+procedure.
 
-On the other-hand, if a regression model is more useful we must make use of the 
-least squares formulation
+On the other-hand, if a regression model is more useful we must make use of 
+the least squares formulation
 
 $$
 \Phi(X, c, \epsilon)^Ty = \Phi(X, c, \epsilon)^T\Phi(X, c, \epsilon) w
 $$
+
+A regression model is usually implemented in the cases where we have 
+"noisy" data, or, a full interpolation matrix is too large to solve such in 
+large data sets.
 
 ## Python Implementation 
 Lets create a basic python class that can fit a RBF model to the data and 
@@ -248,30 +264,69 @@ def Example(x):
 ```
 ![The 1-dimensional function](Example.png)
 
-create model [pyDOE](https://pypi.org/project/pyDOE/)
+Next, we want to generate the data and then fit the model. To generate the 
+data we can use the [pyDOE](https://pypi.org/project/pyDOE/) library, but 
+this line can be replaced with numpy random function. After sampling the 
+function at the data locations, we then create the model using the RBFModel 
+class and use the FV_fit method to fit the model to the data.
 ```python
 from pyDOE import lhs
-X = lhs(1, 7, criterion='m')
-y = Example(X)
+X = lhs(1, 7, criterion='m') #samples locations
+y = Example(X) #sample the function
 
-model = RBFModel(X, y)
-model.FV_fit(epsi = 1)
+model = RBFModel(X, y) #create the model object
+model.FV_fit(epsi = 1) #fit the model
 ```
 
-sample model 
+We can now sample the model across the entire domain. To do this we create a 
+column vector of the locations we want the model to make predictions at, and 
+then pass this vector into the model.
 ```python
-X_pred = np.linspace(0, 1, 100).reshape(-1,1)
-y_pred = model(X_pred)
+X_pred = np.linspace(0, 1, 100).reshape(-1,1) #locations for predictions
+y_pred = model(X_pred) #model predictions
 ```
+
+Below is a plot of the model predictions overlaid with target functions, as 
+well as the generated data that the model is constructed on.
 ![The RBF Model overlaid with the target function](epsi1.png)
 
+We can see using only 7 samples we can already create a RBF model that gives 
+accurate predictions.
 ### Impact of the Shape Parameter 
 
-- show impact of epsilon
-- always interpolates, shape is differnt
-- steeper shallower
+At the moment the shape parameter is left at 1. This creates the obvious 
+question of what the impact the shape parameter has on the model. If we 
+refit the model using \\( \epsilon = 10, 100 \\) we obtain the results:
 
 ![The RBF Model overlaid with the target function](epsi_impact.png)
+
+As the name implies, the shape parameter impacts the overall shape of the 
+model. A larger value creates a "steeper" basis function, which in turn means 
+the model becomes "bumpy", while a smaller value creates a "shallower" basis 
+function and a "smoother" model. 
+
+In some implementations of the RBF model the shape parameter is placed as a 
+divider, i.e \\( \frac{||x - c||} {\epsilon}\\), in which case the inverse 
+behaviour is true, meaning larger is a smoother model and smaller is a 
+bumpy model.
+
+It is important to note that for any shape parameter the model still 
+fully interpolates, i.e it passes thorough, all the sampled data. Therefore, 
+to find the optimum shape parameter the data is separated into training and 
+testing sets and the value that performs the best on the testing set is used 
+to construct the model. This is referred to as a cross-validation strategy.
+
+## Conclusion
+
+This post presents a simple python class to implement a function value 
+radial basis function model. From this simple class more powerful versions 
+of the model can be constructed. In future posts we will address
+
+- the case where gradient information is available,
+- higher dimensional problems,
+- how to address the isotropic nature of radial basis function.
+
+
 
 
 
