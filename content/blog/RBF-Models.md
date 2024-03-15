@@ -4,7 +4,7 @@ publishdate: 2023-07-08T11:59:05+02:00
 author: Johann Bouwer
 description: A how-to on implementing gradients into the radial basis function
   surrogate model.
-draft: true
+draft: false
 toc: true
 tags: ["Gradients", "RBF", "surrogate models"]
 categories: ["python"]
