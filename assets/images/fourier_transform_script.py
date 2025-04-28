@@ -5,14 +5,13 @@ import os
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
-from mpl_toolkits.mplot3d import Axes3D
 
 # Setup the save directory
 tmp_dir_path = os.path.join(os.getcwd(), "the-fourier-transform-explained")
 
-########################################################################################################################
+########################################################################################
 # Setup figure 1
-########################################################################################################################
+########################################################################################
 t_sawtooth = np.arange(0, 1, 1 / 100)
 g_sawtooth = t_sawtooth - np.floor(t_sawtooth)
 
@@ -83,12 +82,12 @@ anim = FuncAnimation(
 )
 
 writergif = PillowWriter(fps=20)
-anim.save(os.path.join(tmp_dir_path, f"animation_fourier_series.gif"), writergif)
+anim.save(os.path.join(tmp_dir_path, "animation_fourier_series.gif"), writergif)
 
 plt.show()
-########################################################################################################################
+########################################################################################
 # Figure 2
-########################################################################################################################
+########################################################################################
 ############
 # ASSUMPTIONS
 ############
@@ -111,12 +110,12 @@ plt.title("The function g(t)")
 plt.plot(t, g_function)
 plt.xlabel("Time (s)")
 plt.grid()
-plt.savefig(os.path.join(tmp_dir_path, f"function.png"))
+plt.savefig(os.path.join(tmp_dir_path, "function.png"))
 plt.show()
 
-########################################################################################################################
+########################################################################################
 # Figure 3
-########################################################################################################################
+########################################################################################
 
 # create your own definition of 1 revolution
 
@@ -168,15 +167,16 @@ anim2 = FuncAnimation(
 )
 
 writergif2 = PillowWriter(fps=200)
-anim2.save(os.path.join(tmp_dir_path, f"animation_fourier_wrapping.gif"), writergif2)
+anim2.save(os.path.join(tmp_dir_path, "animation_fourier_wrapping.gif"), writergif2)
 
 plt.show()
 
-########################################################################################################################
+########################################################################################
 # Figure 4
-########################################################################################################################
+########################################################################################
 plt.close("all")
-# Crucial to use widget for ipywidgets (in every cell you use the magic line, crashes if you use %matplotlib notebook or anything like that)
+# Crucial to use widget for ipywidgets (in every cell you use the magic line, crashes if
+# you use %matplotlib notebook or anything like that)
 # plot as magnitude and phase
 fig, ax = plt.subplots(2, 3, figsize=(10, 8))
 ax = ax.flatten()
@@ -214,12 +214,12 @@ for cnt, axs in enumerate(ax):
     axs.legend()
 
 fig.tight_layout()
-plt.savefig(os.path.join(tmp_dir_path, f"different_wraps_and_com.png"))
+plt.savefig(os.path.join(tmp_dir_path, "different_wraps_and_com.png"))
 plt.show()
 
-########################################################################################################################
+########################################################################################
 # Figure 5
-########################################################################################################################
+########################################################################################
 plt.close("all")
 
 real = []
@@ -291,15 +291,13 @@ anim3 = FuncAnimation(
 # lowering interval will speed up the animation
 
 writergif3 = PillowWriter(fps=20)
-anim3.save(
-    os.path.join(tmp_dir_path, f"animation_real_imag_components.gif"), writergif3
-)
+anim3.save(os.path.join(tmp_dir_path, "animation_real_imag_components.gif"), writergif3)
 
 plt.show()
 
-########################################################################################################################
+########################################################################################
 # Figure 6
-########################################################################################################################
+########################################################################################
 f = 5
 data_forward = np.exp(1j * 2 * np.pi * f * t)
 data_backward = np.exp(-1j * 2 * np.pi * f * t)
@@ -385,6 +383,6 @@ anim4 = FuncAnimation(
 )
 
 writergif4 = PillowWriter(fps=200)
-anim4.save(os.path.join(tmp_dir_path, f"animation_rotation.gif"), writergif4)
+anim4.save(os.path.join(tmp_dir_path, "animation_rotation.gif"), writergif4)
 
 plt.show()
