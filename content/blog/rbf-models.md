@@ -8,27 +8,34 @@ draft: false
 toc: true
 tags: ["Gradients", "RBF", "surrogate models"]
 categories: ["python"]
+OverviewFig: "test.png"
 _build:
   list: always
   publishResources: true
   render: always
 ---
 
-![Alt Text](test.png)
-
 Good day 👋
 
 🧠 This is the first in a series of blog posts that deal with radial basis function surrogate models 🧑🏽‍🏫. The end goal will be to implement gradient enhanced models that complete powerful transformation procedures, but, we must first understand and implement the simplest version of these models.
+
+Kind regards,
+
+Johann Bouwer
+
+![Alt Text](test.png)
 
 ## Introduction
 
 Radial basis function (RBF) surrogate models refer to a family surrogate models that use a linear summation of basis functions. These models are useful when some computationally expensive function, such as a Finite Element simulation, is replaced with a computationally inexpensive model. This simply means we attempt to predict the behaviour of a function that takes a large amount of time solve with a model that can be quickly sampled at numerous locations.
 
 We can express these models as a summation of \\( k \\) basis functions
+
 $$
 RBF(\boldsymbol{x}) = \sum_{i=1}^k w_i\phi_i(\boldsymbol{x},
 \boldsymbol{c}_i, \epsilon),
 $$
+
 where \\( w_i\\) is the weight associated with each basis function \\( \phi_i \\). The basis function is then dependent on the input vector \\( \boldsymbol{x}\\) where the model is being sampled, the centre of each basis function \\( \boldsymbol{c}\\), and the shape parameter \\( \epsilon \\).
 
 These basis functions depend on a distance measure between two points in some \\( n\\)-dimensional space. Common options include:
@@ -47,12 +54,15 @@ The most common option is the Gaussian basis function, so we will implement it h
 Training a RBF model involves taking some same data set \\( X, y \\), where \\(X \\) are the locations of where the function values \\( y \\) are known, and finding the ideal weights of model associated with each basis function. [Scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RBFInterpolator.html#scipy.interpolate.RBFInterpolator) has an efficient and powerful implementation of the RBF model. What this implementation lacks however, is the ability to include sampled gradient information into the model. To understand the `gradient-enhanced` version of model, the `function` version must first be understood.
 
 The `function` version for RBF model is expressed as a system of equations
+
 $$
    RBF(\boldsymbol{x}) = \boldsymbol{\Phi}(\boldsymbol{x}, \boldsymbol{c},
 \epsilon)\boldsymbol{w},
 $$
+
 where \\( \boldsymbol{w} \\) is the column vector of the weights for each
 basis function or kernel and \\(\boldsymbol{\Phi}\\) is now a matrix of the basis vectors
+
 $$
 \boldsymbol{\Phi} =
 \begin{bmatrix}
@@ -68,7 +78,9 @@ _p, \boldsymbol{c}_2, \epsilon) & ... & \phi(\boldsymbol{x}_p, \boldsymbol{c}
 _k, \epsilon)
 \end{bmatrix},
 $$
+
 with the size \\( p \times k\\) where \\( p \\) is the number of samples in the data set and \\( k \\) is the number of basis functions. To simplify notation, let \\( [\boldsymbol{x}_1, \boldsymbol{x}_2, ..., \boldsymbol{x}_p]^T \\) be represented by \\( \boldsymbol{X} \\) and let \\( [\boldsymbol{c}_1, \boldsymbol{c}_2, ..., \boldsymbol{c}_k]^T \\) be represented by \\( \boldsymbol{C} \\). This notation simply indicates that we have \\( p \\) samples of \\( \boldsymbol{x} \\) and a \\( k \\) number of centres (\\(\boldsymbol{c} \\)), while transpose operator indicates that the vectors of \\( \boldsymbol{x} \\) and \\( \boldsymbol{c} \\) are stored in the rows of \\( \boldsymbol{X} \\) and \\( \boldsymbol{C} \\), respectively. The `function` version of the RBF model is represented by
+
 $$
 \boldsymbol{y} = \boldsymbol{\Phi}(\boldsymbol{X}, \boldsymbol{C}, \epsilon) \boldsymbol{w}.
 $$
@@ -193,20 +205,22 @@ We now have a basic python class that will fit either a full interpolation RBF m
 ## Numerical Example
 
 Let's test the created python class on a simple 1-dimensional example. We will use the function
+
 $$
 f(x) = \sin(10x) + x.
 $$
 
-The pythod code for this example is given by
+The python code for this example is given by
+
 ```python
 def Example(x):
-
     return np.sin(10*x) + x
 ```
 
 ![The 1-dimensional function](Example.png)
 
 Next, we want to generate the data and then fit the model. To generate the data we can use the [pyDOE](https://pypi.org/project/pyDOE/) library, but this line can be replaced with numpy random function. The code below just uses [Latin hypercube sampling](https://en.wikipedia.org/wiki/Latin_hypercube_sampling) to cover the domain of interest. In this example, we assume that the domain is \\( x \in [1, 7] \\). After sampling the function at the data locations, we then create the model using the `RBFModel` class and use the `FV_fit` method to fit the model to the data.
+
 ```python
 from pyDOE import lhs
 X = lhs(1, 7, criterion='m') #samples locations
@@ -217,6 +231,7 @@ model.FV_fit(epsi = 1) #fit the model
 ```
 
 We can now sample the model across the entire domain. To do this we create a column vector of the locations we want the model to make predictions at, and then pass this vector into the model (which uses the `__call__` method we wrote behind the scenes).
+
 ```python
 X_pred = np.linspace(0, 1, 100).reshape(-1,1) #locations for predictions
 y_pred = model(X_pred) #model predictions
@@ -236,7 +251,7 @@ At the moment the shape parameter is left at 1. This creates the obvious questio
 
 As the name implies, the shape parameter impacts the overall shape of the model. A larger value creates a "steeper" basis function, which in turn means the model becomes "bumpy", while a smaller value creates a "shallower" basis function and a "smoother" model.
 
-**Note:** In some implementations of the RBF model the shape parameter is placed as a divider, i.e., \\( \frac{||x - c||} {\epsilon}\\), in which case the inverse behaviour is true, meaning larger is a smoother model and smaller is a bumpy model.
+> **Note:** In some implementations of the RBF model the shape parameter is placed as a divider, i.e., \\( \frac{||x - c||} {\epsilon}\\), in which case the inverse behaviour is true, meaning larger is a smoother model and smaller is a bumpy model.
 
 It is also important to note that for any shape parameter the model still fully interpolates, i.e., it passes thorough, all the sampled data. Therefore, to find the optimum shape parameter the data is separated into training and testing sets and the value that performs the best on the testing set is used to construct the model. This is referred to as a cross-validation strategy.
 

@@ -25,3 +25,9 @@
   color: #666;
   font-weight: 600;
 }
+
+.blog-post-description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}

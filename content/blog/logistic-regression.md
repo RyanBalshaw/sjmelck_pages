@@ -2,20 +2,19 @@
 title: "Logistic Regression"
 publishdate: 2025-04-23T15:51:58+02:00
 author: Ryan Balshaw
-description: test
+description: A write-up of the logistic regression model from start to finish. The primary focus is on the model formulation and model interpretability.
 draft: true
 toc: true
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
 math: true
 hasMermaid: false
+OverviewFig: "summary_figure.png"
 _build:
   list: always
   publishResources: true
   render: always
 ---
-
-![Summary figure](summary_figure.png)
 
 # Introduction
 
@@ -28,6 +27,8 @@ This post is very involved. I have tried to lay out each component in a simple, 
 Kind regards,
 
 Ryan Balshaw 🦮
+
+![Summary figure](summary_figure.png)
 
 # 1. The logistic regression model
 
@@ -120,7 +121,7 @@ $$
 \end{aligned}
 $$
 
-This indicates that where $z(\boldsymbol{\zeta}, \mathbf{x}) = 0$ we have equal classes. 
+This indicates that where $z(\boldsymbol{\zeta}, \mathbf{x}) = 0$ we have equal classes.
 {{< /reveal >}}
 
 {{< reveal "In the second scenario we recover" >}}
@@ -134,12 +135,12 @@ where $\delta$ represents the positive difference between $p(y = 1\vert \mathbf{
 
 
 {{< reveal "The third scenario recovers:" >}}
- 
+
 $$
 -\delta=\mathbf{w}^T\mathbf{x}+b,
 $$
 
-indicating that when $z(\boldsymbol{\zeta}, \mathbf{x}) < 0$, the value $\mathbf{x}$ is more likely to be from class $y=0$.  
+indicating that when $z(\boldsymbol{\zeta}, \mathbf{x}) < 0$, the value $\mathbf{x}$ is more likely to be from class $y=0$.
 {{< /reveal >}}
 
 {{< reveal "In Summary:" >}}

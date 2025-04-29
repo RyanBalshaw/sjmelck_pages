@@ -41,88 +41,117 @@ def simple_problem():
     color_class_0 = "#FF9999"
     color_class_1 = "#66B2FF"
 
-    fig, axs = plt.subplots(1, 2, figsize=(11, 4), gridspec_kw={'width_ratios': [1, 1.3]})
+    fig, axs = plt.subplots(
+        1, 2, figsize=(11, 4), gridspec_kw={"width_ratios": [1, 1.3]}
+    )
     fig.suptitle("Logistic Regression", fontsize=16)
 
     # Draw arrow
-    fig.text(0.5, 0.85, r'$\Longrightarrow$', fontsize=40, ha='center', va='center')
+    fig.text(0.5, 0.85, r"$\Longrightarrow$", fontsize=40, ha="center", va="center")
 
     # Sub-plot 1: Show linear mapping
     axs[0].set_title("Linear mapping")
-    axs[0].plot(x, z, label='$z = b_0 + b_1 x$', lw=2, color='navy')
+    axs[0].plot(x, z, label="$z = b_0 + b_1 x$", lw=2, color="navy")
 
     # Show points on linear mapping
-    axs[0].scatter(x_samples_0, z_samples_0, color="k", marker = "x", s=40, alpha=0.6)
-    axs[0].scatter(x_samples_1, z_samples_1, color="k", marker = "x", s=40, alpha=0.6)
+    axs[0].scatter(x_samples_0, z_samples_0, color="k", marker="x", s=40, alpha=0.6)
+    axs[0].scatter(x_samples_1, z_samples_1, color="k", marker="x", s=40, alpha=0.6)
 
     # Plot vertical lines up to linear mapping
-    for cnt, (xs_0, xs_1, zs_0, zs_1) in enumerate(zip(x_samples_0, x_samples_1, z_samples_0, z_samples_1)):
-        axs[0].plot([xs_0, xs_0], [0, zs_0], linestyle = "--", color = "k")
+    for cnt, (xs_0, xs_1, zs_0, zs_1) in enumerate(
+        zip(x_samples_0, x_samples_1, z_samples_0, z_samples_1)
+    ):
+        axs[0].plot([xs_0, xs_0], [0, zs_0], linestyle="--", color="k")
         axs[0].plot([xs_1, xs_1], [0, zs_1], linestyle="--", color="k")
 
     # Plot scatter of x points for two classes
-    axs[0].scatter(x_samples_0, np.zeros_like(x_samples_0), color=color_class_0, s=55, label='Class 0 samples')
-    axs[0].scatter(x_samples_1, np.zeros_like(x_samples_0), color=color_class_1, s=55, label='Class 1 samples')
+    axs[0].scatter(
+        x_samples_0,
+        np.zeros_like(x_samples_0),
+        color=color_class_0,
+        s=55,
+        label="Class 0 samples",
+    )
+    axs[0].scatter(
+        x_samples_1,
+        np.zeros_like(x_samples_0),
+        color=color_class_1,
+        s=55,
+        label="Class 1 samples",
+    )
 
-    axs[0].set_xlabel(r'$x$', fontsize=14)
-    axs[0].set_ylabel(r'$z$', fontsize=14)
+    axs[0].set_xlabel(r"$x$", fontsize=14)
+    axs[0].set_ylabel(r"$z$", fontsize=14)
     axs[0].set_xlim([x_min, x_max])
     axs[0].set_ylim([-4, 4])
 
-    axs[0].axhline(0, color='black', lw=1)
+    axs[0].axhline(0, color="black", lw=1)
     # axs[0].axvline(0, color='black', lw=1)
 
-    axs[0].spines['right'].set_visible(False)
-    axs[0].spines['top'].set_visible(False)
+    axs[0].spines["right"].set_visible(False)
+    axs[0].spines["top"].set_visible(False)
     # axs[0].spines['left'].set_position('zero')
-    axs[0].spines['bottom'].set_position('zero')
+    axs[0].spines["bottom"].set_position("zero")
     axs[0].set_xticks([])
     axs[0].set_yticks([])
 
-    axs[0].legend(loc='upper left', fontsize=10, frameon=False)
+    axs[0].legend(loc="upper left", fontsize=10, frameon=False)
 
     # Subplot 2: Show distribution mapping
     fig.subplots_adjust(wspace=0.12)
     axs[1].set_title("Probability mass function")
 
-    # ========== RIGHT: Sigmoid + Classes ==========
-    axs[1].plot(x, sig, lw=2, color='m')
+    axs[1].plot(x, sig, lw=2, color="m")
 
     # Plot samples
-    axs[1].scatter(x_samples_0, np.zeros_like(x_samples_0), color=color_class_0, s=55, label='Class 0 samples')
-    axs[1].scatter(x_samples_1, np.zeros_like(x_samples_0), color=color_class_1, s=55, label='Class 1 samples')
+    axs[1].scatter(
+        x_samples_0,
+        np.zeros_like(x_samples_0),
+        color=color_class_0,
+        s=55,
+        label="Class 0 samples",
+    )
+    axs[1].scatter(
+        x_samples_1,
+        np.zeros_like(x_samples_0),
+        color=color_class_1,
+        s=55,
+        label="Class 1 samples",
+    )
 
     # Shade class areas
     axs[1].fill_between(x, 0, sig, where=(sig < 0.5), color=color_class_0, alpha=0.16)
     axs[1].fill_between(x, sig, 1, where=(sig > 0.5), color=color_class_1, alpha=0.16)
 
     # Annotate class areas
-    axs[1].text(-4, 0.25, 'Class 0 region', color=color_class_0, fontsize=12)
-    axs[1].text(1.5, 0.85, 'Class 1 region', color=color_class_1, fontsize=12)
+    axs[1].text(-4, 0.25, "Class 0 region", color=color_class_0, fontsize=12)
+    axs[1].text(1.5, 0.85, "Class 1 region", color=color_class_1, fontsize=12)
 
-    axs[1].set_xlabel(r'$x$', fontsize=14)
-    axs[1].set_ylabel(r'', fontsize=14)
+    axs[1].set_xlabel(r"$x$", fontsize=14)
+    axs[1].set_ylabel(r"", fontsize=14)
     axs[1].set_xlim([x_min, x_max])
     axs[1].set_ylim([-0.1, 1.1])
-    axs[1].axhline(0, color='black', lw=1)
-    axs[1].axhline(1, color='black', lw=1)
+    axs[1].axhline(0, color="black", lw=1)
+    axs[1].axhline(1, color="black", lw=1)
     # axs[1].axvline(0, color='black', lw=1)
     axs[1].set_xticks([])
     axs[1].set_yticks([0, 0.5, 1])
 
-    axs[1].spines['right'].set_visible(False)
-    axs[1].spines['top'].set_visible(False)
+    axs[1].spines["right"].set_visible(False)
+    axs[1].spines["top"].set_visible(False)
     # axs[1].spines['left'].set_position('zero')
-    axs[1].spines['bottom'].set_position('zero')
+    axs[1].spines["bottom"].set_position("zero")
 
     # [right plot]: Add a dashed line at decision boundary
     decision_boundary_x = x_intercept
-    axs[1].axvline(decision_boundary_x, color='grey', lw=1, ls='--', alpha=0.6)
-    axs[1].axhline(0.5, color='grey', lw=1, ls='--', alpha=0.6)
-    axs[1].text(decision_boundary_x + 0.35, 0.525, 'threshold', color="grey", fontsize=9)
+    axs[1].axvline(decision_boundary_x, color="grey", lw=1, ls="--", alpha=0.6)
+    axs[1].axhline(0.5, color="grey", lw=1, ls="--", alpha=0.6)
+    axs[1].text(
+        decision_boundary_x + 0.35, 0.525, "threshold", color="grey", fontsize=9
+    )
 
     # [y-axis label, right plot]
-    axs[1].set_ylabel(r'$p(y=1|x)$', fontsize=14)
+    axs[1].set_ylabel(r"$p(y=1|x)$", fontsize=14)
 
     plt.tight_layout(rect=[0.01, 0, 1, 1])
     plt.savefig(os.path.join(tmp_dir_path, "summary_figure.png"))
@@ -136,7 +165,7 @@ def simple_problem():
 
     # plot 1
     plt.figure(figsize=(10, 6))
-    colors = ListedColormap([colors_class_0, colors_class_1])
+    colors = ListedColormap([color_class_0, color_class_1])
 
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=colors, edgecolors="k", s=50, alpha=0.8)
     plt.title("Binary Classification Dataset (make_blobs)", fontsize=14)
@@ -228,9 +257,9 @@ def simple_problem():
     for i, (x_i, y_i) in enumerate(zip(X[:, 0], X[:, 1])):
         z_i = 0 if y[i] == 0 else 1  # Project to bottom or top
         if y[i] == 0:
-            ax2.scatter([x_i], [y_i], [z_i], color="blue", s=30, edgecolor="k")
+            ax2.scatter([x_i], [y_i], [z_i], color=color_class_0, s=30, edgecolor="k")
         else:
-            ax2.scatter([x_i], [y_i], [z_i], color="red", s=30, edgecolor="k")
+            ax2.scatter([x_i], [y_i], [z_i], color=color_class_1, s=30, edgecolor="k")
 
     fig.colorbar(surf2, ax=ax2, shrink=0.5, aspect=5, label="Probability of Class 1")
 

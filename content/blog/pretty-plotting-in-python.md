@@ -2,6 +2,7 @@
 title: "Pretty plotting in Python."
 publishdate: 2023-01-11T17:18:41+02:00
 draft: false
+description: This is a WIP.
 author: Ryan Balshaw
 toc: true
 tags: ["tag1", "tag2", "tag3"]
@@ -135,4 +136,3 @@ fix(ax[1], minor_flag=False, flag_3d=False)
 
 plt.show(block=True)
 ```
-
