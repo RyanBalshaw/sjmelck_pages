@@ -15,9 +15,19 @@ _build:
   render: always
 ---
 
+![Summary figure](summary_figure.png)
+
 # Introduction
 
-In this write-up, the logistic regression model is covered in detail. This model is used to predict binary outcomes and is well known for its ability to drive interpretability. The objective is to start with the basics of the model formulation, consider how to interpret the model parameters, introduce the concept of how to regularise the model, and TODO!!
+Good day! :wave:
+
+In this post, the logistic regression model is covered in detail. This model is used to predict binary outcomes and is well known for its ability to drive interpretability. The objective is to start with the basics of the model formulation, consider how to interpret the model parameters, introduce the concept of how to regularise the model, give the analytical forms of the gradient vector and Hessian matrix, and define how to extend the class to the multi-class classification form.
+
+This post is very involved. I have tried to lay out each component in a simple, consistent, and digestible format. If you spot any issues or mistakes, please reach out to me at ryanbalshaw81@gmail.com or [create a merge request](https://github.com/RyanBalshaw/sjmelck_pages?tab=readme-ov-file#contributing).
+
+Kind regards,
+
+Ryan Balshaw 🦮
 
 # 1. The logistic regression model
 
@@ -95,12 +105,13 @@ $$
 \ln \frac{p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}})}{p(y = 0\vert \mathbf{x}, {\boldsymbol{\zeta}})} = \mathbf{w}^T \mathbf{x} + b = z(\boldsymbol{\zeta}, \mathbf{x}).
 $$
 
-This is primarily useful as it provides an indication of what is being learnt by the model: the mapping $z$ represents the log-odds between the two classes. How does it do this? Consider these three scenarios:
+This is primarily useful as it provides an indication of what is being learnt by the model: the mapping $z$ represents the log-odds between the two classes. What is the implication of representing the log-odds? Let's consider these three scenarios, but I challenge you to think about it yourself before viewing the answers:
 1. $p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}}) = p(y = 0\vert \mathbf{x}, {\boldsymbol{\zeta}})$
 2. $p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}}) > p(y = 0\vert \mathbf{x}, {\boldsymbol{\zeta}})$
 3. $p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}}) < p(y = 0\vert \mathbf{x}, {\boldsymbol{\zeta}})$
 
-In the first scenario, we recover
+
+{{< reveal "In the first scenario, we recover:" >}}
 
 $$
 \begin{aligned}
@@ -109,19 +120,31 @@ $$
 \end{aligned}
 $$
 
-This indicates that where $z(\boldsymbol{\zeta}, \mathbf{x}) = 0$ we have equal classes. In the second scenario we recover
+This indicates that where $z(\boldsymbol{\zeta}, \mathbf{x}) = 0$ we have equal classes. 
+{{< /reveal >}}
+
+{{< reveal "In the second scenario we recover" >}}
 
 $$
 +\delta = \mathbf{w}^T \mathbf{x} + b,
 $$
 
-which indicates that when $z(\boldsymbol{\zeta}, \mathbf{x}) > 0$, the value $\mathbf{x}$ is more likely to be from class $y=1$. The third scenario, you might guess, recovers
+where $\delta$ represents the positive difference between $p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}})$ and $p(y = 0\vert \mathbf{x}, {\boldsymbol{\zeta}})$. This indicates that when $z(\boldsymbol{\zeta}, \mathbf{x}) > 0$, the value $\mathbf{x}$ is more likely to be from class $y=1$.
+{{< /reveal >}}
 
+
+{{< reveal "The third scenario recovers:" >}}
+ 
 $$
 -\delta=\mathbf{w}^T\mathbf{x}+b,
 $$
 
-indicating that when $z(\boldsymbol{\zeta}, \mathbf{x}) < 0$, the value $\mathbf{x}$ is more likely to be from class $y=0$.  Hence, the sign of the plane formed by $z(\boldsymbol{\zeta}, \mathbf{x})$ provides an indication of which class $\mathbf{x}$ will be assigned to. Additionally, the equation $z(\boldsymbol{\zeta}, \mathbf{x})=0$ defines a hyperplane in the feature space that serves as the decision boundary for classification, separating the $\mathbf{x}$ space into two half-spaces corresponding to the two classes.
+indicating that when $z(\boldsymbol{\zeta}, \mathbf{x}) < 0$, the value $\mathbf{x}$ is more likely to be from class $y=0$.  
+{{< /reveal >}}
+
+{{< reveal "In Summary:" >}}
+The sign of the plane formed by $z(\boldsymbol{\zeta}, \mathbf{x})$ provides an indication of which class $\mathbf{x}$ will be assigned to. Additionally, the equation $z(\boldsymbol{\zeta}, \mathbf{x})=0$ defines a hyperplane in the feature space that serves as the decision boundary for classification, separating the $\mathbf{x}$ space into two half-spaces corresponding to the two classes.
+{{< /reveal >}}
 
 ## 2.2 Visual interpretation
 
@@ -134,7 +157,7 @@ Training a model on this loss with $L_1$ regularisation produces the following l
 To interpret the logistic regression model, the log-odds and discriminative distribution for class one, i.e., $p(y=1\vert \mathbf{x}, \boldsymbol{\zeta})$ can be inspected. These two functions are given by
 ![Log-odds and classification result](animation_prob_class_1.gif)
 
-We can see the TODO!!!
+We can see the log-odds is a plane that splits the data into two classes.
 
 # 3. Combating over-fitting via regularisation
 
@@ -378,8 +401,11 @@ $$
 
 > Note: This is the Hessian matrix of $\mathcal{L}(\boldsymbol{\zeta})$ and it does not include the regularisation term. To include it, you will just need to add  $\alpha \cdot \mathbf{J}\left( \nabla R(\boldsymbol{\zeta}) \right)^T$ to $\mathbf{H}(\boldsymbol{\zeta})$.
 
+# 5. Implementing this in code
 
-# 5. Multinomial logistic regression
+I realise that this post is now insanely long, so I recommend that you look at my implementation inside the [`sjmelck_pages`](https://github.com/RyanBalshaw/sjmelck_pages/tree/main/assets/images)repository itself or inside the [`random_paper_implementations`](https://github.com/RyanBalshaw/random-paper-implementations/tree/main/implementations/robust_optimized_weight_spectrum) repository. This is a version that I wrote to be compatible with scikit-learn, just for the challenge.
+
+# 6. Multinomial logistic regression
 
 To wrap this discussion up, I will also discuss how multinomial logistic regression can be scaled up to multiple classes. I will not progress further than the model formulation and how to compute the gradient (CONFIRM). The first step is to introduce a mapping to $\mathbf{z} \in \mathcal{R}^K$, where $K$ refers to the number of classes considered. This is achieved using
 
@@ -389,7 +415,7 @@ $$
 
 where $\mathbf{W}=[\mathbf{w}_k, \cdots, \mathbf{w}_K]^T$ represents $K$ independent mappings and $\mathbf{b} = [b_k, \cdots, b_K]^T$. To derive the form of $p(y_i=k\vert \mathbf{x})$, there are two prominent forms in the literature, namely via $(i)$ minimal parametrisation and $(ii)$ over-parametrisation of the weight vectors. I will discuss each in turn.
 
-## 5.1 Minimal parametrisation
+## 6.1 Minimal parametrisation
 
 To derive this formation, the constraint $\sum_{l=1}^{K}p(y=l \vert \mathbf{x})=1$ is key. Specifically, we can write
 
@@ -426,7 +452,7 @@ $$
 
 In this solution, the fact that one classes probability is fully parametrised by the probabilities of the other classes is key.
 
-## 5.2 Over-parametrisation
+## 6.2 Over-parametrisation
 
 In the over-parametrised form, the Gibbs measure is used to define
 
@@ -452,7 +478,7 @@ $$
 
 where $\boldsymbol{\sigma}_s(\mathbf{z}): \mathbb{R}^K \rightarrow \mathbb{R}^K$ is commonly referred to as the softmax function. One problem with this term is that it is invariant to translation, i.e.,  $\sigma_s^{(k)}(\mathbf{z} + \mathbf{c}) = \sigma_s^{(k)}(\mathbf{z})$, and if we set $\mathbf{c} = \boldsymbol{\zeta}_k$, we can recover the minimal parametrisation form, effectively removing the weights for the $K^{th}$ class.
 
-## 5.3 The multinomial objective function
+## 6.3 The multinomial objective function
 
 For both forms of $p(y=k\vert \mathbf{x})$, the observed class labels $y_i \in \{1, \cdots, K\}$ for $i=1, \cdots, N$ are considered as samples of categorically distributed random variables $Y_1, \cdots, Y_K$ leading to the probability mass function
 
@@ -484,7 +510,7 @@ $$
 
 One interesting take-away is that this loss only considers the probability given to the expected class label, and on the surface it appears that the parameter updates will only care about the correct class prediction. To determine if this is truly the case, it is of interest to look at how the parameters are updated. Specifically, iterative parameter updates, e.g., gradient descent,  require the gradient vector, which now relies on the term $\partial \boldsymbol{\sigma} / \partial \mathbf{z}$, i.e., the Jacobian of the softmax function with respect to $\mathbf{z}$. The form of this term is discussed to drive intuition behind the loss.
 
-## 5.4 The Jacobian of the softmax function
+## 6.4 The Jacobian of the softmax function
 
 Each row in the Jacobian $\mathbf{J}_\boldsymbol{\sigma} \, \boldsymbol{\sigma}(\mathbf{z}) \in \mathbb{R}^{K \times K}$ is given by
 
@@ -517,6 +543,6 @@ $$
 
 This relation indicates that the gradient vector will contain sensitivity information on both the correct class predictions and the incorrect class predictions.
 
-# 6. Conclusion
+# 7. Conclusion
 
-TODO
+If you get this far, thank you for reading this post! I hope you found parts of this write-up informative and that you ended off with a better understanding than when you started reading the post! If you did not, please let me know!
