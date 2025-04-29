@@ -5,7 +5,7 @@
   {{$image := resources.Get $destination_path }}
   <p align="center">
     <img src="
-    {{ ($image.Fit `700x700 Smart q75`).RelPermalink | safeURL }}
+    {{ ($image.Fit `500x500 Smart q75`).RelPermalink | safeURL }}
     " alt="{{ .Text }}" />
   </p>
 {{ end }}

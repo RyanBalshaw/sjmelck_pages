@@ -5,6 +5,7 @@ author: Ryan Balshaw
 description: This is a simple explanation of the TSA and COT.
 draft: false
 toc: true
+OverviewFig: "averaging_process.png"
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
 _build:

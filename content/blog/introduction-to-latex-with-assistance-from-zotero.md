@@ -143,4 +143,4 @@ The video below provides more assistance on integrating Zotero with Research Rab
 ---
 As always, thanks for reading! 👨‍💻
 
-Please feel free to contact me ([Justin Smith](mailto:66smithjustin@gmail.com?subject=Sjmelck blog post)) for any suggestions or comments!
+Please feel free to contact me [Justin Smith](mailto:66smithjustin@gmail.com) for any suggestions or comments!

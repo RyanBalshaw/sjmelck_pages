@@ -19,7 +19,6 @@ repos:
         args:   [ '--markdown-linebreak-ext=md' ]
     -   id: check-added-large-files         # this hook will prevent  extremely large files from being committed.
         args:   [ '--maxkb=20000' ]
-    -   id: double-quote-string-fixer       #This hook will replace double quotes with single quotes
 
 -   repo: https://github.com/ambv/black
     rev: 22.6.0

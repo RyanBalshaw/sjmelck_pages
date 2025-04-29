@@ -1,3 +1,4 @@
+
 <article class="blog">
 
     <div class="container mb-5">
@@ -5,10 +6,18 @@
 
         <div class="card-body">
           <h2>{{ .Title }}</h2>
-          {{ .Summary }}
+
+          <p class="blog-post-description"> <b><em>TL;DR:</em></b> {{ .Description }}</p>
+
+          {{ if .Params.OverviewFig }}
+            {{ $figure := printf "![Summary figure](%s)" .Params.OverviewFig }}
+            {{ $figure | .RenderString }}
+          {{ end }}
+
+<!--          {{ .Content | strings.Truncate 150  }}-->
 
           <div class="post-meta mt-3">
-            {{ .PublishDate.Format "Jan 2, 2006" }} · {{ .ReadingTime}} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
+            {{ .Params.Author }} · {{ .PublishDate.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min · {{ .FuzzyWordCount }} Words
           </div>
 
           <div>

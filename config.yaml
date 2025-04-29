@@ -11,13 +11,33 @@ enableRobotsTXT: true
 enableEmoji: true
 googleAnalytics: "G-TZK5KHZQ8Y"
 params:
+  math: true
   AuthorName: Ryan Balshaw
   GitHubUser: RyanBalshaw
-  description: "Sjmelck Just Means Engineers Love Computers K? Sjmelck (Pronounces 100% exaclty like it is written), aims to be the engineers cheat sheet to the world of scientific computing."
+  description: "Sjmelck Just Means Engineers Love Computers K? Sjmelck (Pronounces 100% exactly like it is written), aims to be the engineers cheat sheet to the world of scientific computing."
 sitemap:
   changefreq: "daily"
   filename: "sitemap.xml"
   priority: 0.5
+markup:
+  goldmark:
+    renderer:
+      unsafe: true    # This allows HTML in markdown
+    parser:
+      attribute:
+        block: true
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
 menu:
   main:
     - identifier: about
