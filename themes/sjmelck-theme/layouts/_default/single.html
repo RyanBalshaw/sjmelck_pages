@@ -21,7 +21,7 @@
             <div class="col-md-9">
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta mt-3">
-                    {{ .PublishDate.Format "January 2, 2006" }} · {{ .ReadingTime }} min · {{ .Params.Author }} · {{ .FuzzyWordCount }} Words
+                    {{ .Params.Author }} · {{ .PublishDate.Format "January 2, 2006" }} · {{ .ReadingTime }} min · {{ .FuzzyWordCount }} Words
                 </div>
                 <article class="js-toc-content">
                     {{ .Content }}
