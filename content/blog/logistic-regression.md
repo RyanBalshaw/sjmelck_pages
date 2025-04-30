@@ -404,11 +404,11 @@ $$
 
 # 5. Implementing this in code
 
-I realise that this post is now insanely long, so I recommend that you look at my implementation inside the [`sjmelck_pages`](https://github.com/RyanBalshaw/sjmelck_pages/tree/main/assets/images)repository itself or inside the [`random_paper_implementations`](https://github.com/RyanBalshaw/random-paper-implementations/tree/main/implementations/robust_optimized_weight_spectrum) repository. This is a version that I wrote to be compatible with scikit-learn, just for the challenge.
+I realise that this post is growing in length, so I recommend that you look at my Python-based implementation inside the [`sjmelck_pages`](https://github.com/RyanBalshaw/sjmelck_pages/tree/main/assets/images)repository itself or inside the [`random_paper_implementations`](https://github.com/RyanBalshaw/random-paper-implementations/tree/main/implementations/robust_optimized_weight_spectrum) repository. In both repos, I constructed the model to be compatible with scikit-learn, just for the challenge. I am fully aware that it already [exists](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#logisticregression) within scikit-learn's ecosystem.
 
 # 6. Multinomial logistic regression
 
-To wrap this discussion up, I will also discuss how multinomial logistic regression can be scaled up to multiple classes. I will not progress further than the model formulation and how to compute the gradient (CONFIRM). The first step is to introduce a mapping to $\mathbf{z} \in \mathcal{R}^K$, where $K$ refers to the number of classes considered. This is achieved using
+To wrap this discussion up, I will also discuss how multinomial logistic regression can be scaled up to multiple classes. I will not progress further than the model formulation and how to compute one of the more complex terms in the gradient vector. The first step is to introduce a mapping to $\mathbf{z} \in \mathcal{R}^K$, where $K$ refers to the number of classes considered. This is achieved using
 
 $$
 \mathbf{z} = \mathbf{W}\mathbf{x} + \mathbf{b},
