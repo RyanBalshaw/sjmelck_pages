@@ -1,5 +1,5 @@
 ---
-title: "Logistic Regression"
+title: "Logistic Regression from the ground up"
 publishdate: 2025-04-23T15:51:58+02:00
 author: Ryan Balshaw
 description: A write-up of the logistic regression model from start to finish. The primary focus is on the model formulation and model interpretability.
