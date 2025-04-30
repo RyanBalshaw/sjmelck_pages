@@ -3,7 +3,7 @@ title: "Logistic Regression"
 publishdate: 2025-04-23T15:51:58+02:00
 author: Ryan Balshaw
 description: A write-up of the logistic regression model from start to finish. The primary focus is on the model formulation and model interpretability.
-draft: true
+draft: false
 toc: true
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
