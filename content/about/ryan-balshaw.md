@@ -5,8 +5,6 @@ author: ryan-balshaw
 description: description of Ryan Balshaw
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
 build:
   list: always
   publishResources: true

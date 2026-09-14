@@ -1,54 +1,66 @@
-<!DOCTYPE html>
-<html lang = "en">
-    <head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<!--        Bootstrap CSS and icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  {{- $siteTitle := site.Title -}}
+  {{- $pageTitle := printf "%s · %s" .Title $siteTitle -}}
+  {{- if .IsHome -}}
+    {{- $pageTitle = printf "%s · Engineers love computers" $siteTitle -}}
+  {{- end -}}
+  {{- $description := .Description | default site.Params.description -}}
 
-<!--        Custom CSS-->
-        <link rel="stylesheet" href="{{ "css/custom-styles.css" | absURL }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+  <title>{{ $pageTitle }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
 
-<!--        Custom Icon on rendering website-->
-        <link rel="icon" href="https://icons.getbootstrap.com/assets/icons/robot.svg" color="#000000">
-        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://icons.getbootstrap.com/assets/icons/robot.svg" color = "#000000">
-        <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <meta property="og:site_name" content="{{ $siteTitle }}">
+  <meta property="og:title" content="{{ $pageTitle }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $pageTitle }}">
+  <meta name="twitter:description" content="{{ $description }}">
 
-<!--        Javascript for link hovering (completed at render time)-->
-        <script src="{{ "js/link_hover.js" | absURL }}"></script>
+  {{- with .Params.OverviewFig }}
+    {{- $imagePath := path.Join "images" $.File.TranslationBaseName . -}}
+    {{- with resources.GetMatch $imagePath }}
+      <meta property="og:image" content="{{ .Permalink }}">
+      <meta name="twitter:image" content="{{ .Permalink }}">
+    {{- end }}
+  {{- end }}
 
+  {{- with .OutputFormats.Get "rss" }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $siteTitle }}">
+  {{- end }}
 
-<!--        Give the website title-->
-        <title>Sjmelck Blog</title>
+  <link rel="icon" href="{{ "img/favicon.svg" | relURL }}" type="image/svg+xml">
+  <script>
+    (() => {
+      const storedTheme = localStorage.getItem("theme");
+      const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : preferredTheme;
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    })();
+  </script>
 
-<!--        Set the description in the metadata -->
-        {{- if .IsHome -}}
-         <meta name="description" content="{{ site.Params.Description }}" />
-        {{- else -}}
-         <meta name="description" content="{{ .Params.Description }}" />
-        {{- end }}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link id="chroma-light" rel="stylesheet" href="{{ "css/chroma-light.css" | relURL }}">
+  <link id="chroma-dark" rel="stylesheet" href="{{ "css/chroma-dark.css" | relURL }}">
+  <script>
+    (() => {
+      const dark = document.documentElement.getAttribute("data-bs-theme") === "dark";
+      document.getElementById("chroma-light").disabled = dark;
+      document.getElementById("chroma-dark").disabled = !dark;
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ "css/custom-styles.css" | relURL }}">
+  {{ if .IsHome }}<link rel="stylesheet" href="{{ "css/home.css" | relURL }}">{{ end }}
+  {{ if and .IsPage (eq .Section "blog") }}<link rel="stylesheet" href="{{ "css/post.css" | relURL }}">{{ end }}
+  {{ if eq .Type "search" }}<link rel="stylesheet" href="{{ "css/search.css" | relURL }}">{{ end }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
 
-<!--        Set the canonical URL-->
-        <link rel="canonical" href="{{ .Permalink }}" />
-
-<!--        Enable keywords/tags for the current blog post-->
-        <meta name="keywords" content="{{ if .Params.Tags }}{{ delimit .Params.Tags ", " }}{{ end }}">
-
-<!--        Add Google analytics code-->
-        {{ template "_internal/google_analytics.html" . }}
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZK5KHZQ8Y"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-TZK5KHZQ8Y');
-        </script>
-
-    </head>
-</html>
+  {{ template "_internal/google_analytics.html" . }}
+</head>

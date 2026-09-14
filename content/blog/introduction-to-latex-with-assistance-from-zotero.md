@@ -6,7 +6,7 @@ description: A blog post on using Zotero and research rabbit.
 draft: false
 toc: true
 tags: ["LaTeX", "Report Writing", "Research Rabbit", "Researching More Efficiently", "Zotero"]
-categories: ["category1"]
+categories: ["Tooling"]
 build:
   list: always
   publishResources: true

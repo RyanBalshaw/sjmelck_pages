@@ -5,8 +5,8 @@ author: Ryan Balshaw
 description: A write-up of the logistic regression model from start to finish. The primary focus is on the model formulation and model interpretability.
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
+tags: ["Logistic regression", "Machine learning", "Optimisation", "Python"]
+categories: ["Machine learning"]
 math: true
 hasMermaid: false
 OverviewFig: "summary_figure.png"

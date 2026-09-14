@@ -5,8 +5,8 @@ draft: false
 description: This is a WIP.
 author: Ryan Balshaw
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
+tags: ["Data visualisation", "Matplotlib", "Python"]
+categories: ["Python"]
 ---
 Good day 👋
 

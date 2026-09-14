@@ -1,76 +1,66 @@
 {{ define "main" }}
-<!--'main' is used for the baseof main block.-->
 <main>
-
-    <div class="container text-center w-75 min-vh-100 d-flex flex-column">
-
-        <div class="row">
-            <div>
-                <h1>
-                    👋 Welcome to Sjmelck
-                </h1>
-
-                <p>
-                    where the collective wisdom of engineering minds finds its voice! 🗣️🧠👩‍💻👨‍💻
-                </p>
-
-                <br>
-
-                <p class="mb-5">
-                    Good day fellow blog-explorer! Welcome to Sjmelck, a blog aimed at providing content on many different topics,
-                    Here at Sjmelck we aim to provide readers with interesting topics from:
-
-                    <ul class="text-start">
-                        <li>
-                            Learning-based methods (read: statistical learning, machine learning, and deep learning)
-                        </li>
-                        <li>
-                            Signal processing
-                        </li>
-                        <li>
-                            Python
-                        </li>
-                        <li>
-                            Optimisation
-                        </li>
-                        <li>
-                            Basically everything else.
-                        </li>
-                    </ul>
-                </p>
-
-                <p>
-                    This blog, at every point in time, is run by <a href="{{ "about/ryan-balshaw" | absURL }}"><nobr>Ryan Balshaw</nobr></a>, <a href="{{ "about/douw-marx" | absURL }}"><nobr>Douw Marx</nobr></a>, <a href="{{ "about/johann-bouwer" | absURL }}"><nobr>Johann Bouwer</nobr></a>, and <a href="{{ "about/justin-smith" | absURL }}"><nobr>Justin Smith</nobr></a>.
-                </p>
-                <p>
-                    We are definitely looking for new members/contributors, so if you feel you have something to add please join us! We appreciate any form on knowledge transfer, so get involved!
-                </p>
-
-                <p>
-                <img src="{{ "img/calvin_and_hobbes.jpeg" | absURL }}" class="img-thumbnail rounded justift-content-left" alt="Calvin and Hobbes - Relative velocity">
-                </p>
-
-                <p>
-                    <i> Imagine a random image loader (https://www.gocomics.com/calvinandhobbes/2007/11/22), maybe one day. </i>
-                </p>
-
-                <br>
-
-                <h5 align=left> Some important links for future work:</h5>
-                <ul class="text-start">
-                    <li>
-                        <a href="https://mertbakir.gitlab.io/hugo/plotly-with-hugo/">Plotly</a>
-                    </li>
-                    <li>
-                        <a href="https://lucidmanager.org/productivity/hugo-bibliography/">Bibtex bibliographies</a>
-                    </li>
-                </ul>
-
-                <a type="button" class="btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Click me!</a>
-            </div>
-        </div>
+  <section class="home-hero">
+    <div class="site-container home-hero__inner">
+      <img class="home-hero__logo" src="{{ "img/favicon.svg" | relURL }}" width="112" height="112" alt="">
+      <p class="home-hero__eyebrow">Sjmelck Just Means Engineers Love Computers, K?</p>
+      <h1>Sjmelck</h1>
+      <p class="home-hero__lede">{{ site.Params.description }}</p>
+      <div class="d-flex flex-wrap gap-3">
+        <a class="btn btn-accent btn-lg" href="{{ "blog/" | relURL }}">Read the blog</a>
+        <a class="btn btn-outline-secondary btn-lg" href="{{ "about/the-origins-of-sjmelck/" | relURL }}">About us</a>
+      </div>
     </div>
+  </section>
 
+  <section class="home-section">
+    <div class="site-container">
+      <div class="home-section__heading">
+        <div>
+          <p class="section-kicker">Fresh from the blog</p>
+          <h2>Latest posts</h2>
+        </div>
+        <a href="{{ "blog/" | relURL }}">All posts <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="post-grid">
+        {{ range first 3 (where site.RegularPages.ByPublishDate.Reverse "Section" "blog") }}
+          {{ partial "post-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--muted">
+    <div class="site-container">
+      <p class="section-kicker">Explore</p>
+      <h2>What we write about</h2>
+      <div class="topic-grid">
+        <article class="topic-tile"><i class="bi bi-cpu" aria-hidden="true"></i><h3>Learning-based methods</h3><p>Statistical learning, machine learning, and deep learning.</p></article>
+        <article class="topic-tile"><i class="bi bi-soundwave" aria-hidden="true"></i><h3>Signal processing</h3><p>Practical explanations of signals, transforms, and diagnostics.</p></article>
+        <article class="topic-tile"><i class="bi bi-filetype-py" aria-hidden="true"></i><h3>Python</h3><p>Scientific computing, visualisation, and reproducible workflows.</p></article>
+        <article class="topic-tile"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><h3>Optimisation</h3><p>Models and methods for solving engineering problems.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="site-container">
+      <p class="section-kicker">The people behind Sjmelck</p>
+      <h2>Contributors</h2>
+      <div class="contributors">
+        {{ range site.Menus.about }}
+          {{ $member := . }}
+          {{ with .Params.author_name }}
+            {{ $ext := cond (eq . "justin") "jpg" "jpeg" }}
+            <a class="contributor" href="{{ $member.URL | relURL }}">
+              <img src="{{ printf "img/%s_head.%s" . $ext | relURL }}" width="88" height="88" loading="lazy" alt="">
+              <span>{{ strings.TrimPrefix "Contributor - " $member.Name }}</span>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+      <p class="contribute-note">Have something useful to share? <a href="https://github.com/RyanBalshaw/sjmelck_pages">Contribute on GitHub</a>.</p>
+    </div>
+  </section>
 </main>
-
 {{ end }}

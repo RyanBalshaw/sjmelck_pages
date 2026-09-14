@@ -6,8 +6,8 @@ description: A how-to on implementing gradients into the radial basis function
   surrogate model.
 draft: false
 toc: true
-tags: ["Gradients", "RBF", "surrogate models"]
-categories: ["python"]
+tags: ["Gradients", "Machine learning", "Python", "Radial basis functions", "Surrogate models"]
+categories: ["Machine learning"]
 OverviewFig: "test.png"
 build:
   list: always

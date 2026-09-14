@@ -1,0 +1,22 @@
+{{- $page := . -}}
+<div class="post-meta post-meta--article">
+  {{ with $page.Params.author }}
+    {{- $author := . -}}
+    {{- $authorURL := "" -}}
+    {{- range site.Menus.about -}}
+      {{- if eq (lower .Params.author_name) (lower (index (split $author " ") 0)) -}}
+        {{- $authorURL = .URL -}}
+      {{- end -}}
+    {{- end -}}
+    {{ if $authorURL }}<a href="{{ $authorURL | relURL }}">{{ $author }}</a>{{ else }}<span>{{ $author }}</span>{{ end }}
+    <span aria-hidden="true"> · </span>
+  {{ end }}
+  <time datetime="{{ $page.PublishDate.Format "2006-01-02" }}">{{ $page.PublishDate.Format "2 January 2006" }}</time>
+  <span aria-hidden="true"> · </span>
+  <span>{{ $page.ReadingTime }} min read</span>
+</div>
+{{ with $page.GetTerms "tags" }}
+  <div class="tag-list" aria-label="Tags">
+    {{ range . }}<a class="tag-chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,40 @@
+{{- $page := . -}}
+<article class="post-card">
+  {{- with $page.Params.OverviewFig }}
+    {{- $imagePath := path.Join "images" $page.File.TranslationBaseName . -}}
+    {{- with resources.GetMatch $imagePath }}
+      {{- $thumbnail := . -}}
+      {{- if ne .MediaType.SubType "gif" -}}
+        {{- $thumbnail = .Fill "720x405 Center q82" -}}
+      {{- end }}
+      <a href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true">
+        <img class="post-card__image" src="{{ $thumbnail.RelPermalink }}" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="" loading="lazy">
+      </a>
+    {{- end }}
+  {{- end }}
+
+  <div class="post-card__body">
+    <h2 class="post-card__title">
+      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    </h2>
+
+    {{ with $page.Description }}
+      <p class="post-card__description">{{ . }}</p>
+    {{ end }}
+
+    <div class="post-meta">
+      {{ with $page.Params.author }}<span>{{ . }}</span><span aria-hidden="true"> · </span>{{ end }}
+      <time datetime="{{ $page.PublishDate.Format "2006-01-02" }}">{{ $page.PublishDate.Format "2 Jan 2006" }}</time>
+      <span aria-hidden="true"> · </span>
+      <span>{{ $page.ReadingTime }} min read</span>
+    </div>
+
+    {{ with $page.GetTerms "tags" }}
+      <div class="tag-list" aria-label="Tags">
+        {{ range . }}
+          <a class="tag-chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</article>

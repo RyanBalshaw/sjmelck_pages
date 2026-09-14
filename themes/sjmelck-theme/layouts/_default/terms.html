@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <main class="site-main">
+    <div class="site-container">
+      <header class="listing-header">
+        <h1>{{ .Title }}</h1>
+        <p class="lead text-body-secondary">Browse posts by topic.</p>
+      </header>
+
+      <ul class="terms-list">
+        {{ range .Data.Terms.Alphabetical }}
+          <li>
+            <a class="term-link" href="{{ .Page.RelPermalink }}">
+              <span>{{ .Page.LinkTitle }}</span>
+              <span class="text-body-secondary">{{ .Count }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </main>
+{{ end }}

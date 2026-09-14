@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-{{ $colour_mode := "auto" }}
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode | default "en" }}" data-bs-theme="light">
+  {{ partial "head.html" . }}
+  <body>
+    {{ partial "header.html" . }}
 
-<html data-bs-theme= {{ $colour_mode }}>
-    {{- partial "head.html" . -}}
-    {{- partial "init-popovers.html" . -}}
+    {{ if eq .Type "about" }}
+      <main class="site-main">
+        {{ partial "social-links.html" . }}
+      </main>
+    {{ else }}
+      {{ block "main" . }}{{ end }}
+    {{ end }}
 
-    <body>
-        {{- partial "header.html" . -}}
+    {{ partial "footer.html" . }}
+    {{ partial "init-popovers.html" . }}
 
-        {{ if eq .Type "about" }}
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div class="toast" id="link-copy-toast" role="status" aria-live="polite" aria-atomic="true">
+        <div class="toast-body">Section link copied.</div>
+      </div>
+    </div>
 
-                {{- partial "social-links.html" . -}}
-
-        {{ else }}
-
-                {{- block "main" . }}{{- end }}
-
-        {{ end }}
-
-<!--        Script for Mermaid graphs-->
     {{ if .Store.Get "hasMermaid" }}
       <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
         mermaid.initialize({ startOnLoad: true });
       </script>
     {{ end }}
 
-    </body>
-
-    {{- partial "footer.html" . -}}
-
     {{ if .Param "math" }}
-        {{ partialCached "math.html" . }}
+      {{ partialCached "math.html" . }}
     {{ end }}
-
+  </body>
 </html>

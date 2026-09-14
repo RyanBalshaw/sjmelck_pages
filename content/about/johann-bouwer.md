@@ -5,8 +5,6 @@ author: dummy-name
 description: dummy-description
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
 build:
   list: always
   publishResources: true

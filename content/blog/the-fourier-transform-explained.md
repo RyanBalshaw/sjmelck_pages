@@ -6,7 +6,7 @@ description: This is an explanation of the Fourier transform for MEV781 students
 draft: false
 toc: true
 OverviewFig: "animation_real_imag_components.gif"
-tags: ["Fourier Transform"]
+tags: ["Fourier transform", "Signal processing"]
 categories: ["Signal processing"]
 build:
   list: always

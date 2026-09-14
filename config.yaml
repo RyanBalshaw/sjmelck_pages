@@ -20,6 +20,12 @@ sitemap:
   filename: "sitemap.xml"
   priority: 0.5
 markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 3
+  highlight:
+    noClasses: false
+    lineNumbersInTable: false
   goldmark:
     renderer:
       unsafe: true    # This allows HTML in markdown
@@ -48,6 +54,10 @@ menu:
       name: blog
       url: "/blog/"
       weight: 20
+    - identifier: tags
+      name: tags
+      url: "/tags/"
+      weight: 30
   about:
     - identifier: about-ryan
       name: Contributor - Ryan Balshaw
@@ -129,3 +139,8 @@ menu:
     - name: Email
       url: "mailto: 66smithjustin@gmail.com"
       pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

@@ -6,8 +6,8 @@ description: This is a simple explanation of the TSA and COT.
 draft: false
 toc: true
 OverviewFig: "averaging_process.png"
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
+tags: ["Computed order tracking", "Signal processing", "Time synchronous averaging"]
+categories: ["Signal processing"]
 build:
   list: always
   publishResources: true

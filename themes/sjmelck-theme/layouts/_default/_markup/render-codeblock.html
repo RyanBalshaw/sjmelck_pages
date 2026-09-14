@@ -1,0 +1,11 @@
+{{ .Page.Store.Set "hasCode" true }}
+{{- $options := dict -}}
+{{- if not (transform.CanHighlight .Type) }}{{ $options = dict "type" "text" }}{{ end -}}
+{{- $result := transform.HighlightCodeBlock . $options -}}
+<div class="code-block">
+  <div class="code-block__header">
+    <span>{{ .Type | default "text" }}</span>
+    <button class="code-copy" type="button" aria-label="Copy code"><i class="bi bi-copy" aria-hidden="true"></i> Copy</button>
+  </div>
+  {{ $result.Wrapped }}
+</div>
