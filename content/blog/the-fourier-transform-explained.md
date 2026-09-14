@@ -8,7 +8,7 @@ toc: true
 OverviewFig: "animation_real_imag_components.gif"
 tags: ["Fourier Transform"]
 categories: ["Signal processing"]
-_build:
+build:
   list: always
   publishResources: true
   render: always

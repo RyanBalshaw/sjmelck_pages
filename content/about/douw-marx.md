@@ -6,7 +6,7 @@ toc: true
 tags: ["tag1", "tag2", "tag3"]
 categories: ["category1"]
 hasMermaid: true
-_build:
+build:
   list: always
   publishResources: true
   render: always

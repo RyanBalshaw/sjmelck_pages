@@ -10,7 +10,7 @@ categories: ["category1"]
 math: true
 hasMermaid: false
 OverviewFig: "summary_figure.png"
-_build:
+build:
   list: always
   publishResources: true
   render: always

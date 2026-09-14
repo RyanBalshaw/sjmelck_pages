@@ -9,7 +9,7 @@ toc: true
 tags: ["Gradients", "RBF", "surrogate models"]
 categories: ["python"]
 OverviewFig: "test.png"
-_build:
+build:
   list: always
   publishResources: true
   render: always

@@ -7,7 +7,7 @@ draft: false
 toc: true
 tags: ["LaTeX", "Report Writing", "Research Rabbit", "Researching More Efficiently", "Zotero"]
 categories: ["category1"]
-_build:
+build:
   list: always
   publishResources: true
   render: always
