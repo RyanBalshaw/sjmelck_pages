@@ -99,10 +99,10 @@ def fix(ax=None, minor_flag=True, flag_3d=True):
             ax.set_zticklabels(labels, minor=False)
 
 
-fig, ax = plt.subplots(figsize = (10, 6))
+fig, ax = plt.subplots(figsize=(10, 6))
 
 x_range = np.linspace(-10, 10, 1000)
-ax.plot(x_range, x_range**2, label = r"$y=x^2$")
+ax.plot(x_range, x_range**2, label=r"$y=x^2$")
 ax.set_title("Base example (no nice plots)")
 
 ax.legend()
@@ -111,17 +111,17 @@ ax.set_ylabel("$y$")
 
 plt.show(block=False)
 
-#Override parameters
+# Override parameters
 plt.rc("mathtext", fontset="cm")
 plt.rc("font", family="serif", size=12, serif="cmr10")
 
-fig, ax = plt.subplots(1, 2, figsize = (10, 6))
+fig, ax = plt.subplots(1, 2, figsize=(10, 6))
 fig.suptitle("The ideal plot (with and without fix)")
 ax = ax.flatten()
 
 x_range = np.linspace(-10, 10, 1000)
-ax[0].plot(x_range, x_range**2, label = r"$y=x^2$")
-ax[1].plot(x_range, x_range**2, label = r"$y=x^2$")
+ax[0].plot(x_range, x_range**2, label=r"$y=x^2$")
+ax[1].plot(x_range, x_range**2, label=r"$y=x^2$")
 
 ax[0].set_title("Figure without fix")
 ax[1].set_title("Figure with fix")
@@ -131,7 +131,7 @@ for axs in ax:
     axs.set_xlabel("$x$")
     axs.set_ylabel("$y$")
 
-#Fix the second figure
+# Fix the second figure
 fix(ax[1], minor_flag=False, flag_3d=False)
 
 plt.show(block=True)

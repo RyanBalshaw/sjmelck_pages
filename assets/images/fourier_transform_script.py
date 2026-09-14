@@ -130,7 +130,7 @@ fig2, ax2 = plt.subplots()
 x = g_function * np.cos(theta_range)
 y = g_function * np.sin(theta_range)
 
-ax2.set_title(r"Sequential wrapping: $f_0$ = {}".format(f0))
+ax2.set_title(rf"Sequential wrapping: $f_0$ = {f0}")
 ax2.set_xlim([-2.5, 2.5])
 ax2.set_ylim([-2.5, 2.5])
 ax2.grid()

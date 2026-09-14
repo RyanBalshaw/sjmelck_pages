@@ -3,9 +3,9 @@ Note: This file is a copy of
 https://github.com/RyanBalshaw/random-paper-implementations/blob/87ad2079f2042d3450/\
 baca5c3e15f86b789d4783/implementations/robust_optimized_weight_spectrum/paper_utils.py
 """
+
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Optional
 
 import numpy as np
 from scipy.optimize import minimize
@@ -100,9 +100,9 @@ class LogisticRegression(ClassifierMixin, BaseEstimator):
         self,
         learning_rate: float = 1,
         max_iter: int = 500,
-        regulariser_type: Optional[RegType] = None,
-        alpha: Optional[float] = None,
-        l1_ratio: Optional[float] = None,
+        regulariser_type: RegType | None = None,
+        alpha: float | None = None,
+        l1_ratio: float | None = None,
         optimiser: str = "gradient_descent",
         tol: float = 1e-4,
     ):

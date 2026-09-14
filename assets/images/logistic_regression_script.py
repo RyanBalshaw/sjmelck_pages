@@ -186,7 +186,7 @@ def simple_problem():
         max_iter=400,
         regulariser_type=RegType.L1,
         alpha=0.001,
-        optimiser="gradient_descent",  #
+        optimiser="gradient_descent",
         tol=1e-4,
     )
     model.fit(X, y)

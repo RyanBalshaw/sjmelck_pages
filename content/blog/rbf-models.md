@@ -103,6 +103,7 @@ First, let's set up the constructor:
 import numpy as np
 from scipy.spatial.distance import cdist
 
+
 class RBFModel:
     """
     A class to implement a function version for the RBF model
@@ -127,7 +128,6 @@ class RBFModel:
 
         self._n_samples, self._n_features = self.X.shape
         self._n_centres = self.C.shape[0]
-
 ```
 The constructor simply assigns the data as attributes in the class and if a specific set of centres are not given we set the centres equal to the samples.
 
@@ -137,35 +137,34 @@ Next, we can create a method that will fit the model to the data. We can also ma
 import numpy as np
 from scipy.spatial.distance import cdist
 
-class RBFModel:
 
-    def __init__(self, X, y, C=None):
-        ...
+class RBFModel:
+    def __init__(self, X, y, C=None): ...
 
     def FV_fit(self, epsi=1):
-            """
-            Fit the Function Value Radial Basis Function (FV-RBF) model.
+        """
+        Fit the Function Value Radial Basis Function (FV-RBF) model.
 
-            Parameters:
-            epsi : float, optional
-                The shape parameter for the RBF. Default is 1.
-            """
-            self.epsi = epsi
+        Parameters:
+        epsi : float, optional
+            The shape parameter for the RBF. Default is 1.
+        """
+        self.epsi = epsi
 
-            # Calculate the distance between each pair of points
-            dist_matrix = cdist(self.X, self.C, metric='euclidean')
+        # Calculate the distance between each pair of points
+        dist_matrix = cdist(self.X, self.C, metric="euclidean")
 
-            # Calculate the RBF kernel matrix using the Gaussian basis function
-            kernel_matrix = np.exp(-self.epsi * (dist_matrix ** 2))
+        # Calculate the RBF kernel matrix using the Gaussian basis function
+        kernel_matrix = np.exp(-self.epsi * (dist_matrix**2))
 
-            # Solve the linear system to find the coefficients/weigths
-            if self._n_centres == self._n_samples: #interpolation fit
-                self.coefficients = np.linalg.solve(kernel_matrix, self.y)
+        # Solve the linear system to find the coefficients/weigths
+        if self._n_centres == self._n_samples:  # interpolation fit
+            self.coefficients = np.linalg.solve(kernel_matrix, self.y)
 
-            else: # regression fit
-                self.coefficients = np.linalg.solve(kernel_matrix.T @ kernel_matrix,
-                                                    kernel_matrix.T @ self.y)
-
+        else:  # regression fit
+            self.coefficients = np.linalg.solve(
+                kernel_matrix.T @ kernel_matrix, kernel_matrix.T @ self.y
+            )
 ```
 At the moment we simply assume the shape factor to be 1, but for real data some experimentation is needed to find the optimum shape parameter 👏 .
 
@@ -173,30 +172,29 @@ Lastly, we need to be able to sample the model at any given number of points. We
 
 ```python
 class RBFModel:
-
     def __call__(self, Xnew):
-            """
-            Predict using the RBF model.
+        """
+        Predict using the RBF model.
 
-            Parameters:
-            Xnew : np.ndarray
-               New points for prediction. Shape: (n_samples, n_features).
+        Parameters:
+        Xnew : np.ndarray
+           New points for prediction. Shape: (n_samples, n_features).
 
-            Returns:
-            y_pred : np.ndarray
-                Predicted output. Shape: (n_samples, 1).
-            """
-            # Calculate the distance between each input point and the
-            # centres of the model
-            dist_matrix = cdist(Xnew, self.C, metric='euclidean')
+        Returns:
+        y_pred : np.ndarray
+            Predicted output. Shape: (n_samples, 1).
+        """
+        # Calculate the distance between each input point and the
+        # centres of the model
+        dist_matrix = cdist(Xnew, self.C, metric="euclidean")
 
-            # Calculate the RBF kernel matrix
-            kernel_matrix = np.exp(-self.epsi * (dist_matrix ** 2))
+        # Calculate the RBF kernel matrix
+        kernel_matrix = np.exp(-self.epsi * (dist_matrix**2))
 
-            # Calculate the predicted output
-            y_pred = kernel_matrix @ self.coefficients
+        # Calculate the predicted output
+        y_pred = kernel_matrix @ self.coefficients
 
-            return y_pred
+        return y_pred
 ```
 Again, it is assumed that the vectors \\( \boldsymbol{x} \\) that you want to evaluate over are stored in the rows of the `Xnew` matrix in the `__call__` method.
 
@@ -214,7 +212,7 @@ The python code for this example is given by
 
 ```python
 def Example(x):
-    return np.sin(10*x) + x
+    return np.sin(10 * x) + x
 ```
 
 ![The 1-dimensional function](Example.png)
@@ -223,18 +221,19 @@ Next, we want to generate the data and then fit the model. To generate the data 
 
 ```python
 from pyDOE import lhs
-X = lhs(1, 7, criterion='m') #samples locations
-y = Example(X) #sample the function
 
-model = RBFModel(X, y) #create the model object
-model.FV_fit(epsi = 1) #fit the model
+X = lhs(1, 7, criterion="m")  # samples locations
+y = Example(X)  # sample the function
+
+model = RBFModel(X, y)  # create the model object
+model.FV_fit(epsi=1)  # fit the model
 ```
 
 We can now sample the model across the entire domain. To do this we create a column vector of the locations we want the model to make predictions at, and then pass this vector into the model (which uses the `__call__` method we wrote behind the scenes).
 
 ```python
-X_pred = np.linspace(0, 1, 100).reshape(-1,1) #locations for predictions
-y_pred = model(X_pred) #model predictions
+X_pred = np.linspace(0, 1, 100).reshape(-1, 1)  # locations for predictions
+y_pred = model(X_pred)  # model predictions
 ```
 
 Below is a plot of the model predictions overlaid with target functions, as well as the generated data that the model is constructed on.

@@ -3,7 +3,6 @@ import os
 import numpy as np
 import scipy.interpolate as sciint
 from matplotlib import pyplot as plt
-from mpl_toolkits import mplot3d
 
 plt.ion()
 
@@ -149,7 +148,9 @@ for i in range(len(pos) - 1):
     COT_signal.append(interpolated_signal)
     COT_time.append(time_interpolate)
 
-COT_signal = np.array(COT_signal).reshape(
+COT_signal = np.array(
+    COT_signal
+).reshape(
     -1
 )  # Reshape to correct size (hint, hint: can we get the TSA signal by changing this line a little?)
 COT_time = np.array(COT_time).reshape(-1)
