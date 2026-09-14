@@ -23,7 +23,7 @@ The purpose of [Sjmelck](https://ryanbalshaw.github.io/sjmelck_pages/) is to pro
 A quick introduction of the minimal setup you need to get a blog post up and running. As a first step, please make sure the following packages are installed:
 1. [Hugo](https://gohugo.io/)
 2. [git](https://git-scm.com/)
-3. [Poetry](https://python-poetry.org/)
+3. [uv](https://docs.astral.sh/uv/)
 
 Once these have been installed, you are welcome to run the following:
 ```shell
@@ -35,21 +35,25 @@ hugo server # Creates a local version of the website
 This will clone the repo and open up a local version of the website. Press `Ctrl + C` in the terminal to stop the local server.
 
 ## Configuring python and commits
-[Poetry](https://python-poetry.org/) is the approach chosen to manage the python environment and setting up the virtual environment is incredibly simple. Once poetry is correctly installed, you can set up the virtual environment by running
+[uv](https://docs.astral.sh/uv/) is the approach chosen to manage the python environment and setting up the virtual environment is incredibly simple. Once uv is correctly installed, you can set up the virtual environment by running
 ```shell
 cd sjmelck_pages # If you aren't already within the repo directory. Skip otherwise.
-poetry install
+uv sync
 ```
 
-You can then step into the virtual environment using
+This creates a `.venv` and installs all project and development dependencies. You can then run commands inside the environment using
 ```shell
-poetry shell
+uv run <command>
 ```
-to use the packages specified. Poetry is also supported by many IDEs, so you can easily get it incorporated within your IDE of choice.
+or activate the virtual environment directly with
+```shell
+source .venv/bin/activate
+```
+to use the packages specified. uv is also supported by many IDEs, so you can easily get it incorporated within your IDE of choice.
 
-[Pre-commit]() is set up as the default development approach to linting to improve the readability and eligibility of the repository. Setting up pre-commit is simple (it is included in the pyproject.toml file used for Poetry) and can be done via
+[Pre-commit](https://pre-commit.com/) is set up as the default development approach to linting to improve the readability and eligibility of the repository. Setting up pre-commit is simple (it is included as a development dependency in the pyproject.toml file) and can be done via
 ```code
-pre-commit install -t pre-push
+uv run pre-commit install -t pre-push
 ```
 
 This ensures that prior to any changes done to the remote repository, pre-commit hooks are run. The changes will occur in
