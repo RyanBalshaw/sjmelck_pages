@@ -1,5 +1,5 @@
 baseURL: https://ryanbalshaw.github.io/sjmelck_pages/
-languageCode:   en-us
+locale: en-us
 DefaultContentLanguage: en
 theme: sjmelck-theme
 pluralizeListTitles: false
@@ -15,6 +15,9 @@ params:
   AuthorName: Ryan Balshaw
   GitHubUser: RyanBalshaw
   description: "Sjmelck Just Means Engineers Love Computers K? Sjmelck (Pronounces 100% exactly like it is written), aims to be the engineers cheat sheet to the world of scientific computing."
+caches:
+  images:
+    dir: :cacheDir/images # Lets the GitHub Actions cache persist processed images between builds
 sitemap:
   changefreq: "daily"
   filename: "sitemap.xml"
