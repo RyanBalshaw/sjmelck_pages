@@ -2,7 +2,7 @@
 title: "Ryan Balshaw"
 date: 2023-01-12T12:36:47+02:00
 author: ryan-balshaw
-description: description of Ryan Balshaw
+description: Ryan Balshaw is a mechanical engineer (PhD, University of Pretoria) working at Kriterion on condition monitoring, vibration analysis and machine learning.
 draft: false
 toc: true
 build:

@@ -1,0 +1,19 @@
+{{- /*
+  Returns the site-relative URL (e.g. "about/ryan-balshaw/") of the about page
+  for a post author, or "" when no contributor matches.
+
+  The author's first name is matched, case-insensitively, against the
+  `author_name` param on entries in site.Menus.about.
+
+  Usage: {{ $url := partial "author-url.html" .Params.author }}
+*/ -}}
+{{- $url := "" -}}
+{{- with . -}}
+  {{- $first := lower (index (split (trim . " ") " ") 0) -}}
+  {{- range site.Menus.about -}}
+    {{- if and (not $url) (eq (lower (.Params.author_name | default "")) $first) -}}
+      {{- $url = printf "%s/" (strings.TrimSuffix "/" .URL) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

@@ -23,8 +23,10 @@
   {{- end -}}
   {{- $caption := $context.Title | default $context.Text -}}
   {{- $generic := or (eq (lower $caption) "alt text") (eq (lower $caption) "image alt text") -}}
+  {{- /* The first image in an article is a likely LCP candidate: load it eagerly at high priority. */ -}}
+  {{- $isFirst := eq $context.Ordinal 0 -}}
   <figure class="article-figure">
-    <img src="{{ $src }}"{{ with $srcset }} srcset="{{ delimit . ", " }}" sizes="(max-width: 800px) 100vw, 736px"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $context.Text }}" loading="lazy" decoding="async">
+    <img src="{{ $src }}"{{ with $srcset }} srcset="{{ delimit . ", " }}" sizes="(max-width: 800px) 100vw, 736px"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $context.Text }}"{{ if $isFirst }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }} decoding="async">
     {{ if and $caption (not $generic) }}<figcaption>{{ $caption }}</figcaption>{{ end }}
   </figure>
 {{- else -}}

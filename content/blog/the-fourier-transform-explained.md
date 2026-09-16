@@ -2,9 +2,10 @@
 title: "The Fourier transform: Explained"
 publishdate: 2023-01-19T16:18:44+02:00
 author: Ryan Balshaw
-description: This is an explanation of the Fourier transform for MEV781 students.
+description: An intuitive explanation of the Fourier transform and the discrete Fourier transform (DFT), built from wrapping a signal around a circle to find its centre of mass.
 draft: false
 toc: true
+math: true
 OverviewFig: "animation_real_imag_components.gif"
 tags: ["Fourier transform", "Signal processing"]
 categories: ["Signal processing"]
@@ -24,7 +25,7 @@ Ryan Balshaw 🦮
 
 P.S. The initial part of this document is largely based off a video from [3blue1brown](https://www.youtube.com/watch?v=spUNpyF58BY), but with more details and the ability to play around with the examples from the video. Feel free to watch this video first and then decide if this document is worth it.
 
-# Introduction
+## Introduction
 
 This tutorial will be begin with framing the ideas behind the FT and then go into the more complex details for the DFT, but I will not cover the Fast Fourier Transform (FFT) as it is just the DFT's algorithmic implementation. The first question I would like to ask is: what is your interpretation of a frequency \\(f\\) or \\(\omega\\)?. Hopefully, the following may come to mind:
 - It describes some rate, such as the rate of oscillation in sinusoids.
@@ -63,7 +64,7 @@ $$
 
 This expansion is visualised below, and the relation between the Fourier Series and the Fourier Transform is that the amplitude of the sinusoidal components at a given integer harmonic provides some indication of how the Fourier Transform will look (this is not completely correct, but it is a sufficient proxy at this stage so do not read too much into it).
 
-![image alt text](animation_fourier_series.gif)
+![Animation of the Fourier series of the sawtooth function g(x) = x - floor(x) converging as more sine terms are added](animation_fourier_series.gif)
 
 To describe the Fourier Transform, I will quote Wikipedia (i.e., the \\(0^{th}\\) iteration of [ChatGPT](https://openai.com/blog/chatgpt)): "In mathematics, a Fourier transform is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes. The term Fourier transform refers to both the frequency domain representation and the mathematical operation that associates the frequency domain representation to a function of space or time."
 
@@ -91,7 +92,7 @@ $$
 
 This expression allows us to work out where \\( g(t = t_i) \\) will lie in a 2D plane by working out the angular position in the 2D plane and by letting \\( g(t = t_i) \\) be the distance from the origin at some angular position \\( \theta(t=t_i) \\). More realistically, we can just work out the rotation  \\( \theta_i \\) for all time indices \\( t_i \\) and then plot the data using \\( x(t_i) = g(t_i) \cos(\theta_i) \\) and \\( y(t_i) = g(t_i) \sin(\theta_i) \\), where we obtain the rotation \\( \theta \\) through \\( \theta_i = 2 \pi f_0 t_i \\) (note here that I dropped the time index notation  \\( \cdot(t) \\) and replaced it with an index notation \\( \cdot_i \\) as I need to discretise the system to plot it). This effectively shifts the signal from a 2-dimensional Euclidean coordinate system into the polar coordinate system. Let's now go through this process cell by cell.
 
-## Step 1: define a function g(t)
+### Step 1: define a function g(t)
 
 $$
 g(t) = \frac{1}{4}\cos(2 \pi f_1 t) + \cos(2 \pi f_2 t) + 1,
@@ -101,7 +102,7 @@ where \\( f_1 = 2 \\) and \\( f_2 = 3 \\). This function consists of two cosines
 
 ![function of interest](function.png)
 
-## Step 2: define \\( f \\) and calculate the angular displacement \\( \theta \\).
+### Step 2: define \\( f \\) and calculate the angular displacement \\( \theta \\).
 Let
 
 $$
@@ -206,7 +207,7 @@ $$
 where \\( x(t) \\) represents a general time domain function, the minus sign in the exponential simply defines the winding/rotation
 direction in the complex domain and we drop the division.
 
-# Side comments
+## Side comments
 
 1. For those of you who come from a control systems background, you may ask how does the FT relate to the Laplace Transform? The
 FT can be considered a special case of the Laplace transform with \\( \alpha = 0 \\). To prove this, consider the Laplace
@@ -247,7 +248,7 @@ DFT just expands the continuous case to discrete signals with a sampling rate \\
 Transform (FFT) is just an efficient algorithm used to solve for the DFT coefficients.
 
 
-# Using the Fourier Transform in practice
+## Using the Fourier Transform in practice
 
 To use the FT in practice, we do not implement the FT, but rather its discrete counterpart, the DFT. Fortunately for us,
 many commercial software packages have implementations that we can use to quickly implement the DFT. I would
@@ -257,7 +258,7 @@ There are two commonly applied versions of the DFT, namely the real and complex 
 Fourier Series expansion versus approximating the Fourier Transform. For the sake of concreteness, I will introduce both
 versions to you.
 
-## Real DFT
+### Real DFT
 If we assume that we have a N-long sequence of samples of a time-series signal, which we shall denote as \\(x[n]\\) (\\(n \in \mathbb{Z}\\)), the real DFT gives two \\(\frac{N}{2} + 1\\)-length arrays, which we shall denote as \\(X_1[\cdot]\\) and \\(X_2[\cdot]\\) respectively. The \\(k^{th}\\) index in these arrays is given as
 
 $$
@@ -274,7 +275,7 @@ $$
 x[n] = \sum_{k=0}^{N/2} X_1[k]\cos \left( \frac{2\pi kn}{N} \right) + X_2[k] \sin \left( \frac{2\pi kn}{N} \right).
 $$
 
-## Complex DFT
+### Complex DFT
 The complex DFT, as presented in the MEV 781 notes, takes a discrete time-series signal of length \\(N\\) and determines the Fourier Coefficients \\(X[k]\\) using
 
 $$
@@ -287,7 +288,7 @@ $$
 x[n] = \sum_{k=0}^{N-1}X[k] e^{j 2 \pi \frac{kn}{N}}.
 $$
 
-## How do we use commercial software packages
+### How do we use commercial software packages
 
 The FFT is an algorithm that is used to efficiently calculate the complex DFT. For those interested in how the FFT algorithm works,
 I recommend watching the following [video](https://www.youtube.com/watch?v=h7apO7q16V0).

@@ -1,7 +1,7 @@
 ---
-title: "Pretty plotting in Python."
+title: "Pretty plotting in Python"
 publishdate: 2023-01-11T17:18:41+02:00
-draft: false
+draft: true
 description: This is a WIP.
 author: Ryan Balshaw
 toc: true

@@ -124,6 +124,25 @@
   color: var(--text-muted);
 }
 
+.home-comic {
+  max-width: 50rem;
+  margin: 2rem 0 0;
+}
+
+.home-comic img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+}
+
+.home-comic figcaption {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 @media (max-width: 991.98px) {
   .home-section .post-grid,
   .topic-grid {

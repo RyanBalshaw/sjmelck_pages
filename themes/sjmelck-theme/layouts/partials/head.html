@@ -5,35 +5,69 @@
   {{- $siteTitle := site.Title -}}
   {{- $pageTitle := printf "%s · %s" .Title $siteTitle -}}
   {{- if .IsHome -}}
-    {{- $pageTitle = printf "%s · Engineers love computers" $siteTitle -}}
+    {{- $pageTitle = printf "%s · Engineering, signal processing and machine learning blog" $siteTitle -}}
   {{- end -}}
   {{- $description := .Description | default site.Params.description -}}
+  {{- $isPost := and .IsPage (eq .Section "blog") -}}
+  {{- /* Thin or utility pages: keep crawlers following links but out of the index. */ -}}
+  {{- $noindex := or (eq .Type "search") (eq .Kind "404") (and (eq .Kind "term") (eq (len .Pages) 1)) -}}
 
   <title>{{ $pageTitle }}</title>
   <meta name="description" content="{{ $description }}">
-  <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}">
+  {{ if $noindex }}<meta name="robots" content="noindex,follow">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
 
   <meta property="og:site_name" content="{{ $siteTitle }}">
   <meta property="og:title" content="{{ $pageTitle }}">
   <meta property="og:description" content="{{ $description }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:type" content="{{ if $isPost }}article{{ else }}website{{ end }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ $pageTitle }}">
   <meta name="twitter:description" content="{{ $description }}">
 
+  {{- /* Social image: the post's OverviewFig, otherwise the 1200x630 site card. */ -}}
+  {{- $ogImage := "img/social-card.png" | absURL -}}
+  {{- $ogWidth := 1200 -}}
+  {{- $ogHeight := 630 -}}
   {{- with .Params.OverviewFig }}
-    {{- $imagePath := path.Join "images" $.File.TranslationBaseName . -}}
-    {{- with resources.GetMatch $imagePath }}
-      <meta property="og:image" content="{{ .Permalink }}">
-      <meta name="twitter:image" content="{{ .Permalink }}">
+    {{- with resources.GetMatch (path.Join "images" $.File.TranslationBaseName .) }}
+      {{- $ogImage = .Permalink -}}
+      {{- $ogWidth = .Width -}}
+      {{- $ogHeight = .Height -}}
+    {{- end }}
+  {{- end }}
+  <meta property="og:image" content="{{ $ogImage }}">
+  <meta property="og:image:width" content="{{ $ogWidth }}">
+  <meta property="og:image:height" content="{{ $ogHeight }}">
+  <meta name="twitter:image" content="{{ $ogImage }}">
+
+  {{- if $isPost }}
+  <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
+    {{- with .Params.author }}
+      {{- with partial "author-url.html" . }}
+  <meta property="article:author" content="{{ . | absURL }}">
+      {{- end }}
+    {{- end }}
+    {{- with .Params.categories }}
+  <meta property="article:section" content="{{ index . 0 }}">
+    {{- end }}
+    {{- range .Params.tags }}
+  <meta property="article:tag" content="{{ . }}">
     {{- end }}
   {{- end }}
 
   {{- with .OutputFormats.Get "rss" }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $siteTitle }}">
   {{- end }}
+
+  {{ partial "schema.html" . }}
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <link rel="icon" href="{{ "img/favicon.svg" | relURL }}" type="image/svg+xml">
   <script>

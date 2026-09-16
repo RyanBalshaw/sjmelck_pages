@@ -2,9 +2,10 @@
 title: "Time synchronous averaging and computed order tracking: Explained"
 publishdate: 2023-04-14T16:14:08+02:00
 author: Ryan Balshaw
-description: This is a simple explanation of the TSA and COT.
+description: Time synchronous averaging (TSA) and computed order tracking (COT) explained for vibration analysis, with step-by-step procedures and toy-signal examples.
 draft: false
 toc: true
+math: true
 OverviewFig: "averaging_process.png"
 tags: ["Computed order tracking", "Signal processing", "Time synchronous averaging"]
 categories: ["Signal processing"]

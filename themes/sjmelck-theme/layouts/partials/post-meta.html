@@ -1,17 +1,17 @@
 {{- $page := . -}}
+{{- /* Show an "Updated" date only when the last change is more than a day after publishing. */ -}}
+{{- $updated := gt (sub $page.Lastmod.Unix $page.PublishDate.Unix) 86400 -}}
 <div class="post-meta post-meta--article">
   {{ with $page.Params.author }}
-    {{- $author := . -}}
-    {{- $authorURL := "" -}}
-    {{- range site.Menus.about -}}
-      {{- if eq (lower .Params.author_name) (lower (index (split $author " ") 0)) -}}
-        {{- $authorURL = .URL -}}
-      {{- end -}}
-    {{- end -}}
-    {{ if $authorURL }}<a href="{{ $authorURL | relURL }}">{{ $author }}</a>{{ else }}<span>{{ $author }}</span>{{ end }}
+    {{- $authorURL := partial "author-url.html" . -}}
+    {{ if $authorURL }}<a href="{{ $authorURL | relURL }}" rel="author">{{ . }}</a>{{ else }}<span>{{ . }}</span>{{ end }}
     <span aria-hidden="true"> · </span>
   {{ end }}
   <time datetime="{{ $page.PublishDate.Format "2006-01-02" }}">{{ $page.PublishDate.Format "2 January 2006" }}</time>
+  {{ if $updated }}
+    <span aria-hidden="true"> · </span>
+    <span>Updated <time datetime="{{ $page.Lastmod.Format "2006-01-02" }}">{{ $page.Lastmod.Format "2 January 2006" }}</time></span>
+  {{ end }}
   <span aria-hidden="true"> · </span>
   <span>{{ $page.ReadingTime }} min read</span>
 </div>

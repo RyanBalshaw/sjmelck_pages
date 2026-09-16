@@ -3,7 +3,7 @@
   <section class="home-hero">
     <div class="site-container home-hero__inner">
       <img class="home-hero__logo" src="{{ "img/favicon.svg" | relURL }}" width="112" height="112" alt="">
-      <p class="home-hero__eyebrow">Sjmelck Just Means Engineers Love Computers, K?</p>
+      <p class="home-hero__eyebrow">{{ site.Params.tagline }}</p>
       <h1>Sjmelck</h1>
       <p class="home-hero__lede">{{ site.Params.description }}</p>
       <div class="d-flex flex-wrap gap-3">
@@ -60,6 +60,20 @@
         {{ end }}
       </div>
       <p class="contribute-note">Have something useful to share? <a href="https://github.com/RyanBalshaw/sjmelck_pages">Contribute on GitHub</a>.</p>
+    </div>
+  </section>
+
+  <section class="home-section home-section--muted">
+    <div class="site-container">
+      <p class="section-kicker">A personal favourite</p>
+      <h2>Intuitions behind relative velocity</h2>
+      <figure class="home-comic">
+        <img src="{{ "img/calvin_and_hobbes.jpeg" | relURL }}" width="790" height="250" loading="lazy"
+             alt="Calvin and Hobbes comic strip about relative velocity">
+        <figcaption>
+          Calvin and Hobbes by Bill Watterson, <a href="https://www.gocomics.com/calvinandhobbes/2007/11/22" rel="noopener">22 November 2007</a>.
+        </figcaption>
+      </figure>
     </div>
   </section>
 </main>

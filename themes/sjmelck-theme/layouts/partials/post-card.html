@@ -1,6 +1,15 @@
+{{- /*
+  Accepts either a page, or a dict of (page, compact). Compact cards omit the
+  thumbnail and description; used for the related-posts block on articles.
+*/ -}}
 {{- $page := . -}}
-<article class="post-card">
-  {{- with $page.Params.OverviewFig }}
+{{- $compact := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $page = .page -}}
+  {{- $compact = .compact | default false -}}
+{{- end -}}
+<article class="post-card{{ if $compact }} post-card--compact{{ end }}">
+  {{- if not $compact }}{{ with $page.Params.OverviewFig }}
     {{- $imagePath := path.Join "images" $page.File.TranslationBaseName . -}}
     {{- with resources.GetMatch $imagePath }}
       {{- $thumbnail := . -}}
@@ -11,16 +20,16 @@
         <img class="post-card__image" src="{{ $thumbnail.RelPermalink }}" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="" loading="lazy">
       </a>
     {{- end }}
-  {{- end }}
+  {{- end }}{{ end }}
 
   <div class="post-card__body">
     <h2 class="post-card__title">
       <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
     </h2>
 
-    {{ with $page.Description }}
+    {{ if not $compact }}{{ with $page.Description }}
       <p class="post-card__description">{{ . }}</p>
-    {{ end }}
+    {{ end }}{{ end }}
 
     <div class="post-meta">
       {{ with $page.Params.author }}<span>{{ . }}</span><span aria-hidden="true"> · </span>{{ end }}
