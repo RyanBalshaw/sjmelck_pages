@@ -1,13 +1,10 @@
 ---
 title: "Justin Smith"
 publishdate: 2024-02-26T15:48:07+02:00
-author: dummy-name
-description: dummy-description
+description: Justin Smith is a Masters candidate in mechanical engineering at the University of Pretoria with a passion for condition monitoring and machine learning.
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
-_build:
+build:
   list: always
   publishResources: true
   render: always

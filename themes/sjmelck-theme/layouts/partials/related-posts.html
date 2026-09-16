@@ -1,0 +1,11 @@
+{{- /* Up to three related posts, ranked by shared tags and categories (see `related` in config.yaml). */ -}}
+{{- $related := site.RegularPages.Related . | first 3 -}}
+{{- with $related }}
+<section class="related-posts" aria-labelledby="related-posts-heading">
+  <p class="section-kicker">Keep reading</p>
+  <h2 id="related-posts-heading">Related posts</h2>
+  <div class="post-grid post-grid--related">
+    {{ range . }}{{ partial "post-card.html" (dict "page" . "compact" true) }}{{ end }}
+  </div>
+</section>
+{{- end }}

@@ -1,87 +1,57 @@
-{{ $mode_img := "bi-sun" }}
-{{ $active_state := "" }}
-{{ $page_number := -1 }}
-{{ $tmp_dir := "" }}
+{{- $isPosts := eq .Section "blog" -}}
+{{- $isTags := or (eq .Data.Plural "tags") (eq .Type "tags") -}}
+{{- $isAbout := eq .Type "about" -}}
 
-<header>
-    <!--    code to get the correct highlights on the dropdown menu!-->
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg bg-navbar" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand" href="{{ "" | relURL }}" accesskey="h" title="Sjmelck home">
+        <i class="bi bi-robot" aria-hidden="true"></i>
+        Sjmelck
+      </a>
 
-    {{ with .File }}
-        {{ $tmp_dir = (.Path | path.Clean) | strings.TrimRight ".md" }}
-    {{ end }}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavigation" aria-controls="primaryNavigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    {{ $counter := 0 }}
-    {{ range .Site.Menus.about }}
+      <div class="collapse navbar-collapse" id="primaryNavigation">
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link{{ if .IsHome }} active{{ end }}"{{ if .IsHome }} aria-current="page"{{ end }} href="{{ "" | relURL }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{{ if $isPosts }} active{{ end }}"{{ if $isPosts }} aria-current="page"{{ end }} href="{{ "blog/" | relURL }}">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{{ if $isTags }} active{{ end }}"{{ if $isTags }} aria-current="page"{{ end }} href="{{ "tags/" | relURL }}">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle{{ if $isAbout }} active{{ end }}" href="{{ "about/" | relURL }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+            <ul class="dropdown-menu">
+              {{ range site.Menus.about }}
+                {{- $menuURL := .URL | relURL | strings.TrimSuffix "/" -}}
+                {{- $pageURL := $.RelPermalink | strings.TrimSuffix "/" -}}
+                {{- $active := eq $menuURL $pageURL -}}
+                <li>
+                  <a class="dropdown-item{{ if $active }} active{{ end }}"{{ if $active }} aria-current="page"{{ end }} href="{{ .URL | relURL }}">{{ .Name }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        </ul>
 
-        {{ if eq .URL $tmp_dir }}
-            {{ $page_number = $counter }}
-        {{ end }}
-        {{ $counter = add $counter 1 }}
-    {{ end }}
+        <form class="site-search d-flex" action="{{ "search/" | relURL }}" method="get" role="search">
+          <label class="visually-hidden" for="site-search-input">Search Sjmelck</label>
+          <input id="site-search-input" class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search" aria-label="Search Sjmelck">
+          <button class="btn btn-accent btn-sm" type="submit" aria-label="Submit search">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+        </form>
 
-    <nav class="navbar navbar-expand-lg bg-navbar sticky-top">
-            <div class="container ">
-                <div>
-                    <a class="navbar-brand" href="{{ absURL "" }}" accesskey = "h" title="Sjmleck">
-                        <i class="bi bi-robot"></i>
-                        Sjmelck
-                    </a>
-                </div>
-
-                <div id="colourSwitch">
-                    <span>
-                        <i id="colorSwitchToggle" onclick="ToggleColor()" class="bi bi-sun"></i>
-                    </span>
-                </div>
-
-<!--                Setup the toggle button for the elements with the target id-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-
-<!--                Setup the division that collapses into the button-->
-                <div class="collapse navbar-collapse" id = "navbarNav">
-                    <ul class="navbar-nav nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ "" | absURL }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ "blog/" | absURL }}">Posts</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                About us
-                            </a>
-                            <ul class="dropdown-menu">
-                                {{ $counter := 0 }}
-                                {{ range .Site.Menus.about }}
-
-                                    {{ if eq $counter $page_number }}
-                                        {{ $active_state = "active" }}
-                                    {{ else }}
-                                        {{ $active_state = "" }}
-                                    {{ end }}
-
-                                    <li>
-                                    <a class="dropdown-item {{ $active_state }}" href="{{ absURL .URL }}">{{ .Name }}</a>
-                                    </li>
-
-                                    {{ $counter = add $counter 1 }}
-
-                                {{ end }}
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-
-            </div>
-
-        </nav>
-
+        <button id="colorSwitchToggle" class="theme-toggle ms-lg-2 mt-3 mt-lg-0" type="button" aria-label="Switch to dark theme" title="Switch colour theme">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
 </header>

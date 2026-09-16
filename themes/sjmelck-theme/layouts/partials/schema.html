@@ -1,0 +1,147 @@
+{{- /*
+  Emits schema.org JSON-LD for the current page. Objects are built with dict/slice
+  and serialised with jsonify so the output is always valid JSON.
+
+  - Home:                  WebSite (+ SearchAction pointing at /search/)
+  - Blog posts:            BlogPosting (author Person, publisher Organization)
+  - Contributor pages:     ProfilePage with a Person mainEntity
+  - Everything but home:   BreadcrumbList built from .Ancestors
+*/ -}}
+{{- $page := . -}}
+{{- $siteURL := site.Home.Permalink -}}
+{{- $defaultImage := "img/social-card.png" | absURL -}}
+{{- $dateFormat := "2006-01-02T15:04:05-07:00" -}}
+{{- $schemas := slice -}}
+
+{{- $publisher := dict
+  "@type" "Organization"
+  "name" site.Title
+  "url" $siteURL
+  "logo" (dict "@type" "ImageObject" "url" ("img/favicon.svg" | absURL))
+-}}
+
+{{- /* ---- Home: WebSite + SearchAction ---- */ -}}
+{{- if .IsHome -}}
+  {{- $schemas = $schemas | append (dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" site.Title
+    "url" $siteURL
+    "description" site.Params.description
+    "publisher" $publisher
+    "potentialAction" (dict
+      "@type" "SearchAction"
+      "target" (dict
+        "@type" "EntryPoint"
+        "urlTemplate" (printf "%ssearch/?q={search_term_string}" $siteURL)
+      )
+      "query-input" "required name=search_term_string"
+    )
+  ) -}}
+{{- end -}}
+
+{{- /* ---- Blog posts: BlogPosting ---- */ -}}
+{{- if and .IsPage (eq .Section "blog") -}}
+  {{- $image := $defaultImage -}}
+  {{- with .Params.OverviewFig -}}
+    {{- with resources.GetMatch (path.Join "images" $page.File.TranslationBaseName .) -}}
+      {{- $image = .Permalink -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $author := dict "@type" "Organization" "name" site.Title "url" $siteURL -}}
+  {{- with .Params.author -}}
+    {{- $author = dict "@type" "Person" "name" . -}}
+    {{- with partial "author-url.html" . -}}
+      {{- $author = merge $author (dict "url" (. | absURL)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $post := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "headline" .Title
+    "description" (.Description | default site.Params.description)
+    "image" $image
+    "url" .Permalink
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "datePublished" (.PublishDate.Format $dateFormat)
+    "dateModified" (.Lastmod.Format $dateFormat)
+    "author" $author
+    "publisher" $publisher
+    "wordCount" .WordCount
+    "inLanguage" (site.Language.Lang | default "en")
+  -}}
+  {{- with .Params.tags -}}
+    {{- $post = merge $post (dict "keywords" (delimit . ", ")) -}}
+  {{- end -}}
+  {{- with .Params.categories -}}
+    {{- $post = merge $post (dict "articleSection" (index . 0)) -}}
+  {{- end -}}
+  {{- $schemas = $schemas | append $post -}}
+{{- end -}}
+
+{{- /* ---- Contributor pages: ProfilePage / Person ---- */ -}}
+{{- if and .IsPage (eq .Type "about") -}}
+  {{- $pageURL := .RelPermalink | strings.TrimSuffix "/" -}}
+  {{- range site.Menus.about -}}
+    {{- $menuURL := .URL | relURL | strings.TrimSuffix "/" -}}
+    {{- if and (eq $menuURL $pageURL) .Params.author_name -}}
+      {{- $name := .Params.author_name -}}
+      {{- $person := dict
+        "@type" "Person"
+        "name" $page.Title
+        "url" $page.Permalink
+        "image" (printf "img/%s_head.%s" $name (cond (eq $name "justin") "jpg" "jpeg") | absURL)
+        "worksFor" $publisher
+      -}}
+      {{- $sameAs := slice -}}
+      {{- range index site.Menus (printf "%s_social" $name) -}}
+        {{- if eq .Identifier "description" -}}
+          {{- $person = merge $person (dict "jobTitle" .Name) -}}
+        {{- else if and .URL (not (hasPrefix .URL "mailto:")) -}}
+          {{- $sameAs = $sameAs | append .URL -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with $sameAs -}}{{- $person = merge $person (dict "sameAs" .) -}}{{- end -}}
+      {{- with $page.Description -}}{{- $person = merge $person (dict "description" .) -}}{{- end -}}
+
+      {{- $schemas = $schemas | append (dict
+        "@context" "https://schema.org"
+        "@type" "ProfilePage"
+        "url" $page.Permalink
+        "dateCreated" ($page.Date.Format $dateFormat)
+        "dateModified" ($page.Lastmod.Format $dateFormat)
+        "mainEntity" $person
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---- Breadcrumbs for every page except home and the 404 page ---- */ -}}
+{{- if not (or .IsHome (eq .Kind "404")) -}}
+  {{- $items := slice -}}
+  {{- range .Ancestors.Reverse -}}
+    {{- $items = $items | append (dict
+      "@type" "ListItem"
+      "position" (add (len $items) 1)
+      "name" (cond .IsHome site.Title .Title)
+      "item" .Permalink
+    ) -}}
+  {{- end -}}
+  {{- $items = $items | append (dict
+    "@type" "ListItem"
+    "position" (add (len $items) 1)
+    "name" .Title
+    "item" .Permalink
+  ) -}}
+  {{- $schemas = $schemas | append (dict
+    "@context" "https://schema.org"
+    "@type" "BreadcrumbList"
+    "itemListElement" $items
+  ) -}}
+{{- end -}}
+
+{{- range $schemas }}
+  <script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end }}

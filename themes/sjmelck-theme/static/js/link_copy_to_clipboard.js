@@ -1,21 +1,16 @@
-// Function to copy the link to the clipboard
-function CopyLink(copyText) {
+document.addEventListener("click", async (event) => {
+  const anchor = event.target.closest("[data-copy-heading]");
+  if (!anchor) return;
 
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText);
-
-    // Show the toast that fades away
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-    toastBootstrap.show()
-}
-
-// Functions to trigger the bootstrap toast element
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
+  event.preventDefault();
+  const url = new URL(anchor.getAttribute("href"), window.location.href).href;
+  try {
+    await navigator.clipboard.writeText(url);
+    const toast = document.getElementById("link-copy-toast");
+    if (toast && window.bootstrap) {
+      bootstrap.Toast.getOrCreateInstance(toast, { delay: 2200 }).show();
+    }
+  } catch {
+    window.location.hash = anchor.hash;
+  }
+});

@@ -2,21 +2,21 @@
 title: "Logistic Regression from the ground up"
 publishdate: 2025-04-23T15:51:58+02:00
 author: Ryan Balshaw
-description: A write-up of the logistic regression model from start to finish. The primary focus is on the model formulation and model interpretability.
+description: Logistic regression from first principles. Focus is on model formulation, log-odds interpretation, regularisation, gradient and Hessian derivations, and the multinomial case.
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
+tags: ["Logistic regression", "Machine learning", "Optimisation", "Python"]
+categories: ["Machine learning"]
 math: true
 hasMermaid: false
 OverviewFig: "summary_figure.png"
-_build:
+build:
   list: always
   publishResources: true
   render: always
 ---
 
-# Introduction
+## Introduction
 
 Good day! :wave:
 
@@ -30,7 +30,7 @@ Ryan Balshaw 🦮
 
 ![Summary figure](summary_figure.png)
 
-# 1. The logistic regression model
+## 1. The logistic regression model
 
 Logistic regression is a foundational approach to binary classification problem used to model dichotomous outcome variables.  This model defines a linear discriminative classification model, i.e., a model of $p(y\vert \mathbf{x})$ with $y \in [0, 1], \mathbf{x} \in \mathbb{R}^{d}$. To define this model, a linear mapping of data $\mathbf{x}$ to a single variable $z$, which is directly a one layer neural network mapping to a single node with a learnable bias parameter, is required. This linear mapping is given by
 
@@ -88,11 +88,11 @@ $$
 
 The negative LL (NLL) is commonly referred to as the [cross-entropy loss](https://en.wikipedia.org/wiki/Cross-entropy) due to its direct relationship to cross entropy in information theory. Moreover, for clarity, $\mathbf{x}, y$ are observed and not necessarily in our control, hence the best estimate $\widehat{\boldsymbol{\zeta}}$ is identified based on the observations captured in $\mathcal{D}$.
 
-# 2. Interpreting the model formulation
+## 2. Interpreting the model formulation
 
 The logistic regression model can be interpreted through two avenues, $(i)$ its mathematical formulation and $(ii)$ fitting the model to a simple but informative classification problem. Both avenues are explored in this section.
 
-## 2.1 Mathematical interpretation
+### 2.1 Mathematical interpretation
 
 To interpret the model, some work needs to be done to figure out what linear function is being modelled. Currently, only $z(\mathbf{x}, \boldsymbol{\zeta})$ contains linearity, while $p(y = 1\vert \mathbf{x}, {\boldsymbol{\zeta}})$ is non-linear due to $\sigma(u)$. One way to interpret the linearity of the model is to try and invert $\sigma(u)$, which conveniently is given by the logit function
 
@@ -147,7 +147,7 @@ indicating that when $z(\boldsymbol{\zeta}, \mathbf{x}) < 0$, the value $\mathbf
 The sign of the plane formed by $z(\boldsymbol{\zeta}, \mathbf{x})$ provides an indication of which class $\mathbf{x}$ will be assigned to. Additionally, the equation $z(\boldsymbol{\zeta}, \mathbf{x})=0$ defines a hyperplane in the feature space that serves as the decision boundary for classification, separating the $\mathbf{x}$ space into two half-spaces corresponding to the two classes.
 {{< /reveal >}}
 
-## 2.2 Visual interpretation
+### 2.2 Visual interpretation
 
 Consider a 2D problem where we have data sampled from two Gaussians:
 ![2D classification dataset](dataset.png)
@@ -160,7 +160,7 @@ To interpret the logistic regression model, the log-odds and discriminative dist
 
 We can see the log-odds is a plane that splits the data into two classes.
 
-# 3. Combating over-fitting via regularisation
+## 3. Combating over-fitting via regularisation
 
 Naively maximising the LL using gradient ascent is problematic due to over-fitting if you observe a sub-set of the true conditional distribution being approximated. There are two general solutions to this problem:
 1. Penalised maximum likelihood estimation with a regularisation term $R(\boldsymbol{\zeta})$.
@@ -196,7 +196,7 @@ Bayes theorem represents the likelihood multiplied by the prior (the joint distr
 
 In summary, at this point in time we have a model formulation that maps from $\mathbf{x}$ to $y$ and an objective function with terms to combat overfitting. Now, all we need is data, an optimisation procedure, and code! This is the fun part, so let's gather what we need for optimisation.
 
-# 4. Estimating the model parameters $\widehat{\boldsymbol{\zeta}}$
+## 4. Estimating the model parameters $\widehat{\boldsymbol{\zeta}}$
 
 The first choice that needs to be made, at least in principle, is how we want to solve for $\boldsymbol{\zeta}$. For those coming from an optimisation background, the decision of what to do is trivial; just maximise $L(\boldsymbol{\zeta})$ with or without regularisation. However, I want to take an alternative route, just because I can. This route is called empirical risk minimisation (ERM), which sounds quite fancy but it is simple in practice. ERM introduces the risk
 
@@ -214,7 +214,7 @@ which is just the normalised negative log-likelihood (NLL). This empirical risk 
 
 > Note that while I have not included the regularisation  in this formulation, you can add it in by adding it to $\mathcal{L}(\boldsymbol{\zeta})$:  $\mathcal{L}_R(\boldsymbol{\zeta}) = \mathcal{L}(\boldsymbol{\zeta}) + \alpha R(\boldsymbol{\zeta})$. If the decision is made to use gradient descent, a first-order iterative method, then the constraint is that $R(\boldsymbol{\zeta})$ must be differentiable. Otherwise,
 >
-## 4.1 The gradient vector
+### 4.1 The gradient vector
 
 {{< details summary="See an expanded derivation of how to obtain the gradient vector" >}}
 The gradient vector $\nabla_{\mathbf{x}} f$, where $\nabla$ is the vector differential operator, is given by
@@ -349,7 +349,7 @@ $$
 
 > Note: This is the gradient vector of $\mathcal{L}(\boldsymbol{\zeta})$ and it does not include the regularisation term. To include it, you will just need to add  $\alpha \cdot \nabla_{\boldsymbol{\zeta}}R(\boldsymbol{\zeta})$ to $\nabla_{\boldsymbol{\zeta}} \mathcal{L}(\boldsymbol{\zeta})$.
 
-## 4.2 The Hessian
+### 4.2 The Hessian
 
 Certain solvers, e.g., second-order methods such as Newton's method in Optimisation, require Hessian information to perform parameter updates. The Hessian is expressed as the transpose of the Jacobian of the gradient vector, $\mathbf{H}(f(\mathbf{x})) = \mathbf{J}\left( \nabla f(\mathbf{x}) \right)^T.$
 
@@ -402,11 +402,11 @@ $$
 
 > Note: This is the Hessian matrix of $\mathcal{L}(\boldsymbol{\zeta})$ and it does not include the regularisation term. To include it, you will just need to add  $\alpha \cdot \mathbf{J}\left( \nabla R(\boldsymbol{\zeta}) \right)^T$ to $\mathbf{H}(\boldsymbol{\zeta})$.
 
-# 5. Implementing this in code
+## 5. Implementing this in code
 
 I realise that this post is growing in length, so I recommend that you look at my Python-based implementation inside the [`sjmelck_pages`](https://github.com/RyanBalshaw/sjmelck_pages/tree/main/assets/images)repository itself or inside the [`random_paper_implementations`](https://github.com/RyanBalshaw/random-paper-implementations/tree/main/implementations/robust_optimized_weight_spectrum) repository. In both repos, I constructed the model to be compatible with scikit-learn, just for the challenge. I am fully aware that it already [exists](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#logisticregression) within scikit-learn's ecosystem.
 
-# 6. Multinomial logistic regression
+## 6. Multinomial logistic regression
 
 To wrap this discussion up, I will also discuss how multinomial logistic regression can be scaled up to multiple classes. I will not progress further than the model formulation and how to compute one of the more complex terms in the gradient vector. The first step is to introduce a mapping to $\mathbf{z} \in \mathcal{R}^K$, where $K$ refers to the number of classes considered. This is achieved using
 
@@ -416,7 +416,7 @@ $$
 
 where $\mathbf{W}=[\mathbf{w}_k, \cdots, \mathbf{w}_K]^T$ represents $K$ independent mappings and $\mathbf{b} = [b_k, \cdots, b_K]^T$. To derive the form of $p(y_i=k\vert \mathbf{x})$, there are two prominent forms in the literature, namely via $(i)$ minimal parametrisation and $(ii)$ over-parametrisation of the weight vectors. I will discuss each in turn.
 
-## 6.1 Minimal parametrisation
+### 6.1 Minimal parametrisation
 
 To derive this formation, the constraint $\sum_{l=1}^{K}p(y=l \vert \mathbf{x})=1$ is key. Specifically, we can write
 
@@ -453,7 +453,7 @@ $$
 
 In this solution, the fact that one classes probability is fully parametrised by the probabilities of the other classes is key.
 
-## 6.2 Over-parametrisation
+### 6.2 Over-parametrisation
 
 In the over-parametrised form, the Gibbs measure is used to define
 
@@ -479,7 +479,7 @@ $$
 
 where $\boldsymbol{\sigma}_s(\mathbf{z}): \mathbb{R}^K \rightarrow \mathbb{R}^K$ is commonly referred to as the softmax function. One problem with this term is that it is invariant to translation, i.e.,  $\sigma_s^{(k)}(\mathbf{z} + \mathbf{c}) = \sigma_s^{(k)}(\mathbf{z})$, and if we set $\mathbf{c} = \boldsymbol{\zeta}_k$, we can recover the minimal parametrisation form, effectively removing the weights for the $K^{th}$ class.
 
-## 6.3 The multinomial objective function
+### 6.3 The multinomial objective function
 
 For both forms of $p(y=k\vert \mathbf{x})$, the observed class labels $y_i \in \{1, \cdots, K\}$ for $i=1, \cdots, N$ are considered as samples of categorically distributed random variables $Y_1, \cdots, Y_K$ leading to the probability mass function
 
@@ -511,7 +511,7 @@ $$
 
 One interesting take-away is that this loss only considers the probability given to the expected class label, and on the surface it appears that the parameter updates will only care about the correct class prediction. To determine if this is truly the case, it is of interest to look at how the parameters are updated. Specifically, iterative parameter updates, e.g., gradient descent,  require the gradient vector, which now relies on the term $\partial \boldsymbol{\sigma} / \partial \mathbf{z}$, i.e., the Jacobian of the softmax function with respect to $\mathbf{z}$. The form of this term is discussed to drive intuition behind the loss.
 
-## 6.4 The Jacobian of the softmax function
+### 6.4 The Jacobian of the softmax function
 
 Each row in the Jacobian $\mathbf{J}_\boldsymbol{\sigma} \, \boldsymbol{\sigma}(\mathbf{z}) \in \mathbb{R}^{K \times K}$ is given by
 
@@ -544,6 +544,6 @@ $$
 
 This relation indicates that the gradient vector will contain sensitivity information on both the correct class predictions and the incorrect class predictions.
 
-# 7. Conclusion
+## 7. Conclusion
 
 If you get this far, thank you for reading this post! I hope you found parts of this write-up informative and that you ended off with a better understanding than when you started reading the post! If you did not, please let me know!

@@ -2,14 +2,14 @@
 title: "An introduction to Radial basis functions"
 publishdate: 2024-03-15T11:59:05+02:00
 author: Johann Bouwer
-description: A how-to on implementing gradients into the radial basis function
-  surrogate model.
+description: How radial basis function (RBF) surrogate models work, and how to implement a Gaussian RBF interpolation and regression model in Python with NumPy and SciPy.
 draft: false
 toc: true
-tags: ["Gradients", "RBF", "surrogate models"]
-categories: ["python"]
+math: true
+tags: ["Gradients", "Machine learning", "Python", "Radial basis functions", "Surrogate models"]
+categories: ["Machine learning"]
 OverviewFig: "test.png"
-_build:
+build:
   list: always
   publishResources: true
   render: always
@@ -23,7 +23,7 @@ Kind regards,
 
 Johann Bouwer
 
-![Alt Text](test.png)
+![Radial basis function network diagram with inputs feeding basis functions summed into an output, alongside a 3D Gaussian basis function surface](test.png)
 
 ## Introduction
 

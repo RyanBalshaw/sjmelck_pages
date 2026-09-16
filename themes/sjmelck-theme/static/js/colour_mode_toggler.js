@@ -1,103 +1,56 @@
-const dm_off = "bi-moon";
-const dm_on = "bi-sun";
+(() => {
+  const storageKey = "theme";
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const toggle = document.getElementById("colorSwitchToggle");
 
-// Function to change the icon randomly
-function changeIcon(img_toggle){
+  const getStoredTheme = () => localStorage.getItem(storageKey);
 
-    if (img_toggle.classList.contains(dm_off)){
-        img_toggle.classList.replace(dm_off, dm_on);
+  const getPreferredTheme = () => {
+    const storedTheme = getStoredTheme();
+    if (storedTheme === "light" || storedTheme === "dark") {
+      return storedTheme;
     }
-    else if (img_toggle.classList.contains(dm_on)){
-        img_toggle.classList.replace(dm_on, dm_off);
+    return mediaQuery.matches ? "dark" : "light";
+  };
+
+  const updateChromaTheme = (theme) => {
+    const lightStyles = document.getElementById("chroma-light");
+    const darkStyles = document.getElementById("chroma-dark");
+    if (lightStyles) lightStyles.disabled = theme === "dark";
+    if (darkStyles) darkStyles.disabled = theme !== "dark";
+  };
+
+  const updateToggle = (theme) => {
+    if (!toggle) return;
+
+    const icon = toggle.querySelector("i");
+    const dark = theme === "dark";
+    icon.className = dark ? "bi bi-sun" : "bi bi-moon-stars";
+    toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  };
+
+  const setTheme = (theme) => {
+    const resolvedTheme = theme === "auto"
+      ? (mediaQuery.matches ? "dark" : "light")
+      : theme;
+    document.documentElement.setAttribute("data-bs-theme", resolvedTheme);
+    updateChromaTheme(resolvedTheme);
+    updateToggle(resolvedTheme);
+  };
+
+  setTheme(getPreferredTheme());
+
+  toggle?.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-bs-theme");
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    localStorage.setItem(storageKey, nextTheme);
+    setTheme(nextTheme);
+  });
+
+  mediaQuery.addEventListener("change", () => {
+    const storedTheme = getStoredTheme();
+    if (storedTheme !== "light" && storedTheme !== "dark") {
+      setTheme("auto");
     }
-    else{
-        console.log("Something strange happened.")
-    }
-}
-
-// Function to check whether the icon is correct for the colour mode selected.
-function checkIcon(img_toggle){
-
-    if (document.documentElement.getAttribute('data-bs-theme') == 'dark'){
-        if (img_toggle.classList.contains(dm_off)){
-            img_toggle.classList.replace(dm_off, dm_on);
-        }
-    }
-    else{
-        if (img_toggle.classList.contains(dm_on)){
-            img_toggle.classList.replace(dm_on, dm_off);
-        }
-    }
-}
-
-// Function that returns the stored theme from the localStorage page or
-const getPreferredTheme = function(storedTheme) {
-if (storedTheme) {
-  return storedTheme
-}
-return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
-
-// Function that sets the colour theme in document.documentElement (it edits the data-bs-theme attribute)
-const setTheme = function (theme) {
-if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  document.documentElement.setAttribute('data-bs-theme', 'light')
-} else {
-  document.documentElement.setAttribute('data-bs-theme', theme)
-}
-}
-
-// page-loadup checker
-document.addEventListener('DOMContentLoaded', function() {
-
-    const img_toggle = document.getElementById("colorSwitchToggle");
-
-    if (window.matchMedia){
-
-        // Check the stored color scheme of the document
-        const storedTheme = localStorage.getItem('theme');
-
-        // Check to see if the browser has a prefers-color-scheme option
-        if (window.matchMedia('(prefers-color-scheme)').matches){
-
-            // Set the theme
-            setTheme(getPreferredTheme(storedTheme));
-        }
-
-        checkIcon(img_toggle);
-    }
-    else{
-        console.log("No match-Queries are available")
-    }
-
-    // Monitor the picture
-    // Add in a function to change the color mode in the document.
-    img_toggle.onclick = function (){
-
-        const userTheme = document.documentElement.getAttribute('data-bs-theme');
-
-        if (userTheme == 'light'){
-            document.documentElement.setAttribute('data-bs-theme', 'dark')
-            localStorage.setItem('theme', 'dark')
-        }
-        else if (userTheme == 'dark'){
-            document.documentElement.setAttribute('data-bs-theme', 'light')
-            localStorage.setItem('theme', 'light')
-        }
-
-        console.log(getPreferredTheme(userTheme))
-
-        checkIcon(img_toggle);
-    }
-})
-
-//User setting change detector
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-
-    // Check the stored color scheme of the document
-    const storedTheme = localStorage.getItem('theme');
-
-    if (storedTheme !== 'light' || storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
-    }
-  })
+  });
+})();

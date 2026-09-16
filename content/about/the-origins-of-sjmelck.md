@@ -1,6 +1,7 @@
 ---
 title: "The Origins of Sjmelck"
 date: 2023-01-12T12:36:40+02:00
+description: What Sjmelck (Sjmelck Just Means Engineers Love Computers, K?) is, why the blog exists, and how engineers can contribute their own posts.
 draft: false
 ---
 Welcome to the landing page of the origins of Sjmelck! 🎉 We are thrilled to have you join us on this exciting journey.

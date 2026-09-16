@@ -1,19 +1,22 @@
 {{ define "main" }}
-    <main>
-    <div class="container w-50">
-        <h1>Sjmelck blog posts</h1>
-
-        <p>
-        Here are blog posts relating to Python, signal processing, machine learning, and anything else we feel like posting about. Enjoy!
-        </p>
-
-    </div>
-    <div>
-<!--        Site.RegularPages was previously in .Pages but this broke with taxonomies -->
-        {{ range (where .Pages "Section" "blog") }}
-            {{ .Render "summary" }}
+  <main class="site-main">
+    <div class="site-container">
+      <header class="listing-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}
+          <p class="lead text-body-secondary">{{ . }}</p>
+        {{ else }}
+          {{ if eq .Section "blog" }}
+            <p class="lead text-body-secondary">Technical notes about scientific computing, signal processing, machine learning, Python, and optimisation.</p>
+          {{ end }}
         {{ end }}
-    </div>
+      </header>
 
-</main>
+      <div class="post-grid">
+        {{ range where .RegularPages.ByPublishDate.Reverse "Section" "blog" }}
+          {{ partial "post-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </main>
 {{ end }}

@@ -1,13 +1,10 @@
 ---
 title: "Johann Bouwer"
 publishdate: 2023-04-14T10:33:53+02:00
-author: dummy-name
-description: dummy-description
+description: Johann Bouwer is a PhD candidate and assistant lecturer in mechanical engineering at the University of Pretoria, writing about radial basis function models.
 draft: false
 toc: true
-tags: ["tag1", "tag2", "tag3"]
-categories: ["category1"]
-_build:
+build:
   list: always
   publishResources: true
   render: always

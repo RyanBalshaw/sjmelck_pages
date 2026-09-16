@@ -5,6 +5,7 @@ repos:
     rev: v5.0.0
     hooks:
     -   id: check-json
+        exclude: layouts/.*\.json$          # Hugo layout JSON is a Go template, not source JSON
     -   id: check-merge-conflict
     -   id: check-toml
     -   id: check-xml
@@ -16,7 +17,7 @@ repos:
         args:   [ '--fix=lf' ]
     -   id: pretty-format-json
         args:   [ '--autofix', '--indent=4', '--no-sort-keys' ]
-        exclude: \.ipynb$
+        exclude: (\.ipynb$|layouts/.*\.json$)
     -   id: check-added-large-files         # this hook will prevent  extremely large files from being committed.
         args:   [ '--maxkb=20000' ]
 

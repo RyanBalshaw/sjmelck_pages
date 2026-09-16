@@ -1,5 +1,5 @@
 baseURL: https://ryanbalshaw.github.io/sjmelck_pages/
-languageCode:   en-us
+locale: en-us
 DefaultContentLanguage: en
 theme: sjmelck-theme
 pluralizeListTitles: false
@@ -9,17 +9,38 @@ summaryLength: 50
 title: Sjmelck
 enableRobotsTXT: true
 enableEmoji: true
+enableGitInfo: true # Lets :git supply lastmod from the last commit that touched each file
 googleAnalytics: "G-TZK5KHZQ8Y"
 params:
-  math: true
   AuthorName: Ryan Balshaw
   GitHubUser: RyanBalshaw
-  description: "Sjmelck Just Means Engineers Love Computers K? Sjmelck (Pronounces 100% exactly like it is written), aims to be the engineers cheat sheet to the world of scientific computing."
+  tagline: "Sjmelck Just Means Engineers Love Computers, K?"
+  description: "Practical guides to signal processing, machine learning, optimisation and scientific computing in Python. Sjmelck just means engineers love computers, K?"
+frontmatter:
+  lastmod: [":git", "lastmod", "publishdate", "date"]
+caches:
+  images:
+    dir: :cacheDir/images # Lets the GitHub Actions cache persist processed images between builds
 sitemap:
-  changefreq: "daily"
+  changefreq: "weekly"
   filename: "sitemap.xml"
   priority: 0.5
+related:
+  threshold: 40
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 50
 markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+  highlight:
+    noClasses: false
+    lineNumbersInTable: false
   goldmark:
     renderer:
       unsafe: true    # This allows HTML in markdown
@@ -48,6 +69,10 @@ menu:
       name: blog
       url: "/blog/"
       weight: 20
+    - identifier: tags
+      name: tags
+      url: "/tags/"
+      weight: 30
   about:
     - identifier: about-ryan
       name: Contributor - Ryan Balshaw
@@ -84,9 +109,6 @@ menu:
     - name: Linkedin
       url: "https://linkedin.com/in/ryan-balshaw/"
       pre: "<i class='bi bi-linkedin socialIcon'></i>"
-    - name: Twitter
-      url: "https://twitter.com/ryan_balshaw/"
-      pre: "<i class='bi bi-twitter socialIcon'></i>"
     - name: Email
       url: "mailto: ryanbalshaw81@gmail.com"
       pre: "<i class='bi bi-envelope-at socialIcon'></i>"
@@ -129,3 +151,8 @@ menu:
     - name: Email
       url: "mailto: 66smithjustin@gmail.com"
       pre: "<i class='bi bi-envelope-at socialIcon'></i>"
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
