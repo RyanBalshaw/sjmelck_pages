@@ -1,0 +1,182 @@
+# AGENTS.md — Writing a blog post for Sjmelck
+
+Sjmelck is a [Hugo](https://gohugo.io/) site. Posts are Markdown files in `content/blog/`. Images are in `assets/images/<post-slug>/`. The build writes the site to `docs/`. Do not edit files in `docs/` manually.
+
+## 1. Create the post
+
+```shell
+hugo new blog/my-post-title.md
+```
+
+This command creates `content/blog/my-post-title.md`. The file name is the URL slug for the post. Use lowercase words separated by hyphens.
+
+## 2. Fill in the front matter
+
+Every post starts with a YAML block like this:
+
+```yaml
+---
+title: "An introduction to Radial basis functions"
+publishdate: 2024-03-15T11:59:05+02:00
+author: Johann Bouwer
+description: How radial basis function (RBF) surrogate models work, and how to implement one in Python with NumPy and SciPy.
+draft: false
+toc: true
+math: true
+hasMermaid: false
+OverviewFig: "test.png"
+tags: ["Gradients", "Machine learning", "Python", "Radial basis functions", "Surrogate models"]
+categories: ["Machine learning"]
+build:
+  list: always
+  publishResources: true
+  render: always
+---
+```
+
+| Field | Required | Notes |
+|---|---|---|
+| `title` | yes | Quoted string. Use sentence case (capitalize only the first word and proper nouns). |
+| `publishdate` | yes | ISO 8601 format with timezone. `hugo new` sets this value. |
+| `author` | yes | Full name, for example `Ryan Balshaw`. The site matches the first name to contributor pages in `config.yaml` (`ryan`, `douw`, `johann`, `justin`) to link to the author page. |
+| `description` | yes | One or two plain sentences (120 to 160 characters). Used for the post card, search, and `<meta>` description. Do not use Markdown. |
+| `draft` | yes | `true` during draft stage. Set to `false` to publish. |
+| `toc` | yes | Keep `true`. The table of contents uses `##` to `####` headings. |
+| `math` | when needed | If the post contains equations, set to `true`. This setting loads MathJax. |
+| `hasMermaid` | when needed | If the post contains a Mermaid diagram, set to `true`. |
+| `OverviewFig` | recommended | File name of an image in `assets/images/<post-slug>/`. Used for the card thumbnail and social share image. |
+| `tags` | yes | Three to six tags. When possible, reuse existing tags (see `/tags/` on the site). Capitalize only the first word, for example `"Signal processing"`. |
+| `categories` | yes | Exactly one category. Existing categories: `Machine learning`, `Signal processing`, `Python`, `Tooling`. |
+| `build` | yes | Copy the block as shown. |
+
+## 3. Write the body
+
+You can structure the post freely. Write in your own voice and organize sections to explain the topic clearly. There is one technical rule:
+
+- Start headings at `##`. The post title is the `h1` heading. The table of contents uses `##` to `####` headings.
+
+The sections that follow show formatting options. Use the features that you need.
+
+You can use emoji shortcodes (for example `:wave:`) and HTML in Markdown.
+
+### Equations
+
+To use equations, set `math: true` in the front matter:
+
+- Inline equations: `\\( x^2 \\)`
+- Block equations: `$$ ... $$` on separate lines, or `\[ ... \]`
+
+Use a double backslash for inline equations. You can see examples in `content/blog/rbf-models.md`.
+
+### Images
+
+1. Create a folder `assets/images/<post-slug>/` with the same name as the Markdown file.
+2. Put all images for the post in that folder.
+3. If a Python script generates figures, put the script in `assets/images/` (for example `assets/images/my_post_script.py`).
+4. Reference an image by file name only:
+
+```markdown
+![Descriptive alt text that says what the figure shows](figure.png)
+```
+
+The theme resolves the path and resizes the image. The theme uses the alt text as the caption.
+
+Write descriptive alt text. If the alt text is `alt text`, the theme skips the caption.
+
+If you need a caption that differs from the alt text, add a title string:
+
+```markdown
+![Alt text for screen readers](figure.png "Caption shown under the figure")
+```
+
+### Links
+
+Standard Markdown links work. Links that start with `http` open in a new browser tab automatically.
+
+### Code
+
+Use fenced code blocks with a language tag:
+
+````markdown
+```python
+import numpy as np
+```
+````
+
+### Collapsible sections
+
+```markdown
+{{< reveal "Click here to reveal" >}}
+
+Hidden Markdown content.
+
+{{< /reveal >}}
+```
+
+You can also use the built-in Hugo shortcode `{{< details summary="..." >}} ... {{< /details >}}`.
+
+### Mermaid diagrams
+
+To display diagrams, set `hasMermaid: true` in the front matter. Use a fenced code block with the `mermaid` language tag.
+
+## 4. Preview
+
+Start the local server:
+
+```shell
+hugo server -D
+```
+
+Open the URL shown in the terminal. The `-D` flag includes drafts.
+
+## 5. Fine-tune
+
+These steps are optional. They cover details that often need a second pass in the preview.
+
+**Post appearance outside the article**
+
+- The `description` appears on the post card, in search results, and in link previews. Read the description on the home page. Make sure that it makes sense without the title.
+- `OverviewFig` is the card thumbnail and the social share image. Choose an image that is clear at a small size. A plot with large labels is better than a dense diagram.
+- Tags and categories help readers find related posts. Examine `/tags/` on the site. Reuse an existing tag before you create a new tag.
+
+**Headings and navigation**
+
+- The table of contents reflects your `##` to `####` headings. Examine the table of contents in the preview. If the list is long or deeply nested, merge or promote sections.
+- Every heading generates an anchor link from its text. Keep headings short and unique in the post so links remain readable.
+
+**Figures**
+
+- The browser loads the first image eagerly. Use an important figure for the first image.
+- The theme limits display width to 800 px and generates 480, 800, and 1200 px variants. Export figures at approximately 1200 px width. Larger files do not improve quality.
+- Alt text describes the content of the figure. The caption explains why the figure is important. See [Images](#images) for syntax.
+- Commit any Python scripts that generate figures to `assets/images/`.
+
+**Equations and code**
+
+- Inline equations require `\\(` and `\\)` with a double backslash. A single backslash renders as plain text. If an equation does not render, examine the backslashes.
+- Put long derivations in a `details` or `reveal` block. This keeps the text easy to read for all users.
+- Add a language tag to every code block for syntax highlighting.
+
+**Build**
+
+- Before you open a pull request, run `hugo` without arguments. This command matches CI. If shortcodes or front matter are invalid, the command fails. The output writes to `docs/`, which git ignores.
+- A missing image does not cause the build to fail. The site falls back to an unstyled `<img>` tag without resizing. If an image appears unstyled, examine the file name and folder path.
+
+## 6. Publish
+
+1. Set `draft: false` in the front matter.
+2. Run the pre-commit hooks to fix formatting: `uv run pre-commit run --all-files`.
+3. Commit the Markdown file and the `assets/images/<post-slug>/` folder.
+4. Open a pull request.
+
+## Checklist
+
+- [ ] The file is in `content/blog/` with a lowercase, hyphenated name.
+- [ ] Front matter contains `title`, `publishdate`, `author`, `description`, `tags`, one category in `categories`, and the `build` block.
+- [ ] If the post has equations, `math: true` is set.
+- [ ] If the post has diagrams, `hasMermaid: true` is set.
+- [ ] `OverviewFig` points to an image in `assets/images/<post-slug>/`.
+- [ ] Every image has descriptive alt text.
+- [ ] Headings start at `##`.
+- [ ] The `hugo` build completes without errors.
+- [ ] `draft: false` is set before merge.
