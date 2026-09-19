@@ -21,12 +21,24 @@ FENCE_OPEN = re.compile(r"^(?P<indent>\s{0,3})(?P<fence>`{3,}|~{3,})(?P<info>.*)
 HIDE_SENTINEL = re.compile(r"^#\s*sjmelck:\s*hide\b")
 IMAGE_LINK = re.compile(r"(!\[[^\]]*\]\()([^)\s]+)((?:\s+\"[^\"]*\")?\))")
 
+# CommonMark HTML blocks. Type 1 runs to its own closing tag and may contain
+# blank lines; every other kind ends at a blank line. The theme sets
+# `unsafe: true`, so raw HTML reaches the page verbatim - and Goldmark does
+# not process backslash escapes inside it, which means `$...$` there is
+# already safe for MathJax and must be left alone. Rewriting it would corrupt
+# things like a Plotly axis with `"tickprefix": "$"`.
+HTML_RAW_OPEN = re.compile(r"^\s{0,3}<(script|pre|style|textarea)\b", re.IGNORECASE)
+HTML_RAW_CLOSE = re.compile(r"</(script|pre|style|textarea)\s*>", re.IGNORECASE)
+HTML_BLOCK_OPEN = re.compile(r"^\s{0,3}</?[a-zA-Z][a-zA-Z0-9-]*(\s|/?>|$)")
+
 
 class _State(Enum):
     NORMAL = auto()
     FENCE = auto()
     DISPLAY_DOLLAR = auto()
     DISPLAY_BRACKET = auto()
+    HTML_RAW = auto()
+    HTML_BLOCK = auto()
 
 
 @dataclass
@@ -202,6 +214,18 @@ def convert_inline_math(markdown: str) -> MathResult:
                 state, fence = _State.NORMAL, None
             continue
 
+        if state is _State.HTML_RAW:
+            out.append(raw)
+            if HTML_RAW_CLOSE.search(text):
+                state = _State.NORMAL
+            continue
+
+        if state is _State.HTML_BLOCK:
+            out.append(raw)
+            if not text.strip():
+                state = _State.NORMAL
+            continue
+
         if state in (_State.DISPLAY_DOLLAR, _State.DISPLAY_BRACKET):
             closer = "$$" if state is _State.DISPLAY_DOLLAR else "\\]"
             index = text.find(closer)
@@ -222,6 +246,18 @@ def convert_inline_math(markdown: str) -> MathResult:
             fence = _Fence(char=marker[0], length=len(marker))
             state = _State.FENCE
             out.append(raw)
+            continue
+
+        if HTML_RAW_OPEN.match(text):
+            out.append(raw)
+            if not HTML_RAW_CLOSE.search(text):
+                state = _State.HTML_RAW
+            continue
+
+        if HTML_BLOCK_OPEN.match(text):
+            out.append(raw)
+            if text.strip():
+                state = _State.HTML_BLOCK
             continue
 
         converted_text, state, count, stray = _scan_line(text)

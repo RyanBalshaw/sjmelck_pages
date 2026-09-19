@@ -92,6 +92,55 @@ def test_unclosed_fence_swallows_rest_of_document() -> None:
     assert convert_inline_math(text).text == text
 
 
+class TestRawHtmlIsLeftAlone:
+    r"""The theme sets ``unsafe: true``, so raw HTML reaches the page verbatim.
+
+    Goldmark does not process backslash escapes inside an HTML block, so
+    ``$...$`` there is already safe for MathJax. Rewriting it would corrupt
+    embedded JavaScript, which is how an interactive figure is embedded.
+    """
+
+    def test_script_with_currency_axis_is_untouched(self) -> None:
+        text = (
+            '<script>Plotly.newPlot("c",[{"y":[1,2]}],'
+            '{"yaxis":{"tickprefix":"$","ticksuffix":"$"}});</script>\n'
+        )
+        assert convert_inline_math(text).text == text
+
+    def test_script_with_latex_strings_is_untouched(self) -> None:
+        text = '<script>render({"title":"$\\alpha$ vs $\\beta$"});</script>\n'
+        assert convert_inline_math(text).text == text
+
+    def test_multiline_script_is_untouched(self) -> None:
+        text = '<script>\n  const a = "$x$";\n\n  const b = "$y$";\n</script>\n'
+        assert convert_inline_math(text).text == text
+
+    def test_html_attribute_is_untouched(self) -> None:
+        text = '<div style="height:300px" data-x="$a$ and $b$"></div>\n'
+        assert convert_inline_math(text).text == text
+
+    def test_html_block_ends_at_a_blank_line(self) -> None:
+        text = '<div id="chart"></div>\n\nProse after with $x$.\n'
+        result = convert_inline_math(text).text
+        assert '<div id="chart"></div>' in result
+        assert result.endswith("Prose after with \\\\(x\\\\).\n")
+
+    def test_prose_after_a_script_is_still_converted(self) -> None:
+        text = "<script>\nvar a = 1;\n</script>\n\nThen $y$ follows.\n"
+        result = convert_inline_math(text)
+        assert result.converted == 1
+        assert result.text.endswith("Then \\\\(y\\\\) follows.\n")
+
+    def test_inline_html_mid_paragraph_still_converts(self) -> None:
+        # Only a tag at the start of a line opens an HTML block.
+        text = "Some <em>emphasis</em> and $x$ maths.\n"
+        assert convert_inline_math(text).converted == 1
+
+    def test_less_than_in_prose_is_not_an_html_block(self) -> None:
+        text = "when $a$ < $b$ holds\n"
+        assert convert_inline_math(text).converted == 2
+
+
 def test_unmatched_dollar_is_reported() -> None:
     result = convert_inline_math("a lonely $ dollar\n")
     assert result.unmatched_dollars == [1]
