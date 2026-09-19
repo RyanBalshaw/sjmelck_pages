@@ -182,3 +182,6 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# marimo scratch directory
+__marimo__/

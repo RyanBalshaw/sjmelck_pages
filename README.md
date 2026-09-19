@@ -127,9 +127,60 @@ This enables one to simply place
 in the markdown of the relevant blog to render the figure and all paths to the file are handled internally.
 
 **Note:**
-```note
-What would be awesome is a way to automatically create a blank python script and folder within assets\images. I am not sure how to do it yet, but it is an open issue.
+
+`sjmelck-pages new` creates the folder and a starter script for you:
+
+```shell
+uv run sjmelck-pages new "My post title"
 ```
+
+See [Writing a post as a marimo notebook](#writing-a-post-as-a-marimo-notebook).
+
+## Writing a post as a marimo notebook
+
+You can write a post as a [marimo](https://marimo.io/) notebook instead of
+editing markdown by hand. The notebook is the source of truth: you edit the
+notebook and regenerate the post, never the other way round.
+
+```shell
+# 1. Scaffold the notebook and its image folder
+uv run sjmelck-pages new "An introduction to Kalman filters" --author "Your Name"
+
+# 2. Write the post
+uvx marimo edit assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py
+
+# 3. Generate content/blog/<slug>.md
+uv run sjmelck-pages convert assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py --run-notebook
+
+# 4. Preview
+hugo server -D
+```
+
+The notebook lives in `assets/images/<slug>/` beside the figures it generates,
+and its front matter sits in the first cell so it survives regeneration.
+
+Three things are worth knowing:
+
+- **Exporting drops cell outputs.** A figure only reaches the post if the
+  notebook writes it to disk with `fig.savefig(IMAGE_DIR / "name.png")`. The
+  same applies to `mo.ui` widgets and DataFrame reprs, which cannot be
+  exported at all. If it is not a file on disk or a literal string, it will
+  not appear in the post.
+- **Inline maths is rewritten.** Write `$x^2$` as you normally would; the
+  converter turns it into `\\(x^2\\)`, because Goldmark eats backslash
+  escapes inside `$...$` and silently corrupts equations such as
+  `$\{x\} \| y \|$`. Hand-written `\\(...\\)` passes through untouched.
+- **Cells can be hidden.** A cell whose first line is `# sjmelck: hide` is
+  left out of the post, which is how the imports stay out of the article.
+
+`convert` prints a report of anything that still needs attention, such as a
+missing figure, a placeholder tag, or a `publishdate` in the future. Pass
+`--dry-run` to see the post without writing it, or `--strict` to make
+warnings fail.
+
+Posts generated this way carry a comment in their front matter. Edit the
+notebook and re-run `convert`; changes made to the markdown directly are
+lost on the next run.
 
 ## Adding mermaid diagrams
 
