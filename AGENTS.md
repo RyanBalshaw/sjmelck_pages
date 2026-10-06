@@ -177,7 +177,7 @@ A post can be written as a [marimo](https://marimo.io/) notebook instead of Mark
 
 ```shell
 uv run sjmelck-pages new "An introduction to Kalman filters" --author "Your Name"
-uvx marimo edit assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py
+uv run marimo edit assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py
 uv run sjmelck-pages convert assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py --run-notebook
 ```
 

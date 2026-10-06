@@ -59,9 +59,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="convert this already-exported markdown instead of running marimo",
     )
     convert.add_argument(
-        "--marimo-cmd", nargs="+", help="command used to invoke marimo"
-    )
-    convert.add_argument(
         "--keep-marimo-attrs",
         action="store_true",
         help="leave the {.marimo} attribute on code fences",
@@ -89,7 +86,7 @@ def _cmd_new(args: argparse.Namespace) -> int:
     print(f"Figures go in {relative_to_root(root, folder)}/")
     print()
     print("Next:")
-    print(f"  uvx marimo edit {relative_to_root(root, notebook)}")
+    print(f"  uv run marimo edit {relative_to_root(root, notebook)}")
     print(f"  uv run sjmelck-pages convert {relative_to_root(root, notebook)}")
     print("  hugo server -D")
     return 0
@@ -106,7 +103,6 @@ def _cmd_convert(args: argparse.Namespace) -> int:
         slug=slug,
         now=sast_now(),
         from_markdown=args.from_markdown,
-        marimo_cmd=args.marimo_cmd,
         execute=args.run_notebook,
         keep_attrs=args.keep_marimo_attrs,
     )

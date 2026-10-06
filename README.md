@@ -147,7 +147,7 @@ notebook and regenerate the post, never the other way round.
 uv run sjmelck-pages new "An introduction to Kalman filters" --author "Your Name"
 
 # 2. Write the post
-uvx marimo edit assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py
+uv run marimo edit assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py
 
 # 3. Generate content/blog/<slug>.md
 uv run sjmelck-pages convert assets/images/an-introduction-to-kalman-filters/an-introduction-to-kalman-filters.py --run-notebook

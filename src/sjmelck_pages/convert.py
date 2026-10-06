@@ -7,9 +7,10 @@ This module fixes those up and reports what still needs a human.
 
 from __future__ import annotations
 
+import importlib.util
 import re
-import shutil
 import subprocess
+import sys
 import tempfile
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -59,29 +60,32 @@ class ConversionResult:
         return [n for n in self.notes if n.level == WARNING]
 
 
-def resolve_marimo_command(override: list[str] | None = None) -> list[str]:
-    """Find a way to run marimo, preferring an installed one."""
-    if override:
-        return override
-    if shutil.which("marimo"):
-        return ["marimo"]
-    if shutil.which("uvx"):
-        return ["uvx", "marimo"]
-    if shutil.which("uv"):
-        return ["uv", "tool", "run", "marimo"]
-    raise RepoError(
-        "Could not find marimo. Install it with `uv tool install marimo`, or "
-        "pass --marimo-cmd to point at it."
-    )
+def _require_marimo() -> None:
+    """marimo is a dev dependency, so it is missing only if nobody synced."""
+    if importlib.util.find_spec("marimo") is None:
+        raise RepoError(
+            "marimo is not installed in this environment. Run `uv sync` to "
+            "install the dev dependency group."
+        )
 
 
-def export_notebook(notebook: Path, *, marimo_cmd: list[str] | None = None) -> str:
+def export_notebook(notebook: Path) -> str:
     """Run ``marimo export md`` and return the markdown."""
-    command = resolve_marimo_command(marimo_cmd)
+    _require_marimo()
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "export.md"
         completed = subprocess.run(
-            [*command, "export", "md", str(notebook), "-o", str(out), "-f"],
+            [
+                sys.executable,
+                "-m",
+                "marimo",
+                "export",
+                "md",
+                str(notebook),
+                "-o",
+                str(out),
+                "-f",
+            ],
             capture_output=True,
             text=True,
             check=False,
@@ -95,14 +99,13 @@ def export_notebook(notebook: Path, *, marimo_cmd: list[str] | None = None) -> s
 def run_notebook(notebook: Path) -> None:
     """Execute the notebook as a script so its figures are regenerated.
 
-    marimo is pulled in with ``--with`` rather than being a project
-    dependency, so the lockfile stays untouched for people who never write
-    notebooks.
+    A marimo notebook is a valid Python script, so the interpreter running
+    this command runs the notebook too - the same environment that holds
+    marimo also holds matplotlib and numpy.
     """
-    if not shutil.which("uv"):
-        raise RepoError("Could not find uv to run the notebook.")
+    _require_marimo()
     completed = subprocess.run(
-        ["uv", "run", "--with", "marimo", "python", str(notebook)],
+        [sys.executable, str(notebook)],
         capture_output=True,
         text=True,
         check=False,
@@ -389,7 +392,6 @@ def convert_notebook(
     slug: str | None = None,
     now: datetime,
     from_markdown: Path | None = None,
-    marimo_cmd: list[str] | None = None,
     execute: bool = False,
     keep_attrs: bool = False,
 ) -> ConversionResult:
@@ -404,7 +406,7 @@ def convert_notebook(
             raise RepoError(f"No notebook at {notebook}")
         if execute:
             run_notebook(notebook)
-        exported = export_notebook(notebook, marimo_cmd=marimo_cmd)
+        exported = export_notebook(notebook)
 
     return convert(
         exported,
