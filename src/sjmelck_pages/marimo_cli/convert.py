@@ -16,8 +16,8 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
-from sjmelck_pages import mdfix
-from sjmelck_pages.repo import (
+from sjmelck_pages.marimo_cli import mdfix
+from sjmelck_pages.marimo_cli.repo import (
     RepoError,
     image_dir,
     relative_to_root,

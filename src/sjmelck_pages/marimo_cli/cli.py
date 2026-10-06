@@ -7,17 +7,16 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from sjmelck_pages import convert as convert_module
-from sjmelck_pages.repo import (
+from sjmelck_pages.marimo_cli import convert as convert_module
+from sjmelck_pages.marimo_cli.repo import (
     RepoError,
     find_repo_root,
     image_dir,
-    notebook_path,
     post_path,
     relative_to_root,
     sast_now,
 )
-from sjmelck_pages.scaffold import create_post
+from sjmelck_pages.marimo_cli.scaffold import create_post
 
 LEVEL_PREFIX = {"error": "error  ", "warning": "warning", "info": "info   "}
 
@@ -146,10 +145,3 @@ def main(argv: Sequence[str] | None = None) -> int:
     except RepoError as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
-
-
-def _console_main() -> None:
-    raise SystemExit(main())
-
-
-__all__ = ["build_parser", "main", "notebook_path"]

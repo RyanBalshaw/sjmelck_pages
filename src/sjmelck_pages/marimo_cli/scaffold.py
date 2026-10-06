@@ -11,7 +11,7 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 
-from sjmelck_pages.repo import (
+from sjmelck_pages.marimo_cli.repo import (
     RepoError,
     format_publishdate,
     image_dir,

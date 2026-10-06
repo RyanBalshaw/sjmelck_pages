@@ -19,10 +19,15 @@ from pathlib import Path
 
 import pytest
 
-from sjmelck_pages.convert import ERROR, check_post, convert, split_front_matter
-from sjmelck_pages.mdfix import convert_inline_math, iter_code_fences
-from sjmelck_pages.repo import SAST, RepoError, slugify
-from sjmelck_pages.scaffold import create_post, render_notebook
+from sjmelck_pages.marimo_cli.convert import (
+    ERROR,
+    check_post,
+    convert,
+    split_front_matter,
+)
+from sjmelck_pages.marimo_cli.mdfix import convert_inline_math, iter_code_fences
+from sjmelck_pages.marimo_cli.repo import SAST, RepoError, slugify
+from sjmelck_pages.marimo_cli.scaffold import create_post, render_notebook
 
 NOW = datetime(2026, 9, 19, 12, 0, 0, tzinfo=SAST)
 BLOG = Path(__file__).resolve().parents[1] / "content" / "blog"

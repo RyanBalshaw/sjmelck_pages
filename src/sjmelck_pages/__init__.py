@@ -1,11 +1,9 @@
 """Tooling for the Sjmelck blog.
 
-Write a post as a marimo notebook, then convert it into a Hugo post:
-
-    sjmelck-pages new "An introduction to Kalman filters"
-    sjmelck-pages convert assets/images/<slug>/<slug>.py
+The marimo post workflow lives in :mod:`sjmelck_pages.marimo_cli`; ``main`` is
+re-exported here because it is the ``sjmelck-pages`` entry point.
 """
 
-from sjmelck_pages.cli import main
+from sjmelck_pages.marimo_cli import main
 
 __all__ = ["main"]
