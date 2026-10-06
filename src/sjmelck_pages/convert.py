@@ -19,7 +19,6 @@ from pathlib import Path
 from sjmelck_pages import mdfix
 from sjmelck_pages.repo import (
     RepoError,
-    format_publishdate,
     image_dir,
     relative_to_root,
 )
@@ -156,31 +155,6 @@ def split_front_matter(text: str) -> tuple[str | None, str]:
     front = "\n".join(lines[cursor : sjmelck_end + 1])
     body = "\n".join(lines[sjmelck_end + 1 :])
     return front, body
-
-
-def default_front_matter(slug: str, *, now: datetime) -> str:
-    """A minimal valid block, used when the notebook has none."""
-    title = slug.replace("-", " ").capitalize()
-    return "\n".join(
-        [
-            "---",
-            f'title: "{title}"',
-            f"publishdate: {format_publishdate(now)}",
-            "author: dummy-name",
-            "description: dummy-description",
-            "draft: true",
-            "toc: true",
-            "math: true",
-            "hasMermaid: false",
-            'tags: ["tag1", "tag2", "tag3"]',
-            'categories: ["category1"]',
-            "build:",
-            "  list: always",
-            "  publishResources: true",
-            "  render: always",
-            "---",
-        ]
-    )
 
 
 def _field(front: str, name: str) -> str | None:
@@ -330,13 +304,11 @@ def convert(
     notes: list[Note] = []
 
     if front is None:
-        front = default_front_matter(slug, now=now)
-        notes.append(
-            Note(
-                WARNING,
-                "No Sjmelck front matter found in the notebook. A placeholder "
-                "block was generated; add one to the notebook's first cell.",
-            )
+        # Generating a placeholder block would put it in the generated post,
+        # where any edit is lost on the next conversion.
+        raise RepoError(
+            "No front matter found in the notebook. Add it to the notebook's "
+            "first cell; `sjmelck-pages new` scaffolds one."
         )
 
     body, hidden = mdfix.strip_hidden_cells(body)

@@ -21,7 +21,7 @@ import pytest
 
 from sjmelck_pages.convert import ERROR, check_post, convert, split_front_matter
 from sjmelck_pages.mdfix import convert_inline_math, iter_code_fences
-from sjmelck_pages.repo import SAST, slugify
+from sjmelck_pages.repo import SAST, RepoError, slugify
 from sjmelck_pages.scaffold import create_post, render_notebook
 
 NOW = datetime(2026, 9, 19, 12, 0, 0, tzinfo=SAST)
@@ -144,6 +144,18 @@ def test_a_horizontal_rule_in_prose_is_not_front_matter() -> None:
     front, body = split_front_matter(MARIMO_BLOCK + "\nprose\n\n---\n\nmore\n")
     assert front is None
     assert "prose" in body
+
+
+def test_a_notebook_without_front_matter_is_refused(tmp_path: Path) -> None:
+    """A generated placeholder would land in the post, where edits are lost."""
+    with pytest.raises(RepoError, match="front matter"):
+        convert(
+            MARIMO_BLOCK + "\nprose\n",
+            slug="demo",
+            folder=tmp_path,
+            now=NOW,
+            source="demo.py",
+        )
 
 
 def test_future_publishdate_is_an_error(tmp_path: Path) -> None:
