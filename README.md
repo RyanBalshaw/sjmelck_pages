@@ -126,17 +126,7 @@ This enables one to simply place
 ```
 in the markdown of the relevant blog to render the figure and all paths to the file are handled internally.
 
-**Note:**
-
-`sjmelck-pages new` creates the folder and a starter script for you:
-
-```shell
-uv run sjmelck-pages new "My post title"
-```
-
-See [Writing a post as a marimo notebook](#writing-a-post-as-a-marimo-notebook).
-
-## Writing a post as a marimo notebook
+## Creating a post with marimo using the CLI
 
 You can write a post as a [marimo](https://marimo.io/) notebook instead of
 editing markdown by hand. The notebook is the source of truth: you edit the

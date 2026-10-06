@@ -81,8 +81,10 @@ def _cmd_new(args: argparse.Namespace) -> int:
         force=args.force,
     )
     folder = image_dir(root, slug)
-    print(f"Created {relative_to_root(root, notebook)}")
-    print(f"Figures go in {relative_to_root(root, folder)}/")
+    print(
+        f"Created a marimo notebook for the post at {relative_to_root(root, notebook)}"
+    )
+    print(f"Figures the notebook saves go in {relative_to_root(root, folder)}/")
     print()
     print("Next:")
     print(f"  uv run marimo edit {relative_to_root(root, notebook)}")
