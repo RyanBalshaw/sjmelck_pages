@@ -118,7 +118,6 @@ def _cmd_convert(args: argparse.Namespace) -> int:
         print(f"Wrote {relative_to_root(root, target)}")
 
     summary = (
-        f"{result.converted_math} inline maths span(s) converted, "
         f"{result.hidden_cells} hidden cell(s) removed, "
         f"{len(result.referenced_images)} image(s) referenced"
     )

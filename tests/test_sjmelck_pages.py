@@ -1,19 +1,15 @@
 r"""Tests for the marimo to Hugo post pipeline.
 
-The focus is the inline maths converter, because that is the part that can
-silently corrupt a post. The theme enables Goldmark's passthrough extension
-for ``\(...\)``, ``\[...\]`` and ``$$...$$`` but not for single dollar
-``$...$``, so Goldmark eats backslash escapes before MathJax sees them.
-Simple spans survive, which is what makes it dangerous: it fails only on
-LaTeX containing escapes, and it fails after a green build.
+Equations are not rewritten: authors write ``\(...\)`` and ``$$...$$``
+themselves, as AGENTS.md has always asked. The converter only checks that
+``math: true`` is set when a post contains equations.
 
-``\\(`` in a raw string below is two characters, a backslash and ``(``.
+``\(`` in a raw string below is two characters, a backslash and ``(``.
 """
 
 from __future__ import annotations
 
 import ast
-import re
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -25,13 +21,11 @@ from sjmelck_pages.marimo_cli.convert import (
     convert,
     split_front_matter,
 )
-from sjmelck_pages.marimo_cli.mdfix import convert_inline_math, iter_code_fences
+from sjmelck_pages.marimo_cli.mdfix import has_maths, strip_hidden_cells
 from sjmelck_pages.marimo_cli.repo import SAST, RepoError, slugify
 from sjmelck_pages.marimo_cli.scaffold import create_post, render_notebook
 
 NOW = datetime(2026, 9, 19, 12, 0, 0, tzinfo=SAST)
-BLOG = Path(__file__).resolve().parents[1] / "content" / "blog"
-POSTS = sorted(BLOG.glob("*.md"))
 
 MARIMO_BLOCK = "---\ntitle: Demo\nmarimo-version: 0.24.2\n---\n"
 FRONT = (
@@ -43,93 +37,6 @@ FRONT = (
     "math: true\n"
     "---"
 )
-
-
-# --------------------------------------------------------------------------
-# The maths converter
-# --------------------------------------------------------------------------
-
-CASES = [
-    pytest.param(r"$x^2$", r"\\(x^2\\)", id="simple"),
-    pytest.param(r"$\{x\} \| y \|$", r"\\(\{x\} \| y \|\\)", id="escapes-survive"),
-    pytest.param(r"$1 - \sigma(u)$", r"\\(1 - \sigma(u)\\)", id="starts-with-digit"),
-    pytest.param("costs $5 and $10", "costs $5 and $10", id="currency"),
-    pytest.param(r'`price = "$5"`', r'`price = "$5"`', id="code-span"),
-    pytest.param(r"\$5", r"\$5", id="escaped-dollar"),
-    pytest.param(r"\\(already\\)", r"\\(already\\)", id="already-converted"),
-    pytest.param("$$E=mc^2$$", "$$E=mc^2$$", id="display-maths"),
-]
-
-
-@pytest.mark.parametrize("source, expected", CASES)
-def test_inline_maths_conversion(source: str, expected: str) -> None:
-    assert convert_inline_math(source).text == expected
-
-
-@pytest.mark.parametrize("source, _expected", CASES)
-def test_conversion_is_idempotent(source: str, _expected: str) -> None:
-    once = convert_inline_math(source).text
-    assert convert_inline_math(once).text == once
-
-
-def test_code_fences_are_untouched() -> None:
-    """A regex would rewrite the matplotlib label and break the example."""
-    text = '```python {.marimo}\nax.set(label="$z = b_0$")\n```\n'
-    assert convert_inline_math(text).text == text
-
-
-def test_display_block_is_untouched_but_prose_after_it_converts() -> None:
-    text = "$$\nf(x) = \\sum_{i=1}^{n} w_i\n$$\n\nafter $x$\n"
-    result = convert_inline_math(text)
-    assert "$$\nf(x) = \\sum_{i=1}^{n} w_i\n$$" in result.text
-    assert result.text.endswith("after \\\\(x\\\\)\n")
-
-
-def test_raw_html_is_untouched() -> None:
-    """Goldmark does not process escapes inside an HTML block, so $ is already
-    safe there. Rewriting it would break an embedded chart's axis config."""
-    text = (
-        '<script>Plotly.newPlot("c",[{"y":[1,2]}],'
-        '{"yaxis":{"tickprefix":"$","ticksuffix":"$"}});</script>\n'
-    )
-    assert convert_inline_math(text).text == text
-
-
-# --------------------------------------------------------------------------
-# The published posts, used as a regression corpus
-# --------------------------------------------------------------------------
-
-
-def _fences(text: str) -> list[str]:
-    lines = text.splitlines()
-    return ["\n".join(lines[s : e + 1]) for s, e, _ in iter_code_fences(text)]
-
-
-@pytest.mark.parametrize("path", POSTS, ids=lambda p: p.name)
-def test_existing_posts_survive_conversion(path: Path) -> None:
-    """Every code fence and every $$ region must come out byte-identical.
-
-    pretty-plotting-in-python.md holds matplotlib label strings full of
-    dollars inside code fences; logistic-regression.md has 143 inline spans
-    in prose. Between them they are a genuinely adversarial corpus.
-    """
-    original = path.read_text(encoding="utf-8")
-    converted = convert_inline_math(original).text
-
-    assert _fences(converted) == _fences(original)
-
-    display = re.compile(r"\$\$.*?\$\$", re.DOTALL)
-    assert display.findall(converted) == display.findall(original)
-
-    assert convert_inline_math(converted).text == converted
-
-
-def test_the_corpus_actually_exercises_the_converter() -> None:
-    """Guard against the test above passing because nothing was converted."""
-    total = sum(
-        convert_inline_math(p.read_text(encoding="utf-8")).converted for p in POSTS
-    )
-    assert total > 100
 
 
 # --------------------------------------------------------------------------
@@ -174,10 +81,52 @@ def test_future_publishdate_is_an_error(tmp_path: Path) -> None:
         slug="demo",
         folder=tmp_path,
         referenced=[],
-        converted_math=0,
         now=NOW,
     )
     assert any(n.level == ERROR and "future" in n.message for n in notes)
+
+
+def test_equations_without_math_true_is_an_error(tmp_path: Path) -> None:
+    """Without `math: true` MathJax never loads and the equation renders raw."""
+    front = FRONT.replace("math: true", "math: false")
+    notes = check_post(
+        front,
+        r"Some prose with \\(x^2\\) in it.",
+        slug="demo",
+        folder=tmp_path,
+        referenced=[],
+        now=NOW,
+    )
+    assert any(n.level == ERROR and "math: true" in n.message for n in notes)
+
+
+def test_maths_delimiters_inside_a_code_fence_do_not_count(tmp_path: Path) -> None:
+    front = FRONT.replace("math: true", "math: false")
+    notes = check_post(
+        front,
+        '```python\nax.set(label="$$x$$")\n```\n',
+        slug="demo",
+        folder=tmp_path,
+        referenced=[],
+        now=NOW,
+    )
+    assert not [n for n in notes if "math: true" in n.message]
+
+
+def test_has_maths_detects_the_documented_delimiters() -> None:
+    assert has_maths(r"inline \\(x^2\\) here")
+    assert has_maths("$$\nE = mc^2\n$$")
+    assert has_maths(r"\[ x \]")
+    # Single dollars are no longer special-cased.
+    assert not has_maths("costs $5 and $10")
+
+
+def test_hidden_cells_are_dropped() -> None:
+    text = "```python\n# sjmelck: hide\nimport marimo as mo\n```\n\n```python\nkeep = 1\n```\n"
+    result, removed = strip_hidden_cells(text)
+    assert removed == 1
+    assert "import marimo" not in result
+    assert "keep = 1" in result
 
 
 def test_missing_figure_is_an_error(tmp_path: Path) -> None:
@@ -188,7 +137,6 @@ def test_missing_figure_is_an_error(tmp_path: Path) -> None:
         slug="demo",
         folder=tmp_path,
         referenced=["gone.png"],
-        converted_math=0,
         now=NOW,
     )
     assert any(n.level == ERROR and "gone.png" in n.message for n in notes)
@@ -200,20 +148,21 @@ def test_convert_end_to_end(tmp_path: Path) -> None:
         MARIMO_BLOCK
         + "\n"
         + FRONT
-        + "\n\nProse with $x^2$ maths.\n\n"
+        + "\n\nProse with "
+        + r"\\(x^2\\)"
+        + " maths.\n\n"
         + "```python {.marimo}\n# sjmelck: hide\nimport marimo as mo\n```\n\n"
         + "```python {.marimo}\nkeep = 1\n```\n\n"
         + "![A figure](../assets/images/demo/fig.png)\n"
     )
     result = convert(exported, slug="demo", folder=tmp_path, now=NOW, source="demo.py")
 
-    assert result.converted_math == 1
     assert result.hidden_cells == 1
     assert result.referenced_images == ["fig.png"]
     assert "marimo-version" not in result.text
     assert "import marimo" not in result.text  # hidden cell dropped
     assert "```python\nkeep = 1" in result.text  # {.marimo} stripped
-    assert r"\\(x^2\\)" in result.text
+    assert r"\\(x^2\\)" in result.text  # equations pass through untouched
     assert "![A figure](fig.png)" in result.text  # path shortened
     assert result.text.endswith(")\n")  # exactly one trailing newline
     assert not result.errors

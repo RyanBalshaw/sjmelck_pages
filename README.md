@@ -156,10 +156,11 @@ Three things are worth knowing:
   same applies to `mo.ui` widgets and DataFrame reprs, which cannot be
   exported at all. If it is not a file on disk or a literal string, it will
   not appear in the post.
-- **Inline maths is rewritten.** Write `$x^2$` as you normally would; the
-  converter turns it into `\\(x^2\\)`, because Goldmark eats backslash
-  escapes inside `$...$` and silently corrupts equations such as
-  `$\{x\} \| y \|$`. Hand-written `\\(...\\)` passes through untouched.
+- **Inline maths uses a double backslash.** Write `\\(x^2\\)`, not `$x^2$`,
+  exactly as in any other post. Goldmark eats backslash escapes inside single
+  dollars, so `$\{x\} \| y \|$` reaches the browser as `${x} \| y \|` and the
+  build still passes. `convert` reports an error if the post has equations
+  but `math: true` is not set.
 - **Cells can be hidden.** A cell whose first line is `# sjmelck: hide` is
   left out of the post, which is how the imports stay out of the article.
 

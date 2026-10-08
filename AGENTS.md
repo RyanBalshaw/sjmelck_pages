@@ -189,7 +189,7 @@ Four rules follow from how marimo exports:
 |---|---|
 | Save every figure with `fig.savefig(IMAGE_DIR / "name.png", dpi=150)` | Export drops cell outputs. A figure that is not written to disk does not reach the post. |
 | Do not use `mo.ui` widgets or rely on DataFrame reprs | They cannot be exported and vanish silently. If it is not a file on disk or a literal string, it will not appear in the post. |
-| Write inline maths as `$x^2$` | `convert` rewrites it to `\\(x^2\\)`. Goldmark eats backslash escapes inside `$...$`, so `$\{x\} \| y \|$` would otherwise reach the browser as `${x} | y |$`. Hand-written `\\(...\\)` also passes through untouched. |
+| Write inline maths as `\\(x^2\\)`, not `$x^2$` | Same rule as any other post, see [Equations](#equations). Goldmark eats backslash escapes inside single dollars, so `$\{x\} \| y \|$` reaches the browser as `${x} \| y \|` and the build still passes. `convert` reports an error if the post has equations but `math: true` is not set. |
 | Start a plumbing cell with `# sjmelck: hide` | That cell is left out of the post, which keeps imports out of the article. |
 
 Front matter lives in the notebook's first cell as a literal `---` block inside `mo.md()`, so it survives regeneration. Useful flags: `--dry-run` prints the post instead of writing it, `--strict` turns warnings into a non-zero exit, and `--run-notebook` executes the notebook first so its figures are regenerated.

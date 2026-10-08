@@ -47,7 +47,6 @@ class ConversionResult:
     slug: str
     notes: list[Note] = field(default_factory=list)
     referenced_images: list[str] = field(default_factory=list)
-    converted_math: int = 0
     hidden_cells: int = 0
 
     @property
@@ -173,7 +172,6 @@ def check_post(
     slug: str,
     folder: Path,
     referenced: list[str],
-    converted_math: int,
     now: datetime,
 ) -> list[Note]:
     """Everything worth telling the author before they open a pull request."""
@@ -213,9 +211,13 @@ def check_post(
     elif not (folder / _unquote(overview)).exists():
         notes.append(Note(WARNING, f"OverviewFig {overview} does not exist."))
 
-    if converted_math and "math: true" not in front:
+    if mdfix.has_maths(body) and "math: true" not in front:
         notes.append(
-            Note(ERROR, "Inline maths was converted but `math: true` is not set.")
+            Note(
+                ERROR,
+                "The post contains equations but `math: true` is not set, "
+                "so MathJax will not load.",
+            )
         )
 
     if mdfix.has_mermaid_fence(body) and "hasMermaid: true" not in front:
@@ -315,19 +317,7 @@ def convert(
     if not keep_attrs:
         body = mdfix.strip_fence_attributes(body)
 
-    math = mdfix.convert_inline_math(body)
-    body = math.text
-
     body, referenced = mdfix.normalize_image_links(body, slug)
-
-    if math.unmatched_dollars:
-        notes.append(
-            Note(
-                INFO,
-                "Unmatched `$` left on lines "
-                + ", ".join(str(n) for n in math.unmatched_dollars[:10]),
-            )
-        )
 
     notes.extend(
         check_post(
@@ -336,7 +326,6 @@ def convert(
             slug=slug,
             folder=folder,
             referenced=referenced,
-            converted_math=math.converted,
             now=now,
         )
     )
@@ -352,7 +341,6 @@ def convert(
         slug=slug,
         notes=notes,
         referenced_images=referenced,
-        converted_math=math.converted,
         hidden_cells=hidden,
     )
 

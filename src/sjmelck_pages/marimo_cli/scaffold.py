@@ -75,16 +75,16 @@ def _(mo):
 
     Write the post here. Headings start at `##`, because the title is the `h1`.
 
-    Inline maths is written with single dollars, like $x^2$, and display maths
-    with double dollars:
+    Inline maths uses a double backslash, like \\\\(x^2\\\\), and display maths
+    uses double dollars:
 
     $$
     f(x) = \\sum_{i=1}^{n} w_i \\phi(\\|x - c_i\\|)
     $$
 
-    `sjmelck-pages convert` rewrites the inline spans to `\\\\(...\\\\)` before
-    Hugo sees them, because Goldmark eats backslash escapes inside `$...$`.
-    Write whichever you prefer; both survive.
+    Write inline maths as `\\\\(...\\\\)`, not `$...$`. Goldmark eats backslash
+    escapes inside single dollars, so `$\\{x\\} \\| y \\|$` would reach the
+    browser as `${x} | y |`, and the build would still pass.
     """
     )
     return
